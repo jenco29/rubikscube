@@ -16,6 +16,12 @@ class cube{
    
   }
   
+  void turnX(){}
+  
+  void turnY(){}
+  
+  void turnZ(){}
+  
 
   
   void show(){
@@ -29,10 +35,6 @@ class cube{
       P.show();
     }
     popMatrix();
-    
-   // turnZ();
 
-    
-    
   }
 }

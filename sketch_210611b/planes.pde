@@ -22,4 +22,14 @@ class planes{
     square(0, 0, 1);
     popMatrix();
   }
+  
+  void turnPlaneX(){
+    
+    
+  }
+  
+  void turnPlaneY(){}
+  
+  void turnPlaneZ(){}
+  
 }
