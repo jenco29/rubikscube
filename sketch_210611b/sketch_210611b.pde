@@ -5,7 +5,13 @@ PMatrix3D matrix;
 cube[][][]  cubies = new cube[3][3][3];
 
 //colours
-color 
+color red = color(255, 0, 0);
+color blue = color(0, 0, 255);
+color white = color(255);
+color green = color(0, 190, 0);
+color orange = color(255, 100, 0);
+color yellow = color(255, 255, 0);
+
 
 void setup(){
  cam = new PeasyCam(this, 400);
