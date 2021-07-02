@@ -42,7 +42,7 @@ class cube{
       }
   }
   
-  void reset(int x, int y,int z){
+  void reset(float x, float y, float z){
     resetMatrix();
     matrix.translate(x, y, z);
   }
