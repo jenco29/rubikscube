@@ -16,13 +16,23 @@ class cube{
    
   }
   
-  void turnX(){
-    
+  void turnX(float angle){
+    for(planes P : face){
+      P.turnPlaneX(angle);
+    }
   }
   
-  void turnY(){}
+  void turnY(float angle){
+    for(planes P : face){
+      P.turnPlaneY(angle);
+    }
+  }
   
-  void turnZ(){}
+  void turnZ(float angle){
+    for(planes P : face){
+      P.turnPlaneZ(angle);
+      }
+  }
   
 
   

@@ -1,5 +1,5 @@
 
-  void turnX(){
+  void turnX(float angle){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -8,14 +8,14 @@
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            matrix.translate(j, k);
-           current.turnX();
+           current.turnX(angle);
          }
        }
      }
    }
   }
   
-    void turnY(){
+    void turnY(float angle){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -24,7 +24,7 @@
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            matrix.translate(i, k);
-           current.turnY();
+           current.turnY(angle);
          }
        }
      }
@@ -32,7 +32,7 @@
   
   }
   
-  void turnZ(){
+  void turnZ(float angle){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -41,7 +41,7 @@
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            matrix.translate(i, j);
-           current.turnZ();
+           current.turnZ(angle);
          }
        }
      }
