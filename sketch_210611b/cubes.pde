@@ -16,7 +16,9 @@ class cube{
    
   }
   
-  void turnX(){}
+  void turnX(){
+    
+  }
   
   void turnY(){}
   

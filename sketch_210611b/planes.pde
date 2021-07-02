@@ -1,9 +1,9 @@
 class planes{
-  PVector pos = new PVector();
+  PVector axis = new PVector();
   color c;
   planes(float x, float y, float z,  color c){
     this.c = c;
-    pos = new PVector(x, y, z);
+    axis = new PVector(x, y, z);
 
   }
   
@@ -11,7 +11,7 @@ class planes{
     pushMatrix();
     strokeWeight(0);
     fill(c);
-    translate(pos.x, pos.y, pos.z);
+    translate(axis.x, axis.y, axis.z);
     if(c == green || c == blue){
       rotateY(PI/2);
     }
@@ -23,13 +23,25 @@ class planes{
     popMatrix();
   }
   
-  void turnPlaneX(){
+  void turnPlaneX(float angle){
+    axis.y += (cos(angle) -sin(angle));
+    axis.z += (sin(angle) + cos(angle));
+    translate(axis.y, axis.z);
     
     
   }
   
-  void turnPlaneY(){}
+  void turnPlaneY(float angle){
+    axis.x += (cos(angle)- sin(angle));
+    axis.z += (sin(angle) + cos(angle));
+    translate(axis.x, axis.z);
+  }
   
-  void turnPlaneZ(){}
+  void turnPlaneZ(float angle){
+    axis.x += (cos(angle) + sin(angle));
+    axis.y += (-sin(angle) + cos(angle));
+    translate(axis.x, axis.y);
+    
+  }
   
 }
