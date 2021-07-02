@@ -9,6 +9,7 @@
            matrix.rotate(PI/2);
            matrix.translate(j, k);
            current.turnX(angle);
+           current.reset(i, j, k);
          }
        }
      }
@@ -25,6 +26,7 @@
            matrix.rotate(PI/2);
            matrix.translate(i, k);
            current.turnY(angle);
+           current.reset(i, j, k);
          }
        }
      }
@@ -42,6 +44,7 @@
            matrix.rotate(PI/2);
            matrix.translate(i, j);
            current.turnZ(angle);
+           current.reset(i, j, k);
          }
        }
      }
