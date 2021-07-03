@@ -24,12 +24,12 @@ void setup(){
         PMatrix3D matrix = new PMatrix3D();
         cubies[i][j][k] = new cube(i, j, k, size);
         matrix.translate(i, j, k);
-        printMatrix();
          
       }
     }
   }
-  
+  cubies[0][0][0].highlight = true;
+  turnZ(PI/2);
 
 }
 
@@ -45,5 +45,7 @@ void draw(){
       }
     }
   }
+  
+  
   
 }

@@ -1,4 +1,5 @@
 class cube{
+  Boolean highlight = false;
   planes[] face = new planes[6];
   int x = 0;
   int y = 0;
@@ -42,23 +43,29 @@ class cube{
       }
   }
   
+  /
   void reset(float x, float y, float z){
     resetMatrix();
     matrix.translate(x, y, z);
   }
-  
 
   
   void show(){
     pushMatrix();
+    
     noFill();
+    if(highlight){
+      fill(255, 0, 0);
+    }
     strokeWeight(0.05);
     translate(pos.x, pos.y, pos.z);
     rectMode(CENTER);
     box(1);
+    /*
     for(planes P : face){
       P.show();
     }
+    */
     popMatrix();
 
   }

@@ -1,4 +1,4 @@
-
+/*
 void controls(){
   switch(key){
     case ('1'):
@@ -27,3 +27,4 @@ void controls(){
       
   }
 }
+*/
