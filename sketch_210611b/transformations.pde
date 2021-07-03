@@ -13,7 +13,7 @@
            matrix.rotate(PI/2);
            matrix.translate(j, k);
            current.turnX(angle);
-           current.reset(matrix.02, matrix.12, k);
+           current.update(i, round(matrix.m02), round(matrix.m12));
          }
        }
      }
@@ -34,7 +34,7 @@
            matrix.rotate(PI/2);
            matrix.translate(i, k);
            current.turnY(angle);
-          // current.reset(matrix.m00, j, matrix.m02);
+          current.update(round(matrix.m00), j, round(matrix.m02));
          }
        }
      }
@@ -42,7 +42,7 @@
   
   }
   
-  void turnZ(float angle){
+  void turnZ(){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -58,8 +58,9 @@
            matrix.rotate(PI/2);
            matrix.translate(i, j);
            println(i, j);
-           current.turnZ(angle);
-        //   current.reset(matrix.m00, matrix.m01, k);
+           //current.turnZ(angle);
+
+          current.update(round(matrix.m02),round( matrix.m12), k);
          }
        }
      }
@@ -67,4 +68,3 @@
     
   
   }
-  

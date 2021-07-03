@@ -1,4 +1,5 @@
 class cube{
+  PMatrix3D matrix = new PMatrix3D();
   Boolean highlight = false;
   planes[] face = new planes[6];
   int x = 0;
@@ -7,12 +8,12 @@ class cube{
 
   PVector pos;
   float size;
-  cube(float x, float y, float z, float size){
+  cube(int x, int y, int z, PMatrix3D m){
     pos = new PVector(x, y, z);
-    this.size = size;
-    x = this.x;
-    y = this.y;
-    z = this.z;
+    this.matrix = m;
+    this.x = x;
+    this.y = y;
+    this.z = z;
     
     float l = size/2;
     face[0] = new planes(-l, 0, 0, green);
@@ -43,10 +44,13 @@ class cube{
       }
   }
   
-  /
-  void reset(float x, float y, float z){
-    resetMatrix();
+  
+  void update(int x, int y, int z){
+    matrix.reset();
     matrix.translate(x, y, z);
+    x = this.x;
+    y = this.y;
+    z = this.z;
   }
 
   

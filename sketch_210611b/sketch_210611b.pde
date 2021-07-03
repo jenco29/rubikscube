@@ -20,20 +20,29 @@ void setup(){
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       for(int k=0; k<3; k++){
-        float size = 1;
         PMatrix3D matrix = new PMatrix3D();
-        cubies[i][j][k] = new cube(i, j, k, size);
+        cubies[i][j][k] = new cube(i, j, k, matrix);
         matrix.translate(i, j, k);
          
       }
     }
   }
-  cubies[0][0][0].highlight = true;
-  turnZ(PI/2);
+
+cubies[0][0][2].highlight = true;
+  
+
+  
 
 }
 
+  void keyPressed(){
+    if(key == '1'){
+      turnZ();
+    }
+    
+  }
 
+  
 void draw(){
   background(255);
   scale(50);
