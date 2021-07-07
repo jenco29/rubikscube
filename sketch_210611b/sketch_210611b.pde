@@ -20,27 +20,18 @@ void setup(){
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       for(int k=0; k<3; k++){
+        float x = i;
+        float y = j;
+        float z = k;
         PMatrix3D matrix = new PMatrix3D();
-        cubies[i][j][k] = new cube(i, j, k, matrix);
+        cubies[i][j][k] = new cube(x, y, z, matrix);
         matrix.translate(i, j, k);
          
       }
     }
   }
 
-cubies[0][0][2].highlight = true;
-  
-
-  
-
 }
-
-  void keyPressed(){
-    if(key == '1'){
-      turnZ();
-    }
-    
-  }
 
   
 void draw(){

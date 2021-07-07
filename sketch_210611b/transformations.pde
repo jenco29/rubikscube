@@ -1,4 +1,4 @@
-
+/*
   void turnX(float angle, int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
@@ -53,7 +53,7 @@
            vector.i += (cos(angle) + sin(angle));
            vector.j += (-sin(angle) + cos(angle));
            translate(i, j);
-           */
+           
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            matrix.translate(i, j);
@@ -68,3 +68,4 @@
     
   
   }
+  */
