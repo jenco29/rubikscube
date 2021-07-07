@@ -20,20 +20,22 @@ void setup(){
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       for(int k=0; k<3; k++){
+        float size = 1;
         float x = i;
         float y = j;
         float z = k;
         PMatrix3D matrix = new PMatrix3D();
-        cubies[i][j][k] = new cube(x, y, z, matrix);
-        matrix.translate(i, j, k);
+        cubies[i][j][k] = new cube(x, y, z, size);
+       matrix.translate(x, y, z);
+       printMatrix();
          
       }
     }
   }
+  
 
 }
 
-  
 void draw(){
   background(255);
   scale(50);
@@ -45,7 +47,5 @@ void draw(){
       }
     }
   }
-  
-  
   
 }
