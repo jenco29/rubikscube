@@ -2,10 +2,8 @@ class cube{
   planes[] face = new planes[6];
 
   PVector pos;
-  float size;
-  cube(float x, float y, float z, float size){
+  cube(int x, int y, int z){
     pos = new PVector(x, y, z);
-    this.size = size;
     face[0] = new planes(-0.5, 0, 0, green);
     face[1] = new planes(0.5, 0, 0, blue); 
     face[2] = new planes(0, 0, -0.5, orange);
