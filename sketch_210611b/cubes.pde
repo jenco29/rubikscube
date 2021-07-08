@@ -35,13 +35,19 @@ class cube{
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);
-    /*
+    
     for(planes P : face){
       P.show();
     }
-    */
+    
     popMatrix();
     
+  }
+  
+  void turnZ(){
+    for(planes P :face){
+      P.turnZPlane(PI/2);
+    }
   }
   
   void update(int x, int y, int z){

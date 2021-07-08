@@ -42,7 +42,9 @@
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            //matrix.translate(i, j);
+           
            current.update(round(matrix.m02),round( matrix.m12), k);
+           current.turnZ();
          }
        }
      }
