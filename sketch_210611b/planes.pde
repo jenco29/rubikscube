@@ -13,6 +13,7 @@ class planes{
     v.y = round(pos.x * sin(angle) + pos.y * cos(angle));
     v.z = round(pos.z);
     pos = v;
+    
   }
   
   void turnYPlane(){}
@@ -26,10 +27,10 @@ class planes{
     fill(c);
     translate(pos.x, pos.y, pos.z);
     
-    if(c == green || c == blue){
+    if(pos.x == 0.5 || pos.x == -0.5){
       rotateY(PI/2);
     }
-    else if(c == white || c == yellow){
+    else if(pos.y == 0.5 || pos.y == -0.5){
       rotateX(PI/2);
     }
  

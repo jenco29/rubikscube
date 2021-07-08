@@ -33,17 +33,15 @@
   
   }
   
-  void turnZ(){
+  void turnZ(int dir){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
          cube current = cubies[i][j][k];
          if(k == 2){
            PMatrix2D matrix = new PMatrix2D();
-           matrix.rotate(PI/2);
-           //matrix.translate(i, j);
-           
-           current.update(round(matrix.m02),round( matrix.m12), k);
+           matrix.rotate(dir*PI/2);
+           matrix.translate(i, j);
            current.turnZ();
          }
        }

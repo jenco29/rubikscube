@@ -30,16 +30,10 @@ void setup(){
     }
   }
   
-  cubies[0][0][2].highlight = true;
   
 
 }
 
-void keyPressed(){
-  if(key=='1'){
-    turnZ();
-  }
-}
 
 void draw(){
   background(255);

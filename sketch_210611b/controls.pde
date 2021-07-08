@@ -1,5 +1,5 @@
-/*
-void controls(){
+
+void keyPressed(){
   switch(key){
     case ('1'):
     turnX(PI/2, 0);
@@ -18,13 +18,12 @@ void controls(){
       break;
       
       case('5'):
-      turnZ(PI/2, 0);
+      turnZ(1);
       break;
       
       case('6'):
-      turnZ(-PI/2, 2);
+      turnZ(-1);
       break;
       
   }
 }
-*/
