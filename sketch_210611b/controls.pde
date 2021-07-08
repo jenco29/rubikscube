@@ -2,19 +2,19 @@
 void keyPressed(){
   switch(key){
     case ('1'):
-    turnX(PI/2, 0);
+    turnX(1);
     break;
     
     case ('2'):
-    turnX(-PI/2, 2);
+    turnX(-1);
     break;
     
     case('3'):
-    turnY(PI/2, 0);
+    turnY(1);
     break;
     
     case('4'):
-      turnY(-PI/2, 2);
+      turnY(-1);
       break;
       
       case('5'):

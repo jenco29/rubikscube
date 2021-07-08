@@ -39,4 +39,18 @@ class cube{
     }
   }
   
+  void turnY(){
+    for(planes P:face){
+      P.turnYPlane(PI/2);
+    }
+  }
+  
+  void turnX(){
+    for(planes P:face){
+      P.turnXPlane(PI/2);
+    }
+  }
+  
+  
+  
 }

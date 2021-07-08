@@ -16,9 +16,22 @@ class planes{
     
   }
   
-  void turnYPlane(){}
+  void turnYPlane(float angle){
+    PVector v = new PVector();
+    v.x = round(pos.x * cos(angle) + pos.y * sin(angle));
+    v.z = round(pos.x * -sin(angle) + pos.y * cos(angle));
+    v.y = round(pos.z);
+    pos = v;
   
-  void turnZPlane(){}
+  }
+  
+  void turnXPlane(float angle){
+    PVector v = new PVector();
+    v.x = round(pos.x);
+    v.y = round(pos.x * cos(angle) - pos.y * sin(angle));
+    v.z = round(pos.x * -sin(angle) + pos.y*cos(angle));
+    pos = v;
+  }
   
   void show(){
 
