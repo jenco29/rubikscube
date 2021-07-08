@@ -7,6 +7,12 @@ class planes{
 
   }
   
+  void turnXPlane(){}
+  
+  void turnYPlane(){}
+  
+  void turnZPlane(){}
+  
   void show(){
 
     pushMatrix();
