@@ -2,7 +2,7 @@ class cube{
   planes[] face = new planes[6];
   PMatrix matrix;
   PVector pos;
-  Boolean col = false;
+  Boolean s = false;
   cube(int x, int y, int z, PMatrix3D m){
     this.matrix = m;
     pos = new PVector(x, y, z);
@@ -15,47 +15,26 @@ class cube{
     
    
   }
-  
 
-  
   void show(){
     pushMatrix();
     applyMatrix(matrix);
     noFill();
-    if(col){
-      fill(255);
+    if(s){
+      fill(red);
     }
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);
-    /*
+    
     for(planes P : face){
       P.show();
     }
-    
-    */
+
     popMatrix();
     
   }
   
-  void turnZ(){
-    for(planes P :face){
-      P.turnZPlane(PI/2);
-      translate(pos.x, pos.y, pos.z);
-    }
-  }
-  
-  void turnY(){
-    for(planes P:face){
-      P.turnYPlane(PI/2);
-    }
-  }
-  
-  void turnX(){
-    for(planes P:face){
-      P.turnXPlane(PI/2);
-    }
-  }
   
   
   

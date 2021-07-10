@@ -23,14 +23,12 @@ void setup(){
         PMatrix3D matrix = new PMatrix3D();
         matrix.translate(i, j, k);
         cubies[i][j][k] = new cube(i, j, k, matrix);
-        
         printMatrix();
          
       }
     }
   }
-  cubies[0][0][2].col = true;
-  
+  cubies[0][0][0].s = true;
 
 }
 
