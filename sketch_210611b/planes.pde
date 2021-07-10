@@ -8,11 +8,13 @@ class planes{
   }
   
   void turnZPlane(float angle){
+    translate(pos.x, pos.y, pos.z);
     PVector v = new PVector();
     v.x = round(pos.x * cos(angle) - pos.y * sin(angle));
     v.y = round(pos.x * sin(angle) + pos.y * cos(angle));
     v.z = round(pos.z);
     pos = v;
+    
     
   }
   

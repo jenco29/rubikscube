@@ -29,7 +29,7 @@ void setup(){
       }
     }
   }
-  
+  cubies[0][0][2].col = true;
   
 
 }

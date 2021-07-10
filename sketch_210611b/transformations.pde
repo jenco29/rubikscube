@@ -37,9 +37,17 @@
        for(int k=0; k<3; k++){
          cube current = cubies[i][j][k];
          if(k == 2){
+           float angle = PI/2;
+           PVector v = new PVector();
+           v.x = round(i * cos(angle) - j * sin(angle));
+           v.y = round(i * sin(angle) + j * cos(angle));
+           v.z = round(k);
+           translate(i, j);
+           /*
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(dir*PI/2);
            matrix.translate(i, j);
+           */
            current.turnZ();
            
          }
