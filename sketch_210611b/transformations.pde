@@ -5,6 +5,20 @@
          cube current = cubies[i][j][k];
          
          if(i == side){
+           if(j ==0 && k ==0){
+             k+=2;
+             translate(i, j, k);
+             current.show();
+         }
+         current.face[3] = new planes(0, 0, 0.5, white); 
+         current.face[3].show();
+         current.face[4] = new planes(0, 0.5, 0, red);
+         current.face[4].show();
+         current.face[5] = new planes(0, 0, -0.5, yellow);
+         current.face[5].show();
+         current.face[2] = new planes(0, 0.5, 0, yellow);
+         current.face[2].show();
+           /*
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
            matrix.translate(j, k);
@@ -12,14 +26,10 @@
              P.turnXPlane(PI/2);
               P.show();
             }
+            */
          }
          
-         if(i == 0 && j ==0 && k ==0){
-           j +=2;
-           k+=2;
-           translate(i, j, k);
-           current.show();
-         }
+
        }
      }
    }

@@ -2,7 +2,7 @@ class cube{
   planes[] face = new planes[6];
   PMatrix matrix;
   PVector pos;
-  Boolean s = false;
+  //Boolean s = false;
   cube(int x, int y, int z, PMatrix3D m){
     this.matrix = m;
     pos = new PVector(x, y, z);
@@ -20,9 +20,7 @@ class cube{
     pushMatrix();
     applyMatrix(matrix);
     noFill();
-    if(s){
-      fill(red);
-    }
+
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);

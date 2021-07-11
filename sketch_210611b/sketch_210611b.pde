@@ -28,7 +28,6 @@ void setup(){
       }
     }
   }
-  cubies[0][0][0].s = true;
 
 }
 
