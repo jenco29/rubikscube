@@ -1,62 +1,54 @@
- void turnX(int side){
+ void LeftRight(int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
          cube current = cubies[i][j][k];
          
          if(i == side){
-           if(j ==0 && k ==0){
-             k+=2;
-             translate(i, j, k);
-             current.show();
-         }
-         current.face[3] = new planes(0, 0, 0.5, white); 
-         current.face[3].show();
-         current.face[4] = new planes(0, 0.5, 0, red);
-         current.face[4].show();
-         current.face[5] = new planes(0, 0, -0.5, yellow);
-         current.face[5].show();
-         current.face[2] = new planes(0, 0.5, 0, yellow);
-         current.face[2].show();
-           /*
-           PMatrix2D matrix = new PMatrix2D();
-           matrix.rotate(PI/2);
-           matrix.translate(j, k);
-           for(planes P : current.face){
-             P.turnXPlane(PI/2);
-              P.show();
-            }
-            */
+           
+           current.face[3] = new planes(0, 0, 0.5, white); 
+           current.face[3].show();
+           current.face[4] = new planes(0, 0.5, 0, red);
+           current.face[4].show();
+           current.face[5] = new planes(0, 0, -0.5, yellow);
+           current.face[5].show();
+           current.face[2] = new planes(0, -0.5, 0, orange);
+           current.face[2].show();
+           
+           
+           }
          }
          
 
        }
      }
    }
-  }
+
   
-    void turnY(int side){
+    void UpDown(int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
          cube current = cubies[i][j][k];
          if(j == side){
-           PMatrix2D matrix = new PMatrix2D();
-           matrix.rotate(PI/2);
-           matrix.translate(i, k);
+           current.face[1] = new planes(0.5, 0, 0, red); 
+           current.face[2] = new planes(0, 0, -0.5, blue);
+           current.face[0] = new planes(-0.5, 0, 0, orange);
+           current.face[3] = new planes(0, 0, 0.5, green); 
            for(planes P : current.face){
-             P.turnYPlane(PI/2);
-              P.show();
-
+             P.show();
+           }
+           
+          
          }
        }
-     }
+     
      }
    }
   
   }
   
-   void turnZ(int side){
+   void FrontBack(int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){

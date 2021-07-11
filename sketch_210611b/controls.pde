@@ -2,27 +2,27 @@
 void keyPressed(){
   switch(key){
     case ('1'):
-    turnX(0);
+    LeftRight(0);
     break;
     
     case ('2'):
-    turnX(2);
+    LeftRight(2);
     break;
     
     case('3'):
-    turnY(0);
+    UpDown(0);
     break;
     
     case('4'):
-      turnY(2);
+      UpDown(2);
       break;
       
       case('5'):
-      turnZ(0);
+      FrontBack(0);
       break;
       
       case('6'):
-      //turnZ(2);
+      FrontBack(2);
       break;
       
   }
