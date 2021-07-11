@@ -30,6 +30,7 @@ class cube{
     for(planes P : face){
       P.show();
     }
+    translate(pos.x, pos.y, pos.z);
 
     popMatrix();
     

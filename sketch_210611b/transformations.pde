@@ -3,6 +3,7 @@
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
          cube current = cubies[i][j][k];
+         
          if(i == side){
            PMatrix2D matrix = new PMatrix2D();
            matrix.rotate(PI/2);
@@ -11,6 +12,13 @@
              P.turnXPlane(PI/2);
               P.show();
             }
+         }
+         
+         if(i == 0 && j ==0 && k ==0){
+           j +=2;
+           k+=2;
+           translate(i, j, k);
+           current.show();
          }
        }
      }
