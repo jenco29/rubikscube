@@ -25,5 +25,23 @@ void keyPressed(){
       FrontBack(2);
       break;
       
+      case('w'):
+      xRotd = true;
+      break;
+      
+      case('a'):
+      yRotd = true;
+      break;
+      
+     case('s'):
+     xRotd = false;
+     break;
+     
+     case('d'):
+     yRotd = false;
+     break;
+     
+      
   }
+  
 }
