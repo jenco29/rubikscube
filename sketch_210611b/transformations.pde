@@ -6,6 +6,7 @@
          
          if(i == side){
            
+           /*
            current.face[3] = new planes(0, 0, 0.5, white); 
            current.face[3].show();
            current.face[4] = new planes(0, 0.5, 0, red);
@@ -14,7 +15,9 @@
            current.face[5].show();
            current.face[2] = new planes(0, -0.5, 0, orange);
            current.face[2].show();
-           
+           */
+           translate(1.5, 1.5);
+           rotateX(PI/4);
            
            }
          }
