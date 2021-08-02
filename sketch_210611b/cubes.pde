@@ -1,5 +1,6 @@
 class cube{
   planes[] face = new planes[6];
+  color[] colors = new color[6];
   PMatrix matrix;
   PVector pos;
   //Boolean s = false;
@@ -7,12 +8,17 @@ class cube{
     this.matrix = m;
     pos = new PVector(x, y, z);
     face[0] = new planes(-0.5, 0, 0, green);
+    colors[0] = green;
     face[1] = new planes(0.5, 0, 0, blue); 
+    colors[1] = blue;
     face[2] = new planes(0, 0, -0.5, orange);
+    colors[2] = orange;
     face[3] = new planes(0, 0, 0.5, red);  
-    face[4] = new planes(0, -0.5, 0, white); 
+    colors[3] = red;
+    face[4] = new planes(0, -0.5, 0, white);
+    colors[4] = white;
     face[5] = new planes(0, 0.5, 0, yellow); 
-    
+    colors[5] = yellow;
    
   }
 
@@ -20,7 +26,7 @@ class cube{
     pushMatrix();
     applyMatrix(matrix);
     noFill();
-
+    
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);
@@ -29,7 +35,6 @@ class cube{
       P.show();
     }
     translate(pos.x, pos.y, pos.z);
-
     popMatrix();
     
   }
