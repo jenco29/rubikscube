@@ -1,6 +1,7 @@
 class cube{
   planes[] face = new planes[6];
   color[] colors = new color[6];
+  
   PMatrix matrix;
   PVector pos;
   //Boolean s = false;
