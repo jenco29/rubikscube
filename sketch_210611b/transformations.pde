@@ -1,3 +1,4 @@
+color[] newColors = new color[6];
  void LeftRight(int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
@@ -9,16 +10,12 @@
            current.face[2].c = current.colors[4];
            current.face[5].c = current.colors[2];
            current.face[3].c = current.colors[5];
-/*
-           current.face[3] = new planes(0, 0, 0.5, white); 
-           current.face[3].show();
-           current.face[4] = new planes(0, 0.5, 0, red);
-           current.face[4].show();
-           current.face[5] = new planes(0, 0, -0.5, yellow);
-           current.face[5].show();
-           current.face[2] = new planes(0, -0.5, 0, orange);
-           current.face[2].show();
-           */
+           
+           current.colors[3] = current.colors[4];
+           current.colors[4] = current.colors[2];
+           current.colors[2] = current.colors[5];
+           current.colors[5] = current.colors[3];
+
            }
          }
          
