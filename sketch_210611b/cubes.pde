@@ -40,6 +40,20 @@ class cube{
     
   }
   
+  void changeUpDown(){
+    colors[4] = colors[3];
+    colors[2] = colors[4];
+    colors[5] = colors[2];
+    colors[3] = colors[5];
+    
+    face[3].c = colors[4];
+    face[4].c = colors[2];
+    face[2].c = colors[5];
+    face[5].c = colors[3];
+           
+    
+
+  }
   
   
   

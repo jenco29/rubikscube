@@ -6,16 +6,7 @@ color[] newColors = new color[6];
          cube current = cubies[i][j][k];
          
          if(i == side){
-           current.face[4].c = current.colors[3];
-           current.face[2].c = current.colors[4];
-           current.face[5].c = current.colors[2];
-           current.face[3].c = current.colors[5];
-           
-           current.colors[3] = current.colors[4];
-           current.colors[4] = current.colors[2];
-           current.colors[2] = current.colors[5];
-           current.colors[5] = current.colors[3];
-
+           current.changeUpDown();
            }
          }
          
