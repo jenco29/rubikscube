@@ -18,11 +18,11 @@ void keyPressed(){
       break;
       
       case('5'):
-      FrontBack(0);
+      FrontBack(2);
       break;
       
       case('6'):
-      FrontBack(2);
+      FrontBack(0);
       break;
       
       case('w'):

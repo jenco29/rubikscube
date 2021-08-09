@@ -1,6 +1,7 @@
 class cube{
   planes[] face = new planes[6];
   color[] colors = new color[6];
+  color[] newColors = new color[6];
   
   PMatrix matrix;
   PVector pos;
@@ -40,16 +41,53 @@ class cube{
     
   }
   
-  void changeUpDown(){
-    colors[4] = colors[3];
-    colors[2] = colors[4];
-    colors[5] = colors[2];
-    colors[3] = colors[5];
-    
+  void changeColor(char sides){
+    switch(sides){
+      case('i'):
     face[3].c = colors[4];
     face[4].c = colors[2];
     face[2].c = colors[5];
     face[5].c = colors[3];
+    
+    newColors[3] = colors[4];
+    newColors[4] = colors[2];
+    newColors[2] = colors[5];
+    newColors[5] = colors[3];
+    newColors[1] = colors[1];
+    newColors[0] = colors[0];
+
+    break;
+    
+    case('j'):
+    face[0].c = colors[3];
+    face[2].c = colors[0];
+    face[1].c = colors[2];
+    face[3].c = colors[1];
+    
+    newColors[0] = colors[3];
+    newColors[2] = colors[0];
+    newColors[1] = colors[2];
+    newColors[3] = colors[1];
+    newColors[5] = colors[5];
+    newColors[4] = colors[4];
+    
+    case('k'):
+    face[1].c = colors[4];
+    face[5].c = colors[1];
+    face[0].c = colors[5];
+    face[4].c = colors[0];
+    
+    newColors[1] = colors[4];
+    newColors[5] = colors[1];
+    newColors[0] = colors[5];
+    newColors[4] = colors[0];
+    newColors[2] = colors[2];
+    newColors[3] = colors[3];
+
+    }
+    for(int i=0; i<6; i++){
+      colors[i] = newColors[i];
+    }
            
     
 
