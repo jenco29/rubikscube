@@ -2,10 +2,9 @@ class cube{
   planes[] face = new planes[6];
   color[] colors = new color[6];
   color[] newColors = new color[6];
-  
   PMatrix matrix;
   PVector pos;
-  //Boolean s = false;
+  Boolean highlight = false;
   cube(int x, int y, int z, PMatrix3D m){
     this.matrix = m;
     pos = new PVector(x, y, z);
@@ -25,6 +24,9 @@ class cube{
     pushMatrix();
     applyMatrix(matrix);
     noFill();
+    if(highlight){
+      fill(red);
+    }
     
     strokeWeight(0.05);
     rectMode(CENTER);
@@ -33,6 +35,7 @@ class cube{
     for(planes P : face){
       P.show();
     }
+    
     translate(pos.x, pos.y, pos.z);
     popMatrix();
     
@@ -46,6 +49,8 @@ class cube{
     newColors[4] = colors[2];
     newColors[2] = colors[5];
     newColors[5] = colors[3];
+    
+    //need rotating
     newColors[1] = colors[1];
     newColors[0] = colors[0];
 
@@ -57,6 +62,8 @@ class cube{
     newColors[2] = colors[1];
     newColors[1] = colors[3];
     newColors[3] = colors[0];
+    
+    //need rotating
     newColors[5] = colors[5];
     newColors[4] = colors[4];
     
@@ -68,6 +75,8 @@ class cube{
     newColors[5] = colors[1];
     newColors[0] = colors[5];
     newColors[4] = colors[0];
+    
+    //need rotating
     newColors[2] = colors[2];
     newColors[3] = colors[3];
     
