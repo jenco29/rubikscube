@@ -4,7 +4,6 @@ class cube{
   color[] newColors = new color[6];
   PMatrix matrix;
   PVector pos;
-  Boolean highlight = false;
   cube(int x, int y, int z, PMatrix3D m){
     this.matrix = m;
     pos = new PVector(x, y, z);
@@ -23,11 +22,7 @@ class cube{
   void show(){
     pushMatrix();
     applyMatrix(matrix);
-    noFill();
-    if(highlight){
-      fill(red);
-    }
-    
+    noFill();  
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);

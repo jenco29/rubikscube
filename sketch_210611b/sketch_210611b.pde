@@ -81,6 +81,5 @@ void draw(){
       }
     }
   }
-  cubies[0][0][1].highlight = true;
   
 }

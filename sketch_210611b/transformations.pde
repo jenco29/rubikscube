@@ -1,16 +1,12 @@
 Boolean sideT=false;
-color[] newColors = new color[6];
-
 
  void LeftRight(int side){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
-         
          if(i == side){
            sideT = true;
-           current.changeColor('i');
+           
            }
          } 
        }
@@ -18,27 +14,41 @@ color[] newColors = new color[6];
      if(sideT){
      for(int j=0; j<3; j++){
        for(int k=j; k<3; k++){
-           color tempU = cubies[side][j][k].face[0].c;
-           color tempD = cubies[side][j][k].face[1].c;
-           cubies[side][j][k].face[0].c = cubies[side][k][j].face[0].c;
-           cubies[side][j][k].face[1].c = cubies[side][k][j].face[1].c;
-           cubies[side][k][j].face[0].c = tempU;
-           cubies[side][k][j].face[1].c = tempD;
+         for(int x=0; x<6; x++){
+           planes temp = cubies[side][j][k].face[x];
+           cubies[side][j][k].face[x] = cubies[side][k][j].face[x];
+           cubies[side][k][j].face[x] = temp;
+         }
+           
+
        }
      }
      
      for (int j=0; j<3; j++){
        for(int k=0; k<(3/2); k++){
-         color tempU = cubies[side][j][k].face[5].c;
-         color tempD = cubies[side][j][k].face[4].c;
-         cubies[side][j][k].face[5].c = cubies[side][j][2-k].face[5].c;
-         cubies[side][j][k].face[4].c = cubies[side][j][2-k].face[4].c;
-         cubies[side][j][2-k].face[5].c = tempU; 
-         cubies[side][j][2-k].face[4].c = tempD;
+         for(int x=0; x<6; x++){
+           planes temp = cubies[side][j][k].face[x];
+           cubies[side][j][k].face[x] = cubies[side][j][2-k].face[x];
+           cubies[side][j][2-k].face[x] = temp; 
+           
+         }
+         
          
        }
      }
      
+     for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         
+         if(i == side){
+           current.changeColor('i');
+           
+           }
+         } 
+       }
+     }
     }
      
    }
