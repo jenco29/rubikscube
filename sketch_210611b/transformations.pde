@@ -60,10 +60,8 @@ Boolean sideT=false;
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
          if(j == side){
            sideT = true;
-            current.changeColor('j');
 
          }
         }
@@ -74,25 +72,38 @@ Boolean sideT=false;
      if(sideT){
      for(int i=0; i<3; i++){
        for(int k=i; k<3; k++){
-           color tempU = cubies[i][side][k].face[5].c;
-           color tempD = cubies[i][side][k].face[4].c;
-           cubies[i][side][k].face[5].c = cubies[k][side][i].face[5].c;
-           cubies[i][side][k].face[4].c = cubies[k][side][i].face[4].c;
-           cubies[k][side][i].face[5].c = tempU;
-           cubies[k][side][i].face[4].c = tempD;
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][side][k].face[x];
+           cubies[i][side][k].face[x] = cubies[k][side][i].face[x];
+           cubies[k][side][i].face[x] = temp;
+         }
+           
        }
      }
      
      for (int i=0; i<3; i++){
        for(int k=0; k<(3/2); k++){
-         color tempU = cubies[i][side][k].face[5].c;
-         color tempD = cubies[i][side][k].face[4].c;
-         cubies[i][side][k].face[5].c = cubies[i][side][2-k].face[5].c;
-         cubies[i][side][k].face[4].c = cubies[i][side][2-k].face[4].c;
-         cubies[i][side][2-k].face[5].c = tempU; 
-         cubies[i][side][2-k].face[4].c = tempD;
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][side][k].face[x];
+           cubies[i][side][k].face[x] = cubies[i][side][2-k].face[x]; 
+           cubies[i][side][2-k].face[x] = temp;
+         }
+         
          
        }
+     }
+     
+    for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         if(j == side){
+            current.changeColor('j');
+
+         }
+        }
+       }
+     
      }
      
     }
@@ -105,18 +116,54 @@ Boolean sideT=false;
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
          if(k == side){
-           current.changeColor('k');
+           sideT = true;
 
-
+       }
+     }    
+   }
+     
+  }
+     if(sideT){
+     for(int i=0; i<3; i++){
+       for(int j=i; j<3; j++){
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][j][side].face[x];
+           cubies[i][j][side].face[x] = cubies[j][i][side].face[x];
+           cubies[j][i][side].face[x] = temp;
+         }
+           
 
        }
      }
      
-   }
-    
+     for (int i=0; i<3; i++){
+       for(int j=0; j<(3/2); j++){
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][j][side].face[x];
+           cubies[i][j][side].face[x] = cubies[i][2-j][side].face[x];
+           cubies[i][2-j][side].face[x] = temp; 
+           
+         }
+         
+         
+       }
+     }
+     
+     for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         
+         if(k == side){
+           current.changeColor('k');
+           
+           }
+         } 
+       }
+     }
+    }
   
-  }
+  
   
    }
