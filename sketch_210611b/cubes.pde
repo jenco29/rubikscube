@@ -36,14 +36,23 @@ class cube{
     
   }
   
-  void changeColor(char sides){
+  void changeColor(char sides, int dir){
     switch(sides){
       case('i'):
+       if(dir == 1){
+         newColors[3] = colors[4];
+         newColors[4] = colors[2];
+         newColors[2] = colors[5];
+         newColors[5] = colors[3];
+       }
       
-    newColors[3] = colors[4];
-    newColors[4] = colors[2];
-    newColors[2] = colors[5];
-    newColors[5] = colors[3];
+      else{
+        newColors[4] = colors[3];
+        newColors[2] = colors[4];
+        newColors[5] = colors[2];
+        newColors[3] = colors[5];
+      }
+    
     
     //need rotating
     newColors[1] = colors[1];
@@ -52,12 +61,21 @@ class cube{
     break;
     
     case('j'):
-
-    newColors[0] = colors[2];
+    
+    if(dir ==1){
+      newColors[0] = colors[2];
     newColors[2] = colors[1];
     newColors[1] = colors[3];
     newColors[3] = colors[0];
+    }
     
+    else{
+      newColors[2] = colors[0];
+      newColors[1] = colors[2];
+      newColors[3] = colors[1];
+      newColors[0] = colors[3];
+    }
+
     //need rotating
     newColors[5] = colors[5];
     newColors[4] = colors[4];
@@ -65,11 +83,21 @@ class cube{
     break;
     
     case('k'):
-
-    newColors[1] = colors[4];
+    
+    if(dir ==1){
+      
+      newColors[1] = colors[4];
     newColors[5] = colors[1];
     newColors[0] = colors[5];
     newColors[4] = colors[0];
+    }
+
+    else{
+      newColors[4] = colors[1];
+      newColors[1] = colors[5];
+      newColors[5] = colors[0];
+      newColors[0] = colors[4];
+    }
     
     //need rotating
     newColors[2] = colors[2];

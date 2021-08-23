@@ -1,6 +1,6 @@
 Boolean sideT=false;
 
- void LeftRight(int side){
+ void LeftRight(int side, int dir){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -12,6 +12,22 @@ Boolean sideT=false;
        }
      }
      if(sideT){
+       
+            for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         
+         if(i == side){
+           if(dir == 1){
+             current.changeColor('i', 1);
+           }
+           else{
+             current.changeColor('i', -1);
+           }
+         } 
+       }
+     }
      for(int j=0; j<3; j++){
        for(int k=j; k<3; k++){
          for(int x=0; x<6; x++){
@@ -36,25 +52,15 @@ Boolean sideT=false;
          
        }
      }
-     
-     for(int i=0; i<3; i++){
-     for(int j=0; j<3; j++){
-       for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
-         
-         if(i == side){
-           current.changeColor('i');
-           
-           }
-         } 
-       }
+            }
      }
-    }
+
+    
      
    }
 
   
-    void UpDown(int side){
+    void UpDown(int side, int dir){
       
       //change i & k
    for(int i=0; i<3; i++){
@@ -70,6 +76,23 @@ Boolean sideT=false;
      }
      
      if(sideT){
+       
+           for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         if(j == side){
+           if(dir == 1){
+             current.changeColor('j', 1);
+           }
+           else{
+             current.changeColor('j', -1);
+           }
+        }
+       }
+     
+     }
+           }
      for(int i=0; i<3; i++){
        for(int k=i; k<3; k++){
          for(int x=0; x<6; x++){
@@ -93,18 +116,7 @@ Boolean sideT=false;
        }
      }
      
-    for(int i=0; i<3; i++){
-     for(int j=0; j<3; j++){
-       for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
-         if(j == side){
-            current.changeColor('j');
 
-         }
-        }
-       }
-     
-     }
      
     }
    }
@@ -112,7 +124,7 @@ Boolean sideT=false;
   
 
   
-   void FrontBack(int side){
+   void FrontBack(int side, int dir){
    for(int i=0; i<3; i++){
      for(int j=0; j<3; j++){
        for(int k=0; k<3; k++){
@@ -125,6 +137,24 @@ Boolean sideT=false;
      
   }
      if(sideT){
+          for(int i=0; i<3; i++){
+     for(int j=0; j<3; j++){
+       for(int k=0; k<3; k++){
+         cube current = cubies[i][j][k];
+         
+         if(k == side){
+           if(dir == 1){
+             current.changeColor('k', 1);
+           }
+           else{
+             current.changeColor('k', -1);
+           }
+           
+           
+           }
+         } 
+       }
+     }
      for(int i=0; i<3; i++){
        for(int j=i; j<3; j++){
          for(int x=0; x<6; x++){
@@ -150,18 +180,7 @@ Boolean sideT=false;
        }
      }
      
-     for(int i=0; i<3; i++){
-     for(int j=0; j<3; j++){
-       for(int k=0; k<3; k++){
-         cube current = cubies[i][j][k];
-         
-         if(k == side){
-           current.changeColor('k');
-           
-           }
-         } 
-       }
-     }
+  
     }
   
   
