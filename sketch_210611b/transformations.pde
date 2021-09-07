@@ -40,7 +40,8 @@ Boolean sideT=false;
        }
      }
      
-     for (int j=0; j<3; j++){
+     if(dir ==1){
+       for (int j=0; j<3; j++){
        for(int k=0; k<(3/2); k++){
          for(int x=0; x<6; x++){
            planes temp = cubies[side][j][k].face[x];
@@ -52,7 +53,25 @@ Boolean sideT=false;
          
        }
      }
-            }
+     }
+     else{
+       for (int k=0; k<3; k++){
+       for(int j=0; j<(3/2); j++){
+         for(int x=0; x<6; x++){
+           planes temp = cubies[side][j][k].face[x];
+           cubies[side][j][k].face[x] = cubies[side][2-j][k].face[x];
+           cubies[side][2-j][k].face[x] = temp; 
+           
+         }
+         
+         
+       }
+     }
+       
+     }
+     
+     
+           }
      }
 
     
@@ -104,20 +123,30 @@ Boolean sideT=false;
        }
      }
      
-     for (int i=0; i<3; i++){
+     if(dir ==1){
+       for (int i=0; i<3; i++){
        for(int k=0; k<(3/2); k++){
          for(int x=0; x<6; x++){
            planes temp = cubies[i][side][k].face[x];
            cubies[i][side][k].face[x] = cubies[i][side][2-k].face[x]; 
            cubies[i][side][2-k].face[x] = temp;
+         }      
+       }
+      }
+     }
+     else{
+       for (int k=0; k<3; k++){
+       for(int i=0; i<(3/2); i++){
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][side][k].face[x];
+           cubies[i][side][k].face[x] = cubies[2-i][side][k].face[x]; 
+           cubies[2-i][side][k].face[x] = temp;
          }
          
          
        }
-     }
-     
-
-     
+      }
+     }  
     }
    }
    
@@ -166,19 +195,34 @@ Boolean sideT=false;
 
        }
      }
-     
-     for (int i=0; i<3; i++){
+     if(dir==1){
+       for (int i=0; i<3; i++){
        for(int j=0; j<(3/2); j++){
          for(int x=0; x<6; x++){
            planes temp = cubies[i][j][side].face[x];
            cubies[i][j][side].face[x] = cubies[i][2-j][side].face[x];
            cubies[i][2-j][side].face[x] = temp; 
            
+         }  
+       }
+      }
+     }
+     else{
+       for (int j=0; j<3; j++){
+       for(int i=0; i<(3/2); i++){
+         for(int x=0; x<6; x++){
+           planes temp = cubies[i][j][side].face[x];
+           cubies[i][j][side].face[x] = cubies[2-i][j][side].face[x];
+           cubies[2-i][j][side].face[x] = temp; 
+           
          }
          
          
        }
      }
+     }
+     
+     
      
   
     }

@@ -1,12 +1,27 @@
 //this does absolutely nothing yet
 class solver{
-  solver(){
-    int n = 6;
-    char[] moves = new char[n];
-    Boolean[] tried = new Boolean[n];
-
-  }
   
+  int n = 6;
+  char[] moves = new char[n];
+  Boolean[] tried = new Boolean[n];
+  int startMove = 0;
+  
+  solver(){
+    for(Boolean f : tried){
+    f = false;
+    }
+    
+  
+  }
+  void dfs(int at){
+    if(tried[at]){
+      return;
+    }
+    tried[at] = true;
+    char nextMove = moves[at];
+    dfs(nextMove);
+  
+    }
 }
 
 //PHASE 0
@@ -14,16 +29,7 @@ class solver{
 
 solver phase0 = new solver();
 
-void dfs(int at){
-  if(tried[at]){
-    return;
-  }
-  tried[at] = true;
-  char nextMove = moves[at];
 
-}
-
-int startMove = 0;
 
 
 

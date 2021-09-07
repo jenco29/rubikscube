@@ -2,67 +2,67 @@
 void keyPressed(){
   switch(key){
     case ('1'):
-    LeftRight(0, 1);
-    break;
+      LeftRight(0, 1);
+      break;
     
     case ('2'):
-    LeftRight(2, 1);
-    break;
+      LeftRight(2, 1);
+      break;
     
     case('3'):
-    UpDown(0, 1);
-    break;
+      UpDown(0, 1);
+      break;
     
     case('4'):
       UpDown(2, 1);
       break;
       
-      case('5'):
+    case('5'):
       FrontBack(2, 1);
       break;
       
-      case('6'):
+    case('6'):
       FrontBack(0, 1);
       break;
       
-      case('!'):
+    case('!'):
       LeftRight(0, -1);
-    break;
+      break;
     
     case ('@'):
-    LeftRight(2, -1);
-    break;
+      LeftRight(2, -1);
+      break;
     
     case('#'):
-    UpDown(0, -1);
-    break;
+      UpDown(0, -1);
+      break;
     
     case('$'):
       UpDown(2, -1);
       break;
       
-      case('%'):
+    case('%'):
       FrontBack(2, -1);
       break;
       
-      case('^'):
+    case('^'):
       FrontBack(0, -1);
       break;
   
       
-      case('w'):
+    case('w'):
       xRotd = true;
       break;
       
-      case('a'):
+    case('a'):
       yRotd = true;
       break;
       
-     case('s'):
+   case('s'):
      xRotd = false;
      break;
      
-     case('d'):
+   case('d'):
      yRotd = false;
      break;
      
