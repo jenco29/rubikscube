@@ -1,10 +1,12 @@
 import peasy.*;
 PeasyCam cam;
 PMatrix3D matrix;
+/*
 float xRot =2*PI*mouseY/width;
 float yRot = 2*PI*mouseX/height;
 Boolean xRotd = false;
 Boolean yRotd = false;
+*/
 cube[][][]  cubies = new cube[3][3][3];
 
 //colours
@@ -32,6 +34,7 @@ void setup(){
   }
 
 }
+/*
 void keyRotate(){
   
   if (keyPressed == true && key == RIGHT){
@@ -64,18 +67,18 @@ void keyed(){
     
   }
 }
+*/
 void draw(){
   background(255);
   scale(50);
 
-  
-  keyed();
+ // keyed();
 
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       for(int k=0; k<3; k++){
-        rotateX(xRot);
-        rotateY(yRot);
+        //rotateX(xRot);
+        //rotateY(yRot);
         cubies[i][j][k].show();
         
       }

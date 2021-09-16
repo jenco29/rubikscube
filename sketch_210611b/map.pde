@@ -1,0 +1,3 @@
+for(cube c : cubies){
+
+}
