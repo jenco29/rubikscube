@@ -49,24 +49,63 @@ void keyPressed(){
       FrontBack(0, -1);
       break;
   
-      
-    case('w'):
-      xRotd = true;
-      break;
-      
-    case('a'):
-      yRotd = true;
-      break;
-      
-   case('s'):
-     xRotd = false;
-     break;
-     
-   case('d'):
-     yRotd = false;
-     break;
-     
+
       
   }
   
+}
+
+void move(char m){
+  switch(m){
+    case ('l'):
+      LeftRight(0, 1);
+      break;
+    
+    case ('r'):
+      LeftRight(2, 1);
+      break;
+    
+    case('u'):
+      UpDown(0, 1);
+      break;
+    
+    case('d'):
+      UpDown(2, 1);
+      break;
+      
+    case('f'):
+      FrontBack(2, 1);
+      break;
+      
+    case('b'):
+      FrontBack(0, 1);
+      break;
+      
+    case('L'):
+      LeftRight(0, -1);
+      break;
+    
+    case ('R'):
+      LeftRight(2, -1);
+      break;
+    
+    case('U'):
+      UpDown(0, -1);
+      break;
+    
+    case('D'):
+      UpDown(2, -1);
+      break;
+      
+    case('F'):
+      FrontBack(2, -1);
+      break;
+      
+    case('B'):
+      FrontBack(0, -1);
+      break;
+  
+
+      
+  }
 }

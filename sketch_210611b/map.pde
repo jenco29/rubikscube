@@ -1,3 +1,0 @@
-for(cube c : cubies){
-
-}

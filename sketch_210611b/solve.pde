@@ -1,4 +1,5 @@
 //this does absolutely nothing yet
+/*
 class solver{
   
   int n = 6;
@@ -24,7 +25,7 @@ class solver{
     }
     
     Boolean[][][] correctPos = new Boolean[3][3][3];
-    
+}
     for(int i=0; i<3; i++){
       for(int j=0; j<3; j++){
         for(int k=0; k<3; k++){
@@ -33,6 +34,7 @@ class solver{
       }
     }
 }
+
 
 //G=<L, R, F, B, U, D>
 
@@ -48,7 +50,7 @@ if(uMoves % 2 == 0)
 {
    bad == true;
  }
- }
+ 
 else if(dMoves % 2 == 0)
 {
   bad == true;
@@ -69,4 +71,5 @@ G2.moves = moves{'L', 'R', 'f', 'b', 'u', 'd'};
 
 solver G3 = new solver();
 G3.moves = moves{'l', 'r', 'f', 'b', 'u', 'd'};
+*/
  
