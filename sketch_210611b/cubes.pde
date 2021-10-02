@@ -16,8 +16,14 @@ class cube{
     for(int i =0; i<6; i++){
       colors[i] = face[i].c;
     }
+    println(face[0].c);
+   
    
   }
+  /*
+  for each side, ij ik, jk print color of different face. jk left green face[0] jk right blue face [1] ik up white face[4] ik down yellow face[5] ij front red face[3] ij back orange face[2]
+  cubies[0][j][k].face[0]
+  */
 
   void show(){
     pushMatrix();
@@ -64,9 +70,9 @@ class cube{
     
     if(dir ==1){
       newColors[0] = colors[2];
-    newColors[2] = colors[1];
-    newColors[1] = colors[3];
-    newColors[3] = colors[0];
+      newColors[2] = colors[1];
+      newColors[1] = colors[3];
+      newColors[3] = colors[0];
     }
     
     else{
@@ -87,9 +93,9 @@ class cube{
     if(dir ==1){
       
       newColors[1] = colors[4];
-    newColors[5] = colors[1];
-    newColors[0] = colors[5];
-    newColors[4] = colors[0];
+      newColors[5] = colors[1];
+      newColors[0] = colors[5];
+      newColors[4] = colors[0];
     }
 
     else{

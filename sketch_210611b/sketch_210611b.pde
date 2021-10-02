@@ -28,9 +28,19 @@ void setup(){
     }
   }
   move('u');
+  map();
 
 }
 
+void map(){
+    for(int j=0; j<3; j++){
+      for(int k=0; k<3; k++){
+        print(cubies[0][j][k].face[0].c);
+      }
+      
+    }
+  }
+  
 void draw(){
   background(255);
   scale(50);
