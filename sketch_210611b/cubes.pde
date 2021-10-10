@@ -20,11 +20,7 @@ class cube{
    
    
   }
-  /*
-  for each side, ij ik, jk print color of different face. jk left green face[0] jk right blue face [1] ik up white face[4] ik down yellow face[5] ij front red face[3] ij back orange face[2]
-  cubies[0][j][k].face[0]
-  */
-
+  
   void show(){
     pushMatrix();
     applyMatrix(matrix);
@@ -32,7 +28,6 @@ class cube{
     strokeWeight(0.05);
     rectMode(CENTER);
     box(1);
-    
     for(planes P : face){
       P.show();
     }

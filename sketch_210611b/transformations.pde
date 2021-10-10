@@ -34,8 +34,7 @@ Boolean sideT=false;
              cubies[side][j][k].face[x] = cubies[side][k][j].face[x];
              cubies[side][k][j].face[x] = temp;
              
-           }
-           println("hello");  
+           } 
   
          }
        }
@@ -54,7 +53,6 @@ Boolean sideT=false;
              cubies[side][j][2-k].face[x] = temp; 
              
            }
-           println("ily");
            
          }
        }
@@ -76,7 +74,7 @@ Boolean sideT=false;
           }
         }     
       }
-       
+       map();
        
      }
       
@@ -161,6 +159,7 @@ Boolean sideT=false;
          }
         }
        }  
+       map();
      }
    }
    
@@ -236,5 +235,6 @@ Boolean sideT=false;
        }
       }
      }
+     map();
     } 
    }
