@@ -27,7 +27,7 @@ void setup(){
       }
     }
   }
-  move('u');
+
   map();
 
 }
