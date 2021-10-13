@@ -1,48 +1,62 @@
-class cube{
-  planes[] face = new planes[6];
-  color[] colors = new color[6];
-  color[] newColors = new color[6];
-  PMatrix matrix;
-  PVector pos;
-  cube(int x, int y, int z, PMatrix3D m){
-    this.matrix = m;
-    pos = new PVector(x, y, z);
-    face[0] = new planes(-0.5, 0, 0, green);
-    face[1] = new planes(0.5, 0, 0, blue); 
-    face[2] = new planes(0, 0, -0.5, orange);
-    face[3] = new planes(0, 0, 0.5, red);  
-    face[4] = new planes(0, -0.5, 0, white);
-    face[5] = new planes(0, 0.5, 0, yellow); 
-    for(int i =0; i<6; i++){
-      colors[i] = face[i].c;
-    }
-    println(face[0].c);
-   
-   
-  }
-  
-  void show(){
-    pushMatrix();
-    applyMatrix(matrix);
-    noFill();  
-    strokeWeight(0.05);
-    rectMode(CENTER);
-    box(1);
-    for(planes P : face){
-      P.show();
-    }
-    
-    translate(pos.x, pos.y, pos.z);
-    popMatrix();
-    
-  }
-  
-  
-           
-    
+class cubes {
+  PMatrix3D matrix;
+  int x = 0;
+  int y = 0;
+  int z = 0;
+  color c;
+  Face[] faces = new Face[6];
 
+  cubes(PMatrix3D m, int x, int y, int z) {
+    this.matrix = m;
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    c = color(255);
+
+    faces[0] = new Face(new PVector(0, 0, -1), orange);
+    faces[1] = new Face(new PVector(0, 0, 1), red);
+    faces[2] = new Face(new PVector(0, 1, 0), yellow);
+    faces[3] = new Face(new PVector(0, -1, 0), white);
+    faces[4] = new Face(new PVector(1, 0, 0), blue);
+    faces[5] = new Face(new PVector(-1, 0, 0), green);
+  }
   
+  void turnFacesZ(int dir) {
+    for (Face f : faces) {
+      f.turnZ(dir*HALF_PI); 
+    }
+  }
+
+  void turnFacesY(int dir) {
+    for (Face f : faces) {
+      f.turnY(dir*HALF_PI); 
+    }
+  }
+
+    void turnFacesX(int dir) {
+    for (Face f : faces) {
+      f.turnX(dir*HALF_PI); 
+    }
+  }
   
-  
-  
+  void update(int x, int y, int z) {
+    matrix.reset(); 
+    matrix.translate(x, y, z);
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+
+  void show() {
+    noFill();
+    stroke(0);
+    strokeWeight(0.05);
+    pushMatrix(); 
+    applyMatrix(matrix);
+    box(1);
+    for (Face f : faces) {
+      f.show();
+    }
+    popMatrix();
+  }
 }
