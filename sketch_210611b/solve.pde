@@ -72,4 +72,13 @@ G2.moves = moves{'L', 'R', 'f', 'b', 'u', 'd'};
 solver G3 = new solver();
 G3.moves = moves{'l', 'r', 'f', 'b', 'u', 'd'};
 */
- 
+  /*
+ for each cube read the data on the faces
+ corners: ULF, URF, ULB, URB, DLF, DRF, DLB, DRB
+ edges: UF, UB, UL, UR, LF, LB, LD, RF, RB, RD, BL, BR 
+ int[][] edges = new int[12][12];
+ edges[up][front]
+ int[][][] corners = new int[8][8][8];  
+
+
+ */
