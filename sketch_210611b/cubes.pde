@@ -5,6 +5,7 @@ class cubes {
   int z = 0;
   color c;
   Face[] faces = new Face[6];
+  int type;
 
   cubes(PMatrix3D m, int x, int y, int z) {
     this.matrix = m;

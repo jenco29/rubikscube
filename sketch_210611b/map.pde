@@ -1,17 +1,17 @@
-char checkCol(int num, int i, int j, int k){
-  if(cubies[i][j][k].colors[num] == green){
+char checkCol(int num, int i){
+  if(cubies[i].colors[num] == green){
           return 'G';
         }
-        else if(cubies[i][j][k].colors[num] == blue){
+        else if(cubies[i].colors[num] == blue){
           return 'B';
         }
-        else if(cubies[i][j][k].colors[num] == red){
+        else if(cubies[i].colors[num] == red){
           return 'R';
         }
-        else if(cubies[i][j][k].colors[num] == orange){
+        else if(cubies[i].colors[num] == orange){
           return 'O';
         }
-        else if(cubies[i][j][k].colors[num] == white){
+        else if(cubies[i].colors[num] == white){
           return 'W';
         }
         else{

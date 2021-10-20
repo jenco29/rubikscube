@@ -15,6 +15,7 @@ void setup() {
         matrix.translate(x, y, z);
         cube[index] = new cubes(matrix, x, y, z);
         index++;
+        cube[index].type = pieceType(cube[index]);
       }
     }
   }
