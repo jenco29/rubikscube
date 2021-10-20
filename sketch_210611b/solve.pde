@@ -51,11 +51,11 @@ if(uMoves % 2 == 0)
    bad == true;
  }
  
-else if(dMoves % 2 == 0)
+if(dMoves % 2 == 0)
 {
   bad == true;
 }
- 
+
 
 //G1=<L, R, F, B, U2, D2>
 
