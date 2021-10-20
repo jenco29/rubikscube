@@ -1,4 +1,3 @@
-/*
 char checkCol(int num, int i, int j, int k){
   if(cubies[i][j][k].colors[num] == green){
           return 'G';
@@ -21,51 +20,18 @@ char checkCol(int num, int i, int j, int k){
   
 }
 
-void map(){
-  int k1=0;
-  while(k1<3){
-    print("    ");
-    for(int i=0; i<3; i++){
-      print(checkCol(4, i, 0, k1));
-    }
-    print("\r\n");
-    k1++;
+int pieceType(cube c){
+  if(c.x==abs(1) && c.y==abs(1) && c.z==abs(1)){
+    return corner;
   }
-  
-  int j=0;
-  while(j<3){
-    for(int k=0; k<3; k++){
-      print(checkCol(0, 0, j, k));
-    }
-    print(" ");
-    for(int i=0; i<3; i++){
-      print(checkCol(3, i, j, 2));
-    }
-    print(" ");
-    for(int k=2; k>-1; k--){
-      print(checkCol(1, 2, j, k));
-    }
-    print(" ");
-    for(int i=2; i>-1; i--){
-      print(checkCol(2, i, j, 0));
-    }   
-    print("\r\n");
-    j++;
+  else if(c.x==0 && c.y==0 && c.z==0){
+    return core;
   }
-  
-  int k2=0;
-  while(k2<3){
-    print("    ");
-    for(int i=0; i<3; i++){
-      print(checkCol(5, i, 2, k2));
-    }
-    print("\r\n");
-    k2++;
+  else if((c.x==abs(1)^c.y==abs(1)) ^ c.z==abs(1)){
+    return centre;
   }
-  
-  println("");
-  
-  
-    
+  else{
+    return edge;
   }
-  */
+
+}
