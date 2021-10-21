@@ -1,23 +1,19 @@
 //this does absolutely nothing yet
 /*
-class solver{
-  
-
-
-
-}
-
 
 //G=<L, R, F, B, U, D>
 //all possible moves 
-
-//G1=<L, R, F, B, U2, D2>
-//no quarter turns of the up or down faces
 
 for each of the 12 edge pieces check if good or bad
 if good: can return home w/o quarter turns of up or down faces
 if bad: needs quarter turns of up or down faces
 to go from good to bad a quarter turn of the up or down face is done
+if all edge pieces are good it will now be in G1
+
+//G1=<L, R, F, B, U2, D2>
+//no quarter turns of the up or down faces
+
+
 
 //G2=<L, R, F2, B2, U2, D2>
 //no quarter turns of up, down, front or bad faces
