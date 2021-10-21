@@ -7,7 +7,11 @@
 for each of the 12 edge pieces check if good or bad
 if good: can return home w/o quarter turns of up or down faces
 if bad: needs quarter turns of up or down faces
-to go from good to bad a quarter turn of the up or down face is done
+to go from good to bad a quarter turn of the up or down face is applied
+basically solve each edge individually
+if U or D needed take it back, cure it
+otherwise it is already good
+depth first?
 if all edge pieces are good it will now be in G1
 
 //G1=<L, R, F, B, U2, D2>
