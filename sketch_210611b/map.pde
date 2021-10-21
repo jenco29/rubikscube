@@ -1,26 +1,27 @@
 char checkCol(int num, int i){
-  if(cube[i].colors[num] == green){
-          return 'G';
-        }
-        else if(cube[i].colors[num] == blue){
-          return 'B';
-        }
-        else if(cube[i].colors[num] == red){
-          return 'R';
-        }
-        else if(cube[i].colors[num] == orange){
-          return 'O';
-        }
-        else if(cube[i].colors[num] == white){
-          return 'W';
-        }
-        else{
-          return 'Y';
-        }
+  if(cube[i].colours[num] == green){
+    return 'G';
+  }
+  else if(cube[i].colours[num] == blue){
+    return 'B';
+  }
+  else if(cube[i].colours[num] == red){
+    return 'R';
+  }
+  else if(cube[i].colours[num] == orange){
+    return 'O';
+  }
+  else if(cube[i].colours[num] == white){
+    return 'W';
+  }
+  else{
+    return 'Y';
+  }
   
 }
 
-int pieceType(cube c){
+int pieceType(int i){
+  cubes c = cube[i];
   if(c.x==abs(1) && c.y==abs(1) && c.z==abs(1)){
     return corner;
   }

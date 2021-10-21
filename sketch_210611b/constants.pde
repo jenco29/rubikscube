@@ -17,7 +17,6 @@ final int edge = 1;
 final int centre = 2;
 final int core = 3;
 
-string moves = "u,d,f,b,l,r";  
-
-char[] moves_ = moves.split(',');
+String moves = "u,d,f,b,l,r,U,D,L,R,F,B";  
+String[] moves_ = split(moves, ",");
 

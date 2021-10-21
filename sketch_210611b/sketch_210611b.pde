@@ -14,11 +14,18 @@ void setup() {
         PMatrix3D matrix = new PMatrix3D();
         matrix.translate(x, y, z);
         cube[index] = new cubes(matrix, x, y, z);
+        println(pieceType(index));
         index++;
-        cube[index].type = pieceType(cube[index]);
       }
     }
   }
+
+  for(int i=0; i<30; i++){
+    int num = int(random(0, 11));
+    moving(moves_[num]);
+  }
+
+  
 }
 
 

@@ -5,6 +5,7 @@ class cubes {
   int z = 0;
   color c;
   Face[] faces = new Face[6];
+  color[] colours = new color[6];
   int type;
 
   cubes(PMatrix3D m, int x, int y, int z) {
@@ -20,6 +21,10 @@ class cubes {
     faces[3] = new Face(new PVector(0, -1, 0), white);
     faces[4] = new Face(new PVector(1, 0, 0), blue);
     faces[5] = new Face(new PVector(-1, 0, 0), green);
+
+    for(int i=0; i<6; i++){
+      colours[i] = faces[i].c;
+    }
   }
   
   void turnFacesZ(int dir) {
