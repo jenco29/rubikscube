@@ -20,11 +20,13 @@ void setup() {
     }
   }
 
+  /*
   for(int i=0; i<30; i++){
     int num = int(random(0, 11));
     moving(moves_[num]);
   }
-
+  */
+  moving("U2");
   
 }
 
