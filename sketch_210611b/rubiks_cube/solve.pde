@@ -32,10 +32,11 @@ if all edge pieces are good it will now be in G1
  corners: ULF, URF, ULB, URB, DLF, DRF, DLB, DRB
  edges: UF, UB, UL, UR, LF, LB, LD, RF, RB, RD, BL, BR 
  int[][] edges = new int[12][12];
- edges[up][front]
  int[][][] corners = new int[8][8][8];  
+
+ each element in the array has 2/3 colours
 
 
  */
- int[][] edges = new int[e][e];
- int[][][] corners = new int[c][c][c];
+ color[][] edges = new color[12][12];
+ color[][][] corners = new color[8][8][8];
