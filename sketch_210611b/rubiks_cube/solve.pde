@@ -37,3 +37,5 @@ if all edge pieces are good it will now be in G1
 
 
  */
+ int[][] edges = new int[e][e];
+ int[][][] corners = new int[c][c][c];

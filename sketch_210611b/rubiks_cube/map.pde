@@ -22,13 +22,13 @@ char checkCol(int num, int i){
 
 int pieceType(int i){
   cubes c = cube[i];
-  if(c.x==abs(1) && c.y==abs(1) && c.z==abs(1)){
+  if((c.x==1 || c.x==-1) && (c.y==1 || c.y==-1) && (c.z==1 || c.z==-1)){
     return corner;
   }
   else if(c.x==0 && c.y==0 && c.z==0){
     return core;
   }
-  else if((c.x==abs(1)^c.y==abs(1)) ^ c.z==abs(1)){
+  else if(((c.x==1 || c.x==-1)^(c.y==1 || c.y==-1)) ^ (c.z==1 || c.z==-1)){
     return centre;
   }
   else{
