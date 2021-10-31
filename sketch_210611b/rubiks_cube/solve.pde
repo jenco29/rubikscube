@@ -1,3 +1,4 @@
+import java.util.Map;
 //this does absolutely nothing yet
 /*
 
@@ -36,7 +37,23 @@ if all edge pieces are good it will now be in G1
 
  each element in the array has 2/3 colours
 
+ 
 
  */
- color[][] edges = new color[12][12];
- color[][][] corners = new color[8][8][8];
+
+Layout[] edges = new Layout[12];
+Layout[] corners = new Layout[8];
+
+void setCube(){
+  for(int i=0; i<12; i++){
+    edges[i] = new Layout(red, i, 0);
+  }
+
+  for(int i=0; i<8; i++){
+    corners[i] = new Layout(red, i, 0);
+
+  } 
+
+}
+
+

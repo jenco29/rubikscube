@@ -35,6 +35,7 @@ void setup() {
   println(e);
   println(c);
   println(cn);
+  setCube();
   /*
   for(int i=0; i<30; i++){
     int num = int(random(0, 11));
