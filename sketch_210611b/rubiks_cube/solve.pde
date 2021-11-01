@@ -44,13 +44,17 @@ if all edge pieces are good it will now be in G1
 Layout[] edges = new Layout[12];
 Layout[] corners = new Layout[8];
 
+color[] getColour(int i){
+
+
+}
 void setCube(){
   for(int i=0; i<12; i++){
-    edges[i] = new Layout(red, i, 0);
+    edges[i] = new Layout(getColour(i), i, 0);
   }
 
   for(int i=0; i<8; i++){
-    corners[i] = new Layout(red, i, 0);
+    corners[i] = new Layout(getColour(i), i, 0);
 
   } 
 
