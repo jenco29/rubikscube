@@ -4,7 +4,7 @@ final color white = color(255);
 final color green = color(0, 190, 0);
 final color orange = color(255, 100, 0);
 final color yellow = color(255, 255, 0);
-
+final color& yel = &yellow;
 final int back = 0;
 final int front = 1;
 final int down = 2;
