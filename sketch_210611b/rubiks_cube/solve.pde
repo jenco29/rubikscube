@@ -1,5 +1,4 @@
-import java.util.Map;
-//this does absolutely nothing yet
+
 /*
 
 //G=<L, R, F, B, U, D>
@@ -12,7 +11,7 @@ to go from good to bad a quarter turn of the up or down face is applied
 basically solve each edge individually
 if U or D needed take it back, cure it
 otherwise it is already good
-depth first?
+bfs only corners
 if all edge pieces are good it will now be in G1
 
 //G1=<L, R, F, B, U2, D2>
@@ -41,13 +40,27 @@ if all edge pieces are good it will now be in G1
 
  */
 
+Boolean good = false;
+
 Layout[] edges = new Layout[12];
 Layout[] corners = new Layout[8];
 
-color[] getColour(int i){
+color[] getColour(int i);
 
+void checkOrientation(){
+  for(Layout e in edges){
+    if(e.o == 0){
+      good = true;
+    }
+    else{
+      good = false;
+    }
+  }
 
 }
+
+
+
 void setCube(){
   for(int i=0; i<12; i++){
     edges[i] = new Layout(getColour(i), i, 0);
