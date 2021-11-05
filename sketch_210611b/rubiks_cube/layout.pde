@@ -6,12 +6,19 @@
      int orientation;
      int[] sides;
 
+     void setColours(){
 
-     Layout(color[] c, int[] s, int i, int o){
-         this.colour = c;
+     }
+
+     void setSides(){
+
+     }
+
+
+     Layout(int type, int i){
+         this.colour = new color[type];
          this.index = i;
          this.orientation = 0;
-         this.sides = s;
 
 
      }

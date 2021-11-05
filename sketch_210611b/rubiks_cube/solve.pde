@@ -63,11 +63,11 @@ void checkOrientation(){
 
 void setCube(){
   for(int i=0; i<12; i++){
-    edges[i] = new Layout(getColour(i), i, 0);
+    edges[i] = new Layout(2, i);
   }
 
   for(int i=0; i<8; i++){
-    corners[i] = new Layout(getColour(i), i, 0);
+    corners[i] = new Layout(3, i);
 
   } 
 
