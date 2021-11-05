@@ -71,6 +71,15 @@ void setCube(){
 
   } 
 
+//edge 1
+  edges[0].colour[0] = white;
+  edges[0].colour[1] = green;
+  edges[0].sides[0] = up;
+  edges[0].sides[1] = left;
+
+
+
+
 }
 
 

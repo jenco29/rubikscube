@@ -32,16 +32,24 @@ void setup() {
       }
     }
   }
+
+
+  //check correct no. of each piece type
   println(e);
   println(c);
   println(cn);
   setCube();
-  /*
-  for(int i=0; i<30; i++){
+  
+  //SHUFFLE
+  //random number of moves
+  //could only allow specific combos of moves to avoid cancellation- doing a larger shuffle mitigates this somewhat
+  int m = int(random(100, 130));
+  for(int i=0; i<m; i++){
+    //random moves
     int num = int(random(0, 11));
     moving(moves_[num]);
   }
-  */
+  
 
 }
 

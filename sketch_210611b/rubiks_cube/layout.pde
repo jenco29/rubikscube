@@ -17,6 +17,7 @@
 
      Layout(int type, int i){
          this.colour = new color[type];
+         this.sides = new int[type];
          this.index = i;
          this.orientation = 0;
 
