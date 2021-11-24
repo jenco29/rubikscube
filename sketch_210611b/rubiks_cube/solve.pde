@@ -45,11 +45,13 @@ Boolean good = false;
 Layout[] edges = new Layout[12];
 Layout[] corners = new Layout[8];
 
-color[] getColour(int i);
+color[] getColour(int i){
+  return null;
+}
 
 void checkOrientation(){
-  for(Layout e in edges){
-    if(e.o == 0){
+  for(Layout e : edges){
+    if(e.orientation == 0){
       good = true;
     }
     else{
@@ -81,5 +83,3 @@ void setCube(){
 
 
 }
-
-
