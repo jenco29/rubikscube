@@ -39,9 +39,6 @@ if all edge pieces are good it will now be in G1
  
 
  */
-
-Boolean good = false;
-
 Layout[] edges = new Layout[12];
 Layout[] corners = new Layout[8];
 
@@ -49,36 +46,19 @@ color[] getColour(int i){
   return null;
 }
 
-void checkOrientation(){
-  for(Layout e : edges){
-    if(e.orientation == 0){
-      good = true;
-    }
-    else{
-      good = false;
-    }
-  }
-
-}
-
-
-
 void setCube(){
   for(int i=0; i<12; i++){
     edges[i] = new Layout(2, i);
   }
-
+  color[] edges0 = {white, red};
+  edges[0].setColours(edges0);
+  
   for(int i=0; i<8; i++){
     corners[i] = new Layout(3, i);
 
   } 
 
 //edge 1
-  edges[0].colour[0] = white;
-  edges[0].colour[1] = green;
-  edges[0].sides[0] = up;
-  edges[0].sides[1] = left;
-
 
 
 

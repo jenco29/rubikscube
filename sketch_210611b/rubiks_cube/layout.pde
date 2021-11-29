@@ -1,25 +1,23 @@
 
  class Layout{
 
-     color[] colour;
      int index;
-     int orientation;
-     int[] sides;
+     int type;
 
-     void setColours(){
-
-     }
-
-     void setSides(){
+     void setColours(color[] c){
+        Sides[] side = new Sides[type];
+        for(int i=0; i<type; i++){
+            side[i].col = c[i];
+        }
 
      }
 
 
      Layout(int type, int i){
-         this.colour = new color[type];
-         this.sides = new int[type];
-         this.index = i;
-         this.orientation = 0;
+
+        this.index = i;
+        this.type = type;
+
 
 
      }
@@ -27,3 +25,13 @@
 
 
  }
+
+ class Sides{
+     color col;
+
+     Sides(){
+         this.col = col;
+     }
+ }
+
+

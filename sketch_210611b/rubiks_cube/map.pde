@@ -20,6 +20,7 @@ char checkCol(int num, int i){
   
 }
 
+
 int pieceType(int i){
   cubes c = cube[i];
   if((c.x==1 || c.x==-1) && (c.y==1 || c.y==-1) && (c.z==1 || c.z==-1)){
