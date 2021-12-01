@@ -1,4 +1,5 @@
 //size 2048- only edge orientation 0 or 1(flipped or not)
+/*
 import java.util.Map;
 
 //edge piece, orientation
@@ -19,7 +20,7 @@ for(int i=0; i<12; i++){
 }
 
 //v^n -1 << 4095
-/*
+
 god's algorithm
 Fill table completely with -1.
 table[ pos2idx(startposition) ] = 0
@@ -40,7 +41,7 @@ loopbegin
   len = len + 1
   print c "positions at distance" len
 loop while c>0
-*/
+
 
 int returnOrientation(int[] or){
     int t=0;
@@ -57,4 +58,4 @@ int returnOrientation(int[] or){
 for(Layout e : edges){
     edgeOr.put(e, t);
 }
-
+*/
