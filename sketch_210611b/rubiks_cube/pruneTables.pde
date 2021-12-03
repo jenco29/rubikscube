@@ -4,7 +4,7 @@ import java.util.Map;
 
 //edge piece, orientation
 HashMap<int, int> edgeOr = new HashMap<int, int>();
-
+N1 = 2^11 = 2048
 
 
 //encoded into 11 bit int, eac bit orientation of 1 edge
@@ -59,3 +59,44 @@ for(Layout e : edges){
     edgeOr.put(e, t);
 }
 */
+int[,] P = new int[12, 12];
+String moves = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2". "F2", "B2", "U2", "D2" };
+Var C = CornerPermutationsI;
+Var E = EdgePermutationsI;
+int n = stateToIndex(C);
+int m = stateToIndex(E);
+int d = 0;
+
+P[n, m] = d;
+
+while(P[P.length-1] == 0){
+  Var x;
+  d ++;
+  for(int i=0; i< x; i++){
+    currentC = indexToState(x);
+    currentE = indexToState(y);
+  }
+
+  for(int j=0; j<moves.length; j++){
+    newC = applyMove(j, currentC);
+    newE = applyMove(j, currentE);
+    n = stateToIndex(C);
+    m = stateToIndex(E);
+    if (P(n, m) == null){
+      P(n, m) = d;
+    }
+  }
+}
+
+int stateToIndex(int val){
+  return null;
+  
+}
+
+int indexToState(int val){
+  return null;
+}
+
+int applyMove(int j, int cur){
+  return null;
+}
