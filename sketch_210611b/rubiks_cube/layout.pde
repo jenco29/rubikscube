@@ -1,7 +1,7 @@
 //PERMUTATIONS
 
-int[][] CornerPermutationsI = {1, 2, 3, 4, 5, 6, 7, 8};
-int[][] EdgePermutationsI = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+int[] CornerPermutationsI = {1, 2, 3, 4, 5, 6, 7, 8};
+int[] EdgePermutationsI = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
 int[] PermFC = {1, 7, 3, 5, 2, 6, 4, 8};
 int[] PermFE = {1, 2, 3, 4, 5, 10, 9, 8, 6, 7, 11, 12};
@@ -22,10 +22,28 @@ int[] PermDC = {1, 6, 7, 4, 5, 3, 2, 8};
 int[] PermDE = {1, 11, 3, 10, 5, 6, 7, 8, 9, 2, 4, 12};
 
 
-class cubeLO {
+//ORIENTATIONS
 
-    cubeLO(){
-        
+int[] CornerOrientationsI = {0,0,0,0,0,0,0,0};
+int[] EdgeOrientationsI = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+int[] OrFC = {0,1,0,1,-1,0,-1,0};
+int[] OrFE = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+int[] OrBC = {1,0,1,0,0,-1,0,-1};
+int[] OrBE = {0,0,0,0,0,0,0,0,0,0,0,0}; 
+
+int[] OrUC = {-1,0,0,-1,1,0,0,1};
+int[] OrUE = {1,0,1,0,0,0,0,0,1,0,0,1};
+
+int[] OrDC = {0,-1,-1,0,0,1,1,0};
+int[] OrDE = {0,1,0,1,0,0,0,0,0,1,1,0};
+
+int[] ApplyMove(int[] currentM, int[] mov, int type){
+    int[] newM = new int[type];
+    for(int i=0; i<type; i++){
+        newM[i] = currentM[mov[i]-1];
     }
+    return newM;
 
 }
