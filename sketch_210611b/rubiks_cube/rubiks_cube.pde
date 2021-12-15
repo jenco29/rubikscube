@@ -38,7 +38,7 @@ void setup() {
   println(e);
   println(c);
   println(cn);
-  setCube();
+
   
   //SHUFFLE
   //random number of moves

@@ -1,4 +1,4 @@
-int[] P1 = new int[12];
+/*int[] P1 = new int[12];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 int m = orToIndex(EdgeOrientationsI);
 int d = 0;
