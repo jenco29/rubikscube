@@ -13,7 +13,7 @@ while(P1[P1.length-1] == null){
   }
 
   for(int j=0; j<moves.length; j++){
-    newE = applyMove(j, currentE);
+    newE = applyMove(currentE, j, );
     m = orToIndex(EdgeOrientationsI);
     if (P1[m] == null){
       P1[m] = d;
@@ -95,8 +95,4 @@ int[] indexToOr(int index){
   }
   or[n] = s;
   return or[];
-}
-
-int applyMove(int j, int cur){
-  return null;
 }
