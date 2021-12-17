@@ -2,8 +2,8 @@
 
 int[] PermIC = {1, 2, 3, 4, 5, 6, 7, 8};
 int[] PermIE = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-int[] OrIC = {0,0,0,0,0,0,0,0};
-int[] OrIE = {0,0,0,0,0,0,0,0,0,0,0,0};
+int[] OrIC = {1,1,1,1,1,1,1,1};
+int[] OrIE = {1,1,1,1,1,1,1,1,1,1,1,1};
 
 Move Identity = new Move("I", OrIE, OrIC, PermIE, PermIC);
 
@@ -24,12 +24,12 @@ Move Back = new Move("B", OrBE, OrBC, PermBE, PermBC);
 int[] PermLC = {6, 5, 3, 4, 1, 2, 7, 8};
 int[] PermLE = {5, 6, 3, 4, 2, 1, 7, 8, 9, 10, 11, 12};
 
-Move Left = new Move("L", null, null, PermLE, PermLC);
+Move Left = new Move("L", OrIE, OrIC, PermLE, PermLC);
 
 int[] PermRC = {1, 2, 8, 7, 5, 6, 3, 4};
 int[] PermRE = {1, 2, 7, 8, 5, 6, 4, 3, 9, 10, 11, 12};
 
-Move Right = new Move("R", null, null, PermRE, PermRC);
+Move Right = new Move("R", OrIE, OrIC, PermRE, PermRC);
 
 int[] PermUC = {5, 2, 3, 8, 4, 6, 7, 1};
 int[] PermUE = {9, 2, 12, 4, 5, 6, 7, 8, 3, 10, 11, 1};
@@ -48,7 +48,7 @@ Move Down = new Move("D", OrDE, OrDC, PermDE, PermDC);
 StringList allMoves = new StringList();  
 
 
-Move ApplyMove(Move currentM, Move mov){
+Move ApplyMove(String state, String move){
     int[] newOrME = new int[mov.OrME.length];
     int[] newOrMC = new int[mov.OrMC.length];
     int[] newPermME = new int[mov.PermME.length];
@@ -63,11 +63,11 @@ Move ApplyMove(Move currentM, Move mov){
     }
 
     for(int i=0; i<(mov.OrME.length); i++){
-        newOrME[i] = currentM.OrME[i] + mov.OrME[i];
+        newOrME[i] = (currentM.OrME[i] + mov.OrME[i]) % 2;
     }
 
     for(int i=0; i<(mov.OrMC.length); i++){
-        newOrMC[i] = currentM.OrMC[i] + mov.OrMC[i];
+        newOrMC[i] = (currentM.OrMC[i] + mov.OrMC[i]) % 3;
     }
 
     Move newM = new Move(currentM.move + mov.move, newOrME, newOrMC, newPermME, newPermMC);
