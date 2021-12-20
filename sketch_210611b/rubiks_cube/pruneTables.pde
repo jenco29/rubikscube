@@ -18,6 +18,21 @@ Move getMove(String mov){
   return theMove;
 }
 
+class Prunes{
+  int[][] P;
+  String[] Movs;
+  int[] C;
+  int[] E;
+  
+  
+  Prunes(int[][] p, String[] movs, int[] c, int[] e){
+    this.P = p;
+    this.Movs = movs;
+    this.C = c;
+    this.E = e;
+  }
+}
+
 void Prune1(){
   int[] P1 = new int[2048];
   String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };

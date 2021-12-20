@@ -17,6 +17,7 @@ int[] OrFE = {0,0,0,0,0,0,0,0,0,0,0,0};
 Move Front = new Move("F", OrFE, OrFC, PermFE, PermFC);
 //allMoves.add(Front);
 
+
 int[] PermBC = {6, 5, 3, 4, 1, 2, 7, 8};
 int[] PermBE = {1, 2, 3, 4, 12, 6, 7, 11, 9, 10, 5, 8};
 int[] OrBC = {1,0,1,0,0,-1,0,-1};
@@ -55,12 +56,13 @@ Move Down = new Move("D", OrDE, OrDC, PermDE, PermDC);
 
 StringList moveCombos = new StringList();  
 
-
 Move ApplyMove(Move currentM, Move mov){
     int[] newOrME = new int[mov.OrME.length];
     int[] newOrMC = new int[mov.OrMC.length];
     int[] newPermME = new int[mov.PermME.length];
     int[] newPermMC = new int[mov.PermMC.length];
+    
+    
 
     for(int i=0; i<(mov.PermME.length); i++){
         newPermME[i] = currentM.PermME[mov.PermME[i]-1];
@@ -82,6 +84,7 @@ Move ApplyMove(Move currentM, Move mov){
     return newM;
 
 }
+
 
 
 
