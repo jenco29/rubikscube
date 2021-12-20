@@ -1,13 +1,21 @@
 Boolean isFull(int[] arr){
-  for(int i : arr){
-    if(i == null){
-      return false;
+  Boolean full = false;
+  for(int i=0; i< arr.length; i++){
+    if(arr[i] == -1){
+      break;
+    }
   }
-  else{
-    return true;
-  }
-    
+  return full;
 }
+
+Move getMove(String mov){
+  Move theMove = null;
+  for(Move m : allMoves){
+    if(m.Name == mov){
+      theMove = m;
+    }
+  }
+  return theMove;
 }
 
 void Prune1(){
@@ -18,7 +26,7 @@ void Prune1(){
 
   while(N>0){
     for(int i=0; i<18; i++){
-      ApplyMove(Identity, )
+      ApplyMove(Identity, getMove(movs1[i]));
     }
   }
 /*

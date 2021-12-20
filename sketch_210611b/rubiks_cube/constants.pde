@@ -16,4 +16,3 @@ final int corner = 0;
 final int edge = 1;
 final int centre = 2;
 final int core = 3;
-

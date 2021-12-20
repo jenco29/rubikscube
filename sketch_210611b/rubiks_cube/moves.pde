@@ -69,4 +69,3 @@ void moving(String move){
       break;
   }
 }
-

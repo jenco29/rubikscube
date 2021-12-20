@@ -39,12 +39,3 @@ if all edge pieces are good it will now be in G1
  
 
  */
-
-
-
-
-
-
-
-
-
