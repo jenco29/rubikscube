@@ -1,6 +1,8 @@
 String moves = "U,D,L,R,F,B,U',D',L',R',F',B',U2,D2,L2,R2,F2,B2";  
 String[] moves_ = split(moves, ",");
 
+
+
 //there are six faces and three possible moves per face (90 clockwise, 90 anticlockwise, 180)
 //this gives a total of 18 different moves
 //a clockwise move is shown as X, anticlockwise X' and 180 X2.

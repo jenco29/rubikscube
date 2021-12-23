@@ -42,17 +42,19 @@ void setup() {
   //SHUFFLE
   //random number of moves
   //could only allow specific combos of moves to avoid cancellation- doing a larger shuffle mitigates this somewhat
-  /*
+  StringList shuffle = new StringList();
+  
   int m = int(random(100, 130));
   for(int i=0; i<m; i++){
     //random moves
     int num = int(random(0, 11));
+    shuffle.append(moves_[num]);
     moving(moves_[num]);
+    println(moves_[num]);
   }
-  */
+  
 
 }
-
 
 
 void draw() {
