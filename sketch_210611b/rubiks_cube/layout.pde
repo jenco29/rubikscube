@@ -47,15 +47,6 @@ Move Down = new Move("D", OrDE, OrDC, PermDE, PermDC);
 
 StringList moveCombos = new StringList(); 
 
-void lol(){
-  Move[] allMoves = new Move[18];
-  allMoves[0] = Front;
-  allMoves[3] = Back;
-  allMoves[6] = Left;
-  allMoves[9] = Right;
-  allMoves[12] = Up;
-  allMoves[15] = Down;
-}
 
 Move ApplyMove(Move currentM, Move mov){
     int[] newOrME = new int[mov.OrME.length];
