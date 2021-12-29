@@ -26,8 +26,30 @@ class Prunes{
   return theMove;
 }
 
-  int permToIndex(int[] perm){
-    int n = perm.length;
+  int stateToIndex(int[] state, String type){
+    if(type[0] == 'C'){
+      int n = 8;
+      int v = 3;
+    }
+    else if(type[0] == 'E'){
+      int n = 12;
+      int v = 2;
+    }
+    else{
+      println(gl.glGetError());
+    }
+
+    if(type[1] == "O"){
+      int s = 0;
+
+    }
+    else if(type[1] == "P"){
+
+    }
+    else{
+      println(gl.glGetError());
+    }
+
     int index = 0;
     for(int i=1; i<n; i++){
       index = index * (n+1-i);
@@ -40,6 +62,7 @@ class Prunes{
     return index;
     
   }
+
   
   int[] indexToPerm(int index){
     int n = 5;
@@ -56,17 +79,7 @@ class Prunes{
     } 
     return perm;
   }
-  
-  int orToIndex(int[] or){
-    int n = or.length;
-    int v = 3;
-    int index = 0;
-    for(int i=0; i<n; i++){
-      index = index * v;
-      index = index + or[i];
-    }
-    return index;
-  }
+
   
   int[] indexToOr(int index){
     int v = 3;
@@ -99,7 +112,9 @@ class Prunes{
     allMoves[9] = Right;
     allMoves[12] = Up;
     allMoves[15] = Down;
+
   }
+
 }
 
 int[][] P1 = new int[2048][1];
@@ -107,10 +122,18 @@ String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D
 
 Prunes Prune1 = new Prunes(P1, movs1, null, OrIE);
 
-int[][] P2 = new int[1082565][1082565];
-String[] movs2 = {"L", "R", "F", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
+int[][] P2 = new int[2187][495];
+String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
 
 Prunes Prune2 = new Prunes(P2, movs2, OrIC, PermIE);
 
-int[][] P3 = new int[2822400][2822400];
+int[][] P3 = new int[40320][70];
 String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" };
+
+Prunes Prune3 = new Prunes(P3, movs3, PermIC, PermIE);
+//should be corner perms in G3 and the edge cubie distributions(????)
+
+int[][] P4 = new int[96][6912];
+String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
+
+Prunes Prune4 = new Prunes(P4, movs4, PermIC, PermIE);
