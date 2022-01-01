@@ -14,18 +14,10 @@ class Prunes{
   String[] Movs;
   int[] C;
   int[] E;
-  Move[] allMoves = new Move[18];
   
-  Move getMove(String mov){
-  Move theMove = null;
-  for(Move m : allMoves){
-    if(m.Name == mov){
-      theMove = m;
-    }
-  }
-  return theMove;
-}
 
+
+/*
   int stateToIndex(int[] state, String type){
     if(type[0] == 'C'){
       int n = 8;
@@ -61,7 +53,7 @@ class Prunes{
     }
     return index;
     
-  }
+  }*/
 
   
   int[] indexToPerm(int index){
@@ -105,13 +97,6 @@ class Prunes{
     this.Movs = movs;
     this.C = c;
     this.E = e;
-    
-    allMoves[0] = Front;
-    allMoves[3] = Back;
-    allMoves[6] = Left;
-    allMoves[9] = Right;
-    allMoves[12] = Up;
-    allMoves[15] = Down;
 
   }
 
