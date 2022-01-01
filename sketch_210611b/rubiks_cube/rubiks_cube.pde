@@ -14,38 +14,37 @@ void setup() {
   int cn = 0;
 
   allMoves[0] = Front;
-  Move fromt = ApplyMove(Front, Front);
-  allMoves[1] = ApplyMove(fromt,Front);//M'
+  allMoves[1] = ApplyMove(ApplyMove(Front, Front),Front);//M'
   allMoves[1].Name = "F'";
   allMoves[2] = ApplyMove(Front, Front); //M2
   allMoves[2].Name = "F2";
+
   allMoves[3] = Back;
-  fromt = ApplyMove(Back,Back);
-  allMoves[4] = ApplyMove(fromt, Back); 
+  allMoves[4] = ApplyMove(ApplyMove(Back,Back), Back); 
   allMoves[4].Name = "B'";
   allMoves[5] = ApplyMove(Back, Back);
   allMoves[5].Name = "B2";
+
   allMoves[6] = Left;
-  fromt = ApplyMove(Left, Left);
-  allMoves[7] = ApplyMove(fromt, Left);
+  allMoves[7] = ApplyMove(ApplyMove(Left, Left), Left);
   allMoves[7].Name = "L'";
   allMoves[8] = ApplyMove(Left, Left);
   allMoves[8].Name = "L2";
+
   allMoves[9] = Right;
-  fromt = ApplyMove(Right, Right);
-  allMoves[10] = ApplyMove(fromt, Right);
+  allMoves[10] = ApplyMove(ApplyMove(Right, Right), Right);
   allMoves[10].Name = "R'";
   allMoves[11] = ApplyMove(Right, Right);
   allMoves[11].Name = "R2";
+
   allMoves[12] = Up;
-  fromt = ApplyMove(Up, Up);
-  allMoves[13] = ApplyMove(fromt, Up);
+  allMoves[13] = ApplyMove(ApplyMove(Up, Up), Up);
   allMoves[13].Name = "U'";
   allMoves[14] = ApplyMove(Up, Up);
   allMoves[14].Name = "U2";
+
   allMoves[15] = Down;
-  fromt = ApplyMove(Down, Down);
-  allMoves[16] = ApplyMove(fromt, Down);
+  allMoves[16] = ApplyMove(ApplyMove(Down, Down), Down);
   allMoves[16].Name = "D'";
   allMoves[17] = ApplyMove(Down, Down);
   allMoves[17].Name = "D2'";
@@ -71,33 +70,25 @@ void setup() {
       }
     }
   }
-
-  //check correct no. of each piece type
-  println(e);
-  println(c);
-  println(cn);
-
   
   //SHUFFLE
   //random number of moves
   //could only allow specific combos of moves to avoid cancellation- doing a larger shuffle mitigates this somewhat
   StringList shuffle = new StringList();
 
-  Move thisMove = Identity;
-  
   int m = int(random(100, 130));
   for(int i=0; i<m; i++){
     //random moves
     int num = int(random(0, 11));
     shuffle.append(moves_[num]);
     moving(moves_[num]);
-    println(moves_[num]);
-    Move temp = getMove(moves_[num]);
-    Move layout = ApplyMove(thisMove, temp);
-    println(layout.Name);
-    //thisMove = layout;
   }
   
+  println(ApplyMove(Front, allMoves[13]).PermME);
+  println(ApplyMove(Front, allMoves[13]).PermMC);
+  println(ApplyMove(Front, allMoves[13]).OrME);
+  println(ApplyMove(Front, allMoves[13]).OrMC);
+  println(ApplyMove(Front, allMoves[13]).Name);
 
 }
 

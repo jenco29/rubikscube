@@ -8,14 +8,39 @@ Boolean isFull(int[] arr){
   return full;
 }
 
+ int[] indexToPerm(int index){
+    int n = 5;
+    int[] perm = new int[n];
+    perm[n] = 1;
+    for(int i=n-1; i>0; i--){
+      perm[i] = 1 + (index % (n-i+1));
+      index = (index - (index % (n-i+1))) / (n-i+1);
+      for(int j=i+1; j<n+1; j++){
+        if(perm[j] >= perm[i]){
+          perm[j] = perm[j] + 1;
+        }
+      }
+    } 
+    return perm;
+  }
 
-class Prunes{
-  int[][] P;
-  String[] Movs;
-  int[] C;
-  int[] E;
+   int[] indexToOr(int index){
+    int v = 3;
+    int s = 0;
+    int n = 20;
+    int[] or = new int[n];
+    for(int i=n; i>0; i--){
+      or[i] = index % v;
+      s = s - or[i];
+      if(s<0){
+        s += v;
+      }
+      index = (index-or[i]) / v;
+    }
+    or[n] = s;
+    return or;
+  }
   
-
 
 /*
   int stateToIndex(int[] state, String type){
@@ -55,41 +80,12 @@ class Prunes{
     
   }*/
 
-  
-  int[] indexToPerm(int index){
-    int n = 5;
-    int[] perm = new int[n];
-    perm[n] = 1;
-    for(int i=n-1; i>0; i--){
-      perm[i] = 1 + (index % (n-i+1));
-      index = (index - (index % (n-i+1))) / (n-i+1);
-      for(int j=i+1; j<n+1; j++){
-        if(perm[j] >= perm[i]){
-          perm[j] = perm[j] + 1;
-        }
-      }
-    } 
-    return perm;
-  }
+class Prunes{
+  int[][] P;
+  String[] Movs;
+  int[] C;
+  int[] E;
 
-  
-  int[] indexToOr(int index){
-    int v = 3;
-    int s = 0;
-    int n = 20;
-    int[] or = new int[n];
-    for(int i=n; i>0; i--){
-      or[i] = index % v;
-      s = s - or[i];
-      if(s<0){
-        s += v;
-      }
-      index = (index-or[i]) / v;
-    }
-    or[n] = s;
-    return or;
-  }
-  
   
   Prunes(int[][] p, String[] movs, int[] c, int[] e){
     
