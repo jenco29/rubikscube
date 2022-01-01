@@ -92,8 +92,10 @@ void setup() {
     shuffle.append(moves_[num]);
     moving(moves_[num]);
     println(moves_[num]);
-    Move layout = ApplyMove(thisMove, getMove(moves_[num]));
-    thisMove = layout;
+    Move temp = getMove(moves_[num]);
+    Move layout = ApplyMove(thisMove, temp);
+    println(layout.Name);
+    //thisMove = layout;
   }
   
 
