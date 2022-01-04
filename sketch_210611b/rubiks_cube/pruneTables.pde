@@ -1,84 +1,103 @@
-Boolean isFull(int[] arr){
-  Boolean full = false;
-  for(int i=0; i< arr.length; i++){
-    if(arr[i] == -1){
+Boolean hasVal(int[] arr, int num){
+  Boolean has = false;
+  for(int i : arr){
+    if(i == num){
+      has = true;
       break;
     }
   }
-  return full;
+  return has;
 }
+ 
+  int[] indexToState(int index, String type){
+    int n;
+    int v;
+    int s;
 
- int[] indexToPerm(int index){
-    int n = 5;
-    int[] perm = new int[n];
-    perm[n] = 1;
-    for(int i=n-1; i>0; i--){
-      perm[i] = 1 + (index % (n-i+1));
-      index = (index - (index % (n-i+1))) / (n-i+1);
-      for(int j=i+1; j<n+1; j++){
-        if(perm[j] >= perm[i]){
-          perm[j] = perm[j] + 1;
+    if(type.charAt(0) == 'C'){
+      n = 8;
+      v = 3;
+    }
+    else if(type.charAt(0) == 'E' ){
+      n = 12;
+      v = 2;
+    }
+
+    else{
+      n = 0;
+      v = 0;
+    }
+
+    int[] X = new int[n];
+
+    if(type.charAt(1) == 'O'){
+      s = 0;
+      for(int i=n-1; i>0; i--){
+        X[i] = index % v;
+        s = s - X[i];
+        if(s < 0){
+          s = s + v;
+        }
+        index = (index - X[i]) / v;
+      }
+      X[n] = s;
+      
+    }
+
+    else if(type.charAt(1) == 'P'){
+      X[n] = 1;
+      for(int i=n-1; n>0; i--){
+        X[i] = 1 + index % (n-i+1);
+        index = (index - (index % (n-i+1))) / (n-i+1);
+        for(int j = i+1; j<n+1; j++){
+          if(X[j] >= X[i]){
+            X[j] = X[j] + 1;
+          }
         }
       }
-    } 
-    return perm;
-  }
 
-   int[] indexToOr(int index){
-    int v = 3;
-    int s = 0;
-    int n = 20;
-    int[] or = new int[n];
-    for(int i=n; i>0; i--){
-      or[i] = index % v;
-      s = s - or[i];
-      if(s<0){
-        s += v;
-      }
-      index = (index-or[i]) / v;
     }
-    or[n] = s;
-    return or;
+
+    return X;
   }
   
 
-/*
-  int stateToIndex(int[] state, String type){
-    if(type[0] == 'C'){
-      int n = 8;
-      int v = 3;
-    }
-    else if(type[0] == 'E'){
-      int n = 12;
-      int v = 2;
-    }
-    else{
-      println(gl.glGetError());
-    }
 
-    if(type[1] == "O"){
-      int s = 0;
-
-    }
-    else if(type[1] == "P"){
-
-    }
-    else{
-      println(gl.glGetError());
-    }
-
+  int stateToIndex(int[] state){
+    int n = state.length;
     int index = 0;
-    for(int i=1; i<n; i++){
-      index = index * (n+1-i);
-      for(int j=i+1; j<n+1; j++){
-        if(perm[i] > perm[j]){
-          index += 1;
-        }
+    int v;
+    
+    if(n == 8){
+      v = 3;
+    }
+    else{
+      v = 2;
+    }
+    
+    if(hasVal(state, n)){
+      for(int i=0; i<n; i++){
+        index = index * (n + 1 -i);
+        for(int j= i+1; j<n+1; j++){
+          if(state[i] > state[j]){
+            index += 1;
+            }
+          }
+        }      
+    }
+    
+    else{
+      for(int i=0; i<n; i++){
+        index = index * v;
+        index = index + state[i];
       }
     }
+
     return index;
     
-  }*/
+  }
+  
+  
 
 class Prunes{
   int[][] P;
