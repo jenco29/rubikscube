@@ -40,7 +40,7 @@ Boolean hasVal(int[] arr, int num){
         }
         index = (index - X[i]) / v;
       }
-      X[n] = s;
+      X[n-1] = s;
       
     }
 
@@ -121,6 +121,8 @@ int[][] P1 = new int[2048][1];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
 Prunes Prune1 = new Prunes(P1, movs1, null, OrIE);
+
+
 
 int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};

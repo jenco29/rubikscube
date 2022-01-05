@@ -89,7 +89,16 @@ void setup() {
   println(ApplyMove(Front, allMoves[13]).OrME);
   println(ApplyMove(Front, allMoves[13]).OrMC);
   println(ApplyMove(Front, allMoves[13]).Name);
+  
 
+  
+  for(Move k : allMoves){
+    println(stateToIndex(k.OrME));
+  }
+  
+    println(indexToState(4095, "EO"));
+
+  
 }
 
 
