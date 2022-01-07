@@ -8,6 +8,19 @@ Boolean hasVal(int[] arr, int num){
   }
   return has;
 }
+
+Boolean isFull(int[][] arr){
+  for(int i=0; i<arr.length; i++){
+    for(int j=0; j<arr.length; j++){
+      if (int[i][j] == null){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+<int, int>
  
   int[] indexToState(int index, String type){
     int n;
@@ -121,6 +134,14 @@ int[][] P1 = new int[2048][1];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
 Prunes Prune1 = new Prunes(P1, movs1, null, OrIE);
+
+int n = stateToIndex(Identity.OrME);
+int d = 0;
+P1[n][1] = d;
+while(!isFull(P1)){
+  d+=1;
+
+}
 
 
 
