@@ -74,15 +74,7 @@ void setup() {
   //SHUFFLE
   //random number of moves
   //could only allow specific combos of moves to avoid cancellation- doing a larger shuffle mitigates this somewhat
-  StringList shuffle = new StringList();
 
-  int m = int(random(100, 130));
-  for(int i=0; i<m; i++){
-    //random moves
-    int num = int(random(0, 11));
-    shuffle.append(moves_[num]);
-    moving(moves_[num]);
-  }
   
   println(ApplyMove(Front, allMoves[13]).PermME);
   println(ApplyMove(Front, allMoves[13]).PermMC);
@@ -96,21 +88,37 @@ void setup() {
     println(stateToIndex(k.OrME));
   }
   
-    println(indexToState(4095, "EO"));
+    println(indexToState(4095, "CO"));
+    
+    println(ApplyMove(Front, Up).OrMC);
 
   
 }
-
-
+int frameCount = 0;
+int m = int(random(100, 130));
 void draw() {
   background(255); 
   fill(0);
   text("Up", 120, 40, 280, 320);
   text("Down", 40, 40, 280, 320);
-  
+  frameCount ++;
   
   scale(50);
   for (int i = 0; i < cube.length; i++) {
     cube[i].show();
   }
+  
+ 
+if(frameCount % 10 == 0 && (frameCount / 10) < m){
+   StringList shuffle = new StringList();
+  
+  
+    int num = int(random(0, 11));
+    shuffle.append(moves_[num]);
+    moving(moves_[num]);
+}
+  
+
+  
+
 }

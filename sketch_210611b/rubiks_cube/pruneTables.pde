@@ -11,8 +11,8 @@ Boolean hasVal(int[] arr, int num){
 
 Boolean isFull(int[][] arr){
   for(int i=0; i<arr.length; i++){
-    for(int j=0; j<arr.length; j++){
-      if (int[i][j] == null){
+    for(int j=0; j<arr[i].length; j++){
+      if (arr[i][j] == -1){
         return false;
       }
     }
@@ -20,7 +20,33 @@ Boolean isFull(int[][] arr){
   return true;
 }
 
-<int, int>
+IntList hasDx(int[][] arr, int d){
+  IntList dVals = new IntList();
+  for(int i=0; i< arr.length; i++){
+    for(int j=0; j<arr[i].length; j++){
+       if(arr[i][j] == d-1){
+          dVals.append(i);
+       }
+       
+    }
+  }
+  return dVals;
+
+}
+
+IntList hasDy(int[][] arr, int d){
+  IntList dVals = new IntList();
+  for(int i=0; i< arr.length; i++){
+    for(int j=0; j<arr[i].length; j++){
+       if(arr[i][j] == d-1){
+          dVals.append(j);
+       }
+       
+    }
+  }
+  return dVals;
+
+}
  
   int[] indexToState(int index, String type){
     int n;
@@ -90,7 +116,7 @@ Boolean isFull(int[][] arr){
     
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
-        index = index * (n + 1 -i);
+        //index = index * (n + 1 -i);
         for(int j= i+1; j<n+1; j++){
           if(state[i] > state[j]){
             index += 1;
@@ -101,7 +127,7 @@ Boolean isFull(int[][] arr){
     
     else{
       for(int i=0; i<n; i++){
-        index = index * v;
+        //index = index * v;
         index = index + state[i];
       }
     }
@@ -117,46 +143,70 @@ class Prunes{
   String[] Movs;
   int[] C;
   int[] E;
+  String typeC;
+  String typeE;
 
   
-  Prunes(int[][] p, String[] movs, int[] c, int[] e){
+  Prunes(int[][] p, String[] movs, int[] c, int[] e, String tc, String te){
     
     this.P = p;
     this.Movs = movs;
     this.C = c;
     this.E = e;
+    this.typeC = tc;
+    this.typeE = te;
+    
 
   }
+  
+  void generate(){
+    int n = stateToIndex(C);
+    int m = stateToIndex(E);
+    for(int i=0; i<n; i++){
+      for(int j=0; j<m; j++){
+        P[n][m] = -1;
+      }
+    }
+    
+    int d = 0;
+    P[n][m] = d;
+    while(!isFull(P)){
+      d += 1;
+      IntList x = hasDx(P, d);
+      IntList y = hasDy(P, d);
+      for(int i=0; i< x.size() -1; i++){
+        int[] currentC = indexToState(i, typeC);
+
+       
+        
+      }
+    }
+    
+  }
+  
 
 }
 
-int[][] P1 = new int[2048][1];
+int[][] P1 = new int[1][2048];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune1 = new Prunes(P1, movs1, null, OrIE);
+Prunes Prune1 = new Prunes(P1, movs1, null, OrIE, null, "EO");
 
-int n = stateToIndex(Identity.OrME);
-int d = 0;
-P1[n][1] = d;
-while(!isFull(P1)){
-  d+=1;
-
-}
 
 
 
 int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
 
-Prunes Prune2 = new Prunes(P2, movs2, OrIC, PermIE);
+Prunes Prune2 = new Prunes(P2, movs2, OrIC, PermIE, "CO", "EP");
 
 int[][] P3 = new int[40320][70];
 String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune3 = new Prunes(P3, movs3, PermIC, PermIE);
+Prunes Prune3 = new Prunes(P3, movs3, PermIC, PermIE, "CP", "EP");
 //should be corner perms in G3 and the edge cubie distributions(????)
 
 int[][] P4 = new int[96][6912];
 String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
 
-Prunes Prune4 = new Prunes(P4, movs4, PermIC, PermIE);
+Prunes Prune4 = new Prunes(P4, movs4, PermIC, PermIE, "CP", "EP");
