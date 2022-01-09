@@ -87,11 +87,8 @@ void draw() {
     }
     else{
        Move R = getState(shuffle);
-       
-       println(R.OrME);
-       println(R.OrMC);
-       println(R.PermME);
-       println(R.PermMC);
+       StringList stage1 = solver(R);
+       println(stage1);
     }
       
   }
