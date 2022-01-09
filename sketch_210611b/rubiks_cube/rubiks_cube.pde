@@ -77,17 +77,17 @@ void draw() {
   for (int i = 0; i < cube.length; i++) {
     cube[i].show();
   }
-  
+  StringList shuffle = new StringList();
  
   if(frameCount % 10 == 0 && (frameCount / 10) < m){
-     StringList shuffle = new StringList();
-    
     
       int num = int(random(0, 11));
       shuffle.append(moves_[num]);
       moving(moves_[num]);
- 
+      
   }
+  
+  Move R = getState(shuffle);
     
 
   
