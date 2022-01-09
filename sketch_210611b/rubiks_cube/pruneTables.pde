@@ -12,7 +12,7 @@ Boolean hasVal(int[] arr, int num){
 Boolean isFull(int[][] arr){
   for(int i=0; i<arr.length; i++){
     for(int j=0; j<arr[i].length; j++){
-      if (arr[i][j] == -1){
+      if (arr[i][j] == 0){
         return false;
       }
     }
@@ -116,7 +116,7 @@ IntList hasDy(int[][] arr, int d){
     
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
-        //index = index * (n + 1 -i);
+        index = index * (n + 1 -i);
         for(int j= i+1; j<n+1; j++){
           if(state[i] > state[j]){
             index += 1;
@@ -127,7 +127,7 @@ IntList hasDy(int[][] arr, int d){
     
     else{
       for(int i=0; i<n; i++){
-        //index = index * v;
+        index = index * v;
         index = index + state[i];
       }
     }
@@ -162,11 +162,6 @@ class Prunes{
   void generate(){
     int n = stateToIndex(C);
     int m = stateToIndex(E);
-    for(int i=0; i<n; i++){
-      for(int j=0; j<m; j++){
-        P[n][m] = -1;
-      }
-    }
     
     int d = 0;
     P[n][m] = d;
@@ -180,8 +175,7 @@ class Prunes{
        
         
       }
-    }
-    
+    } 
   }
   
 
@@ -191,8 +185,6 @@ int[][] P1 = new int[1][2048];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
 Prunes Prune1 = new Prunes(P1, movs1, null, OrIE, null, "EO");
-
-
 
 
 int[][] P2 = new int[2187][495];

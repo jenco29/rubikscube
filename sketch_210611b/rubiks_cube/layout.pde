@@ -86,7 +86,14 @@ Move ApplyMove(Move currentM, Move mov){
   return theMove;
 }
 
-
+  Move getState(StringList movShuffle){
+    Move state = Identity;
+    for(String mov : movShuffle){
+      state = ApplyMove(state, getMove(mov));
+    }
+    
+    return state;
+  }
 
 
 class Move{

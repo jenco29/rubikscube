@@ -4,14 +4,13 @@ PeasyCam cam;
 cubes[] cube = new cubes[27];
 Move[] allMoves = new Move[18];
 
+int frameCount = 0;
+int m = int(random(100, 130));
 
 void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
   int index = 0;
-  int e = 0;
-  int c = 0;
-  int cn = 0;
 
   allMoves[0] = Front;
   allMoves[1] = ApplyMove(ApplyMove(Front, Front),Front);//M'
@@ -55,47 +54,18 @@ void setup() {
         PMatrix3D matrix = new PMatrix3D();
         matrix.translate(x, y, z);
         cube[index] = new cubes(matrix, x, y, z);
-        println(pieceType(index));
-        if(pieceType(index) == corner){
-          c++;
-        }
-        if(pieceType(index) == edge){
-          e++;
-        }
-        if(pieceType(index) == centre){
-          cn++;
-        }
         //forward, down, right
         index++;
       }
     }
   }
   
-  //SHUFFLE
-  //random number of moves
-  //could only allow specific combos of moves to avoid cancellation- doing a larger shuffle mitigates this somewhat
-
+  println(stateToIndex(Identity.OrME));
   
-  println(ApplyMove(Front, allMoves[13]).PermME);
-  println(ApplyMove(Front, allMoves[13]).PermMC);
-  println(ApplyMove(Front, allMoves[13]).OrME);
-  println(ApplyMove(Front, allMoves[13]).OrMC);
-  println(ApplyMove(Front, allMoves[13]).Name);
-  
-
-  
-  for(Move k : allMoves){
-    println(stateToIndex(k.OrME));
-  }
-  
-    println(indexToState(4095, "CO"));
-    
-    println(ApplyMove(Front, Up).OrMC);
-
+  String[] lines = loadStrings("P1.txt");
   
 }
-int frameCount = 0;
-int m = int(random(100, 130));
+
 void draw() {
   background(255); 
   fill(0);
@@ -109,15 +79,16 @@ void draw() {
   }
   
  
-if(frameCount % 10 == 0 && (frameCount / 10) < m){
-   StringList shuffle = new StringList();
-  
-  
-    int num = int(random(0, 11));
-    shuffle.append(moves_[num]);
-    moving(moves_[num]);
-}
-  
+  if(frameCount % 10 == 0 && (frameCount / 10) < m){
+     StringList shuffle = new StringList();
+    
+    
+      int num = int(random(0, 11));
+      shuffle.append(moves_[num]);
+      moving(moves_[num]);
+ 
+  }
+    
 
   
 
