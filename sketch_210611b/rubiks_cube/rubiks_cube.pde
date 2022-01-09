@@ -60,9 +60,6 @@ void setup() {
     }
   }
   
-  println(stateToIndex(Identity.OrME));
-  
-  String[] lines = loadStrings("P1.txt");
   
 }
 

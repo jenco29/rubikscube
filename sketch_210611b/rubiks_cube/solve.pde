@@ -8,10 +8,13 @@ apply each move to the new layout and repeat until distance is 0
 move onto next prune table
 */
 
-StringList solver(){
+StringList solver(Move R){
   
+  String[] lines = loadStrings("P1.txt");
+  for(int i=0; i<lines.length; i++){
+    P1[1][i] = Integer.valueOf(lines[i]);
+  }
   StringList solve = new StringList();
-  Move R = getState(solve);
   int n = stateToIndex(R.OrME);
   int N = P1[n][1];
   
