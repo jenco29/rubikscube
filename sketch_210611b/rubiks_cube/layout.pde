@@ -40,7 +40,7 @@ Move ApplyMove(Move currentM, Move mov){
   Move getMove(String mov){
   Move theMove = null;
   for(Move m : allMoves){
-    if(m.Name == mov){
+    if(m.Name.equals(mov)){
       theMove = m;
     }
   }

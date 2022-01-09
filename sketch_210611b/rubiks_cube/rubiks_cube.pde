@@ -6,6 +6,8 @@ Move[] allMoves = new Move[18];
 
 int frameCount = 0;
 int m = int(random(100, 130));
+StringList shuffle = new StringList();
+int shuffleCount = 0;
 
 void setup() {
   size(600, 600, P3D);
@@ -60,32 +62,40 @@ void setup() {
     }
   }
   
-  
 }
 
 void draw() {
   background(255); 
   fill(0);
   text("Up", 120, 40, 280, 320);
-  text("Down", 40, 40, 280, 320);
+  text("Down", 120, 270, 280, 320);
+  text("Left", 20, 140, 280, 320);
+  text("Right", 240, 140, 280, 320);
   frameCount ++;
   
   scale(50);
   for (int i = 0; i < cube.length; i++) {
     cube[i].show();
   }
-  StringList shuffle = new StringList();
  
-  if(frameCount % 10 == 0 && (frameCount / 10) < m){
-    
+  if(frameCount % 5 == 0){
+    if(shuffleCount < m){
       int num = int(random(0, 11));
       shuffle.append(moves_[num]);
       moving(moves_[num]);
+      shuffleCount++;
+    }
+    else{
+       Move R = getState(shuffle);
+       
+       println(R.OrME);
+       println(R.OrMC);
+       println(R.PermME);
+       println(R.PermMC);
+    }
       
   }
   
-  Move R = getState(shuffle);
-    
 
   
 
