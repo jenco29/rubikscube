@@ -27,13 +27,11 @@ final int[] OrIE = {1,1,1,1,1,1,1,1,1,1,1,1};
 final int[] PermFC = {1, 7, 3, 5, 2, 6, 4, 8};
 final int[] PermFE = {1, 2, 3, 4, 5, 10, 9, 8, 6, 7, 11, 12};
 final int[] OrFC = {0,1,0,1,2,0,2,0};
-final int[] OrFE = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 //back
 final int[] PermBC = {6, 5, 3, 4, 1, 2, 7, 8};
 final int[] PermBE = {1, 2, 3, 4, 12, 6, 7, 11, 9, 10, 5, 8};
 final int[] OrBC = {1,0,1,0,0,2,0,2};
-final int[] OrBE = {0,0,0,0,0,0,0,0,0,0,0,0}; 
 
 //left
 final int[] PermLC = {6, 5, 3, 4, 1, 2, 7, 8};

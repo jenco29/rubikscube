@@ -1,6 +1,6 @@
 Move Identity = new Move("I", OrIE, OrIC, PermIE, PermIC);
-Move Front = new Move("F", OrFE, OrFC, PermFE, PermFC);
-Move Back = new Move("B", OrBE, OrBC, PermBE, PermBC);
+Move Front = new Move("F", OrIE, OrFC, PermFE, PermFC);
+Move Back = new Move("B", OrIE, OrBC, PermBE, PermBC);
 Move Left = new Move("L", OrIE, OrIC, PermLE, PermLC);
 Move Right = new Move("R", OrIE, OrIC, PermRE, PermRC);
 Move Up = new Move("U", OrUE, OrUC, PermUE, PermUC);
