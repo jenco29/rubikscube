@@ -10,6 +10,7 @@ move onto next prune table
 
 StringList solver(Move R){
   
+  Prune1.generate();
   String[] lines = loadStrings("P1.txt");
   for(int i=0; i<lines.length; i++){
     P1[0][i] = Integer.valueOf(lines[i]);

@@ -62,8 +62,6 @@ void setup() {
     }
   }
   
-  Prune1.generate();
-  println(P1[0][344]);
 }
 
 void draw() {
