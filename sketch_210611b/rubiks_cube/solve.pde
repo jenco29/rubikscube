@@ -20,7 +20,7 @@ StringList solver(Move R){
   
   while(N > 0){
       for(int i=0; i<18; i++){
-          Move R2 = ApplyMove(R, getMove(movs1[i]));
+          Move R2 = R.ApplyMove(getMove(movs1[i]));
           n = stateToIndex(R2.OrME)/2;
           int M = P1[0][n];
   

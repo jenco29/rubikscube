@@ -8,35 +8,6 @@ Move Down = new Move("D", OrDE, OrDC, PermDE, PermDC);
 
 StringList moveCombos = new StringList(); 
 
-
-Move ApplyMove(Move currentM, Move mov){
-    int[] newOrME = new int[mov.OrME.length];
-    int[] newOrMC = new int[mov.OrMC.length];
-    int[] newPermME = new int[mov.PermME.length];
-    int[] newPermMC = new int[mov.PermMC.length];
-    
-    
-    for(int i=0; i<(mov.PermME.length); i++){
-        newPermME[i] = currentM.PermME[mov.PermME[i]-1];
-    }
-
-    for(int i=0; i<(mov.PermMC.length); i++){
-        newPermMC[i] = currentM.PermMC[mov.PermMC[i]-1];
-    }
-
-    for(int i=0; i<(mov.OrME.length); i++){
-        newOrME[i] = (currentM.OrME[i] + mov.OrME[i]) % 2;
-    }
-
-    for(int i=0; i<(mov.OrMC.length); i++){
-        newOrMC[i] = (currentM.OrMC[i] + mov.OrMC[i]) % 3;
-    }
-
-    Move newM = new Move(currentM.Name + mov.Name, newOrME, newOrMC, newPermME, newPermMC);
-    return newM;
-
-}
-
   Move getMove(String mov){
   Move theMove = null;
   for(Move m : allMoves){
@@ -50,7 +21,7 @@ Move ApplyMove(Move currentM, Move mov){
   Move getState(StringList movShuffle){
     Move state = Identity;
     for(String mov : movShuffle){
-      state = ApplyMove(state, getMove(mov));
+      state = state.ApplyMove(getMove(mov));
     }
     
     return state;
@@ -72,4 +43,32 @@ class Move{
         this.PermMC = permc;
         this.Name = name;
     }
+    
+    Move ApplyMove(Move mov){
+    int[] newOrME = new int[mov.OrME.length];
+    int[] newOrMC = new int[mov.OrMC.length];
+    int[] newPermME = new int[mov.PermME.length];
+    int[] newPermMC = new int[mov.PermMC.length];
+    
+    
+    for(int i=0; i<(mov.PermME.length); i++){
+        newPermME[i] = PermME[mov.PermME[i]-1];
+    }
+
+    for(int i=0; i<(mov.PermMC.length); i++){
+        newPermMC[i] = PermMC[mov.PermMC[i]-1];
+    }
+
+    for(int i=0; i<(mov.OrME.length); i++){
+        newOrME[i] = (OrME[i] + mov.OrME[i]) % 2;
+    }
+
+    for(int i=0; i<(mov.OrMC.length); i++){
+        newOrMC[i] = (OrMC[i] + mov.OrMC[i]) % 3;
+    }
+
+    Move newM = new Move(Name + mov.Name, newOrME, newOrMC, newPermME, newPermMC);
+    return newM;
+
+}
 }

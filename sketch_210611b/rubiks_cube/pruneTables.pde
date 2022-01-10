@@ -12,7 +12,7 @@ Boolean hasVal(int[] arr, int num){
 Boolean isFull(int[][] arr){
   for(int i=0; i<arr.length; i++){
     for(int j=0; j<arr[i].length; j++){
-      if (arr[i][j] == 0){
+      if (arr[i][j] == -1){
         return false;
       }
     }
@@ -20,35 +20,9 @@ Boolean isFull(int[][] arr){
   return true;
 }
 
-IntList hasDx(int[][] arr, int d){
-  IntList dVals = new IntList();
-  for(int i=0; i< arr.length; i++){
-    for(int j=0; j<arr[i].length; j++){
-       if(arr[i][j] == d-1){
-          dVals.append(i);
-       }
-       
-    }
-  }
-  return dVals;
-
-}
-
-IntList hasDy(int[][] arr, int d){
-  IntList dVals = new IntList();
-  for(int i=0; i< arr.length; i++){
-    for(int j=0; j<arr[i].length; j++){
-       if(arr[i][j] == d-1){
-          dVals.append(j);
-       }
-       
-    }
-  }
-  return dVals;
-
-}
  
   int[] indexToState(int index, String type){
+    //EO, EP, CO, CP
     int n;
     int v;
     int s;
@@ -117,7 +91,7 @@ IntList hasDy(int[][] arr, int d){
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
         index = index * (n + 1 -i);
-        for(int j= i+1; j<n+1; j++){
+        for(int j= i+1; j<n; j++){
           if(state[i] > state[j]){
             index += 1;
             }
@@ -159,29 +133,72 @@ class Prunes{
 
   }
   
+  int[] applyState(int[] curStat, int[] stat, String type){
+    int n;
+    int m;
+    if(type.charAt(0) == 'E'){
+      n = 12; 
+      m = 2;
+    }
+    else{
+      n = 8;
+      m = 3;
+    }
+    int[] newS = new int[n];
+    switch(type.charAt(1)){
+      case('P'):
+        for(int i=0; i<n; i++){
+          newS[i] = curStat[stat[i]-1];
+        }
+        return newS;
+        
+      case('O'):
+         for(int i=0; i<n; i++){
+           newS[i] = (curStat[i] + stat[i]) % m;
+          }
+          return newS;
+      default:
+        return null;
+    }
+  }
+  
   void generate(){
+    for(int i=0; i<P.length; i++){
+      for(int j=0; j<P[i].length; j++){
+        P[i][j] = -1;
+      }
+    }
     int n = stateToIndex(C);
     int m = stateToIndex(E);
     
-    int d = 0;
-    P[n][m] = d;
-    while(!isFull(P)){
-      d += 1;
-      IntList x = hasDx(P, d);
-      IntList y = hasDy(P, d);
-      for(int i=0; i< x.size() -1; i++){
-        int[] currentC = indexToState(i, typeC);
-
-       
-        
+    P[0][m] = 0;
+    int len = 0;
+    int c;
+    
+    do{
+      c = 0;
+      for(int p=1; p<P.length + 1; p++){
+        if(P[0][p] == len){
+          for(String s : Movs){
+            Move cur = getMove(s);
+            int[] t = indexToState(p, typeE);
+            int q = stateToIndex(applyState(t, cur.E));
+          }
+        }
       }
-    } 
+    }
+    while(c >0);
+     
+  }
+  
+  int[] getType(Move m){
+    
   }
   
 
 }
 
-int[][] P1 = new int[1][2048];
+int[][] P1 = new int[1][4096];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
 Prunes Prune1 = new Prunes(P1, movs1, null, OrIE, null, "EO");
