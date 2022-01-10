@@ -20,7 +20,7 @@ final int core = 3;
 //identity
 final int[] PermIC = {1, 2, 3, 4, 5, 6, 7, 8};
 final int[] PermIE = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-final int[] OrIC = {1,1,1,1,1,1,1,1};
+final int[] OrIC = {0,0,0,0,0,0,0,0};
 final int[] OrIE = {1,1,1,1,1,1,1,1,1,1,1,1};
 
 //front
