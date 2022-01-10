@@ -3,7 +3,7 @@ Boolean hasVal(int[] arr, int num){
   for(int i : arr){
     if(i == num){
       has = true;
-      break;
+      return has;
     }
   }
   return has;
