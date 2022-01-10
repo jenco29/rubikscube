@@ -182,17 +182,19 @@ class Prunes{
           for(String s : Movs){
             Move cur = getMove(s);
             int[] t = indexToState(p, typeE);
-            int q = stateToIndex(applyState(t, cur.E));
+            int q = stateToIndex(applyState(t, cur.OrME, typeE));
+            if(P[0][q] == -1){
+              c += 1;
+              P[0][q] = len+1;
+            }
           }
         }
       }
+      len += 1;
+      println(c + "positions at distance " + len);
     }
     while(c >0);
      
-  }
-  
-  int[] getType(Move m){
-    
   }
   
 
@@ -201,8 +203,7 @@ class Prunes{
 int[][] P1 = new int[1][4096];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune1 = new Prunes(P1, movs1, null, OrIE, null, "EO");
-
+Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "", "EO");
 
 int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};

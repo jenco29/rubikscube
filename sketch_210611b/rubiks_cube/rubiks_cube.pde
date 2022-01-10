@@ -62,7 +62,8 @@ void setup() {
     }
   }
   
-  println(stateToIndex(Down.ApplyMove(Up.ApplyMove(Down)).OrME));
+  Prune1.generate();
+  println(P1[0][344]);
 }
 
 void draw() {
@@ -89,7 +90,6 @@ void draw() {
     else{
        Move R = getState(shuffle);
        StringList stage1 = solver(R);
-       println(stage1);
     }
       
   }
