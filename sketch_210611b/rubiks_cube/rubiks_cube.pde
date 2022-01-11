@@ -62,6 +62,8 @@ void setup() {
     }
   }
   
+  println(indexToState(3855, "EO"));
+  
 }
 
 void draw() {

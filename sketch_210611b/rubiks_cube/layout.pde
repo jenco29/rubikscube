@@ -45,30 +45,46 @@ class Move{
     }
     
     Move ApplyMove(Move mov){
-    int[] newOrME = new int[mov.OrME.length];
-    int[] newOrMC = new int[mov.OrMC.length];
-    int[] newPermME = new int[mov.PermME.length];
-    int[] newPermMC = new int[mov.PermMC.length];
-    
-    
-    for(int i=0; i<(mov.PermME.length); i++){
-        newPermME[i] = PermME[mov.PermME[i]-1];
+      int[] newOrME = new int[mov.OrME.length];
+      int[] newOrMC = new int[mov.OrMC.length];
+      int[] newPermME = new int[mov.PermME.length];
+      int[] newPermMC = new int[mov.PermMC.length];
+      
+      
+      for(int i=0; i<(mov.PermME.length); i++){
+          newPermME[i] = PermME[mov.PermME[i]-1];
+      }
+  
+      for(int i=0; i<(mov.PermMC.length); i++){
+          newPermMC[i] = PermMC[mov.PermMC[i]-1];
+      }
+  
+      for(int i=0; i<(mov.OrME.length); i++){
+          newOrME[i] = (OrME[i] + mov.OrME[i]) % 2;
+      }
+  
+      for(int i=0; i<(mov.OrMC.length); i++){
+          newOrMC[i] = (OrMC[i] + mov.OrMC[i]) % 3;
+      }
+  
+      Move newM = new Move(Name + mov.Name, newOrME, newOrMC, newPermME, newPermMC);
+      return newM;
+  
+  }
+  
+  int[] getType(String m){
+    switch(m){
+      case("EO"):
+      return OrME;
+      case("EP"):
+      return PermME;
+      case("CO"):
+      return OrMC;
+      case("CP"):
+      return PermMC;
+      default:
+      return null;
     }
-
-    for(int i=0; i<(mov.PermMC.length); i++){
-        newPermMC[i] = PermMC[mov.PermMC[i]-1];
-    }
-
-    for(int i=0; i<(mov.OrME.length); i++){
-        newOrME[i] = (OrME[i] + mov.OrME[i]) % 2;
-    }
-
-    for(int i=0; i<(mov.OrMC.length); i++){
-        newOrMC[i] = (OrMC[i] + mov.OrMC[i]) % 3;
-    }
-
-    Move newM = new Move(Name + mov.Name, newOrME, newOrMC, newPermME, newPermMC);
-    return newM;
-
-}
+  }
+ 
 }

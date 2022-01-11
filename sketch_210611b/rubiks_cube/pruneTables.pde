@@ -20,7 +20,7 @@ Boolean isFull(int[][] arr){
   return true;
 }
 
- 
+
   int[] indexToState(int index, String type){
     //EO, EP, CO, CP
     int n;
@@ -133,35 +133,6 @@ class Prunes{
 
   }
   
-  int[] applyState(int[] curStat, int[] stat, String type){
-    int n;
-    int m;
-    if(type.charAt(0) == 'E'){
-      n = 12; 
-      m = 2;
-    }
-    else{
-      n = 8;
-      m = 3;
-    }
-    int[] newS = new int[n];
-    switch(type.charAt(1)){
-      case('P'):
-        for(int i=0; i<n; i++){
-          newS[i] = curStat[stat[i]-1];
-        }
-        return newS;
-        
-      case('O'):
-         for(int i=0; i<n; i++){
-           newS[i] = (curStat[i] + stat[i]) % m;
-          }
-          return newS;
-      default:
-        return null;
-    }
-  }
-  
   void generate(){
     for(int i=0; i<P.length; i++){
       for(int j=0; j<P[i].length; j++){
@@ -182,7 +153,7 @@ class Prunes{
           for(String s : Movs){
             Move cur = getMove(s);
             int[] t = indexToState(p, typeE);
-            int q = stateToIndex(applyState(t, cur.OrME, typeE));
+            int q = stateToIndex(getMove(s).getType(typeE));
             if(P[0][q] == -1){
               c += 1;
               P[0][q] = len+1;
