@@ -54,6 +54,7 @@ Boolean isFull(int[][] arr){
         index = (index - X[i]) / v;
       }
       X[n-1] = s;
+      X[0] = abs(X[0] -1);
       
     }
 
@@ -162,7 +163,6 @@ class Prunes{
         }
       }
       len += 1;
-      println(c + "positions at distance " + len);
     }
     while(c >0);
      

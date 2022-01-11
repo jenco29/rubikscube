@@ -62,7 +62,9 @@ void setup() {
     }
   }
   
-  println(indexToState(3855, "EO"));
+  println(stateToIndex(Up.OrME));
+  println(indexToState(2569, "EO"));
+
   
 }
 
