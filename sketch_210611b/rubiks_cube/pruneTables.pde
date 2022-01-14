@@ -140,6 +140,7 @@ class Prunes{
         P[i][j] = -1;
       }
     }
+    
     int n = stateToIndex(C);
     int m = stateToIndex(E);
     
