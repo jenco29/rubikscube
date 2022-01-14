@@ -30,10 +30,11 @@ StringList solver(Move R){
               R = R2;
               solve.append(movs1[i]);
               break;
+              
           }
       }
   }
-  
+  println(solve);
   return solve;
 
 }

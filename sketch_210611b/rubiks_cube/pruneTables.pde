@@ -88,7 +88,7 @@ Boolean isFull(int[][] arr){
     else{
       v = 2;
     }
-    /*
+    
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
         index = index * (n + 1 -i);
@@ -98,14 +98,14 @@ Boolean isFull(int[][] arr){
             }
           }
         }      
-    }*/
+    }
     
-    
+    else{
       for(int i=0; i<n; i++){
         index = index * v;
         index = index + state[i];
       }
-    
+    }
 
     return index;
     
@@ -163,13 +163,14 @@ class Prunes{
 
   }
   
-  void generate(){
+   void generate(){
     for(int i=0; i<P.length; i++){
       for(int j=0; j<P[i].length; j++){
         P[i][j] = -1;
       }
     }
     
+    int n = stateToIndex(C);
     int m = stateToIndex(E);
     
     P[0][m] = 0;
@@ -181,26 +182,32 @@ class Prunes{
       for(int p=1; p<4096 ; p++){
         if(P[0][p] == len){
           for(String s : Movs){
-           int q = stateToIndex( applyState(indexToState(p, typeC), getMove(s).getType(typeC), typeC));
+            Move cur = getMove(s);
+   
+            int[] t = cur.OrME;
+            int q = stateToIndex(applyState(indexToState(p, typeC), t , typeC)); 
             if(P[0][q] == -1){
+              c += 1;
+              P[0][q] = len+1;
               c++;
             }
+          }
           }     
         }
-      }
+      
       len += 1;
     }
     while(c >0);
+     
     println(c + " positions at distance " + len);
   }
-  
   
 }
 
 int[][] P1 = new int[1][4096];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "XX", "EO");
+Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "EO", "EO");
 
 int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};

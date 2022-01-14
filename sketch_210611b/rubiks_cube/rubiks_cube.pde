@@ -64,8 +64,6 @@ void setup() {
   
   println(stateToIndex(Up.OrME));
   println(indexToState(2569, "EO"));
-  
-  Prune1.generate();
 
 
   
@@ -94,7 +92,7 @@ void draw() {
     }
     else{
        Move R = getState(shuffle);
-       StringList stage1 = solver(R);
+       solver(R);
     }
       
   }
