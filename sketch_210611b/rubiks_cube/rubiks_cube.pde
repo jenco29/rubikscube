@@ -8,16 +8,12 @@ int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
 int shuffleCount = 0;
-
 void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
-  int index = 0;
+  int index = 0;      
   
-  Prune1.generate();
   
-  println(Prune1.P[0][233]);
-
   allMoves[0] = Front;
   allMoves[1] = Front.ApplyMove(Front.ApplyMove(Front));//M'
   allMoves[1].Name = "F'";
@@ -68,6 +64,9 @@ void setup() {
   
   println(stateToIndex(Up.OrME));
   println(indexToState(2569, "EO"));
+  
+  Prune1.generate();
+
 
   
 }

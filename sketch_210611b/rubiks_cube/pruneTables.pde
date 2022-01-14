@@ -78,7 +78,7 @@ Boolean isFull(int[][] arr){
 
 
   int stateToIndex(int[] state){
-    int n = state.length;
+    int n = 12;
     int index = 0;
     int v;
     
@@ -88,7 +88,7 @@ Boolean isFull(int[][] arr){
     else{
       v = 2;
     }
-    
+    /*
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
         index = index * (n + 1 -i);
@@ -98,17 +98,46 @@ Boolean isFull(int[][] arr){
             }
           }
         }      
-    }
+    }*/
     
-    else{
+    
       for(int i=0; i<n; i++){
         index = index * v;
         index = index + state[i];
       }
-    }
+    
 
     return index;
     
+  }
+  
+  int[] applyState(int[] curStat, int[] stat, String type){
+    int n;
+    int m;
+    if(type.charAt(0) == 'E'){
+      n = 12; 
+      m = 2;
+    }
+    else{
+      n = 8;
+      m = 3;
+    }
+    int[] newS = new int[n];
+    switch(type.charAt(1)){
+      case('P'):
+        for(int i=0; i<n; i++){
+          newS[i] = curStat[stat[i]-1];
+        }
+        return newS;
+        
+      case('O'):
+         for(int i=0; i<n; i++){
+           newS[i] = (curStat[i] + stat[i]) % m;
+          }
+          return newS;
+      default:
+        return null;
+    }
   }
   
   
@@ -141,7 +170,6 @@ class Prunes{
       }
     }
     
-    int n = stateToIndex(C);
     int m = stateToIndex(E);
     
     P[0][m] = 0;
@@ -150,32 +178,29 @@ class Prunes{
     
     do{
       c = 0;
-      for(int p=1; p<P.length + 1; p++){
+      for(int p=1; p<4096 ; p++){
         if(P[0][p] == len){
           for(String s : Movs){
-            Move cur = getMove(s);
-            int[] t = indexToState(p, typeE);
-            int q = stateToIndex(getMove(s).getType(typeE));
+           int q = stateToIndex( applyState(indexToState(p, typeC), getMove(s).getType(typeC), typeC));
             if(P[0][q] == -1){
-              c += 1;
-              P[0][q] = len+1;
+              c++;
             }
-          }
+          }     
         }
       }
       len += 1;
     }
     while(c >0);
-     
+    println(c + " positions at distance " + len);
   }
   
-
+  
 }
 
 int[][] P1 = new int[1][4096];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "", "EO");
+Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "XX", "EO");
 
 int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
