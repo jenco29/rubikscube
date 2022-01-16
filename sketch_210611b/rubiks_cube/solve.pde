@@ -21,7 +21,7 @@ StringList solver(Move R){
   
   while(N > 0){
       for(int i=0; i<18; i++){
-          Move R2 = R.ApplyMove(getMove(movs1[i]));
+          Move R2 = R.ApplyMove(getMove(movs1[i], allMoves));
           n = stateToIndex(R2.OrME)/2;
           int M = P1[0][n];
   
@@ -34,7 +34,7 @@ StringList solver(Move R){
           }
       }
   }
-  println(solve);
+  
   return solve;
 
 }

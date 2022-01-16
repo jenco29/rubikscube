@@ -48,7 +48,7 @@ void setup() {
   allMoves[16] = Down.ApplyMove(Down.ApplyMove(Down));
   allMoves[16].Name = "D'";
   allMoves[17] = Down.ApplyMove(Down);
-  allMoves[17].Name = "D2'";
+  allMoves[17].Name = "D2";
 
   for (int x = -1; x <= 1; x++) {
     for (int y = -1; y <= 1; y++) {
@@ -62,12 +62,10 @@ void setup() {
     }
   }
   
-  println(stateToIndex(Up.OrME));
-  println(indexToState(2569, "EO"));
-
-
+  Prune1.generate();
   
 }
+
 
 void draw() {
   background(255); 

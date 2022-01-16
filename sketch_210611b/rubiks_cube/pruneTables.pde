@@ -170,7 +170,6 @@ class Prunes{
       }
     }
     
-    int n = stateToIndex(C);
     int m = stateToIndex(E);
     
     P[0][m] = 0;
@@ -182,24 +181,25 @@ class Prunes{
       for(int p=1; p<4096 ; p++){
         if(P[0][p] == len){
           for(String s : Movs){
-            Move cur = getMove(s);
-   
+            Move cur = getMove(s, allMoves); //<>//
             int[] t = cur.OrME;
-            int q = stateToIndex(applyState(indexToState(p, typeC), t , typeC)); 
+            int[] y = indexToState(p, typeC); 
+            int[] ty = applyState(y , t , typeC);
+            int q = stateToIndex(ty); 
             if(P[0][q] == -1){
               c += 1;
               P[0][q] = len+1;
               c++;
             }
-          }
+           }
           }     
         }
       
       len += 1;
+      println(c + " positions at distance " + len);
     }
     while(c >0);
      
-    println(c + " positions at distance " + len);
   }
   
 }

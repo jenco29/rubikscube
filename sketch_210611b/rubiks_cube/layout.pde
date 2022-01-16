@@ -8,9 +8,9 @@ Move Down = new Move("D", OrDE, OrDC, PermDE, PermDC);
 
 StringList moveCombos = new StringList(); 
 
-  Move getMove(String mov){
+  Move getMove(String mov, Move[] allMovs){
   Move theMove = null;
-  for(Move m : allMoves){
+  for(Move m : allMovs){
     if(m.Name.equals(mov)){
       theMove = m;
     }
@@ -21,7 +21,7 @@ StringList moveCombos = new StringList();
   Move getState(StringList movShuffle){
     Move state = Identity;
     for(String mov : movShuffle){
-      state = state.ApplyMove(getMove(mov));
+      state = state.ApplyMove(getMove(mov, allMoves));
     }
     
     return state;
