@@ -184,7 +184,7 @@ class Prunes{
             Move cur = getMove(s, allMoves); //<>//
             int[] t = cur.OrME;
             int[] y = indexToState(p, typeC); 
-            int[] ty = applyState(y , t , typeC);
+            int[] ty = applyState(y, t, typeC);
             int q = stateToIndex(ty); 
             if(P[0][q] == -1){
               c += 1;
@@ -196,7 +196,7 @@ class Prunes{
         }
       
       len += 1;
-      println(c + " positions at distance " + len);
+      //println(c + " positions at distance " + len);
     }
     while(c >0);
      

@@ -62,8 +62,6 @@ void setup() {
     }
   }
   
-  Prune1.generate();
-  
 }
 
 
@@ -90,7 +88,7 @@ void draw() {
     }
     else{
        Move R = getState(shuffle);
-       solver(R);
+       solver(R, shuffle);
     }
       
   }
