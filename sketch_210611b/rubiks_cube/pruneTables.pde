@@ -204,23 +204,20 @@ class Prunes{
   
 }
 
-int[][] P1 = new int[1][4096];
 String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune1 = new Prunes(P1, movs1, OrIE, OrIE, "EO", "EO");
+Prunes Prune1 = new Prunes(new int[1][4096], movs1, OrIE, OrIE, "EO", "EO");
 
-int[][] P2 = new int[2187][495];
 String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
 
-Prunes Prune2 = new Prunes(P2, movs2, OrIC, PermIE, "CO", "EP");
+Prunes Prune2 = new Prunes(new int[2187][495], movs2, OrIC, PermIE, "CO", "EP");
 
-int[][] P3 = new int[40320][70];
+
 String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" };
 
-Prunes Prune3 = new Prunes(P3, movs3, PermIC, PermIE, "CP", "EP");
+Prunes Prune3 = new Prunes(new int[40320][70], movs3, PermIC, PermIE, "CP", "EP");
 //should be corner perms in G3 and the edge cubie distributions(????)
 
-int[][] P4 = new int[96][6912];
 String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
 
-Prunes Prune4 = new Prunes(P4, movs4, PermIC, PermIE, "CP", "EP");
+Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");

@@ -8,13 +8,33 @@ apply each move to the new layout and repeat until distance is 0
 move onto next prune table
 */
 
-void solver(Move R, StringList shuffle){
-
+StringList solver(Move R, StringList shuffle){
+  StringList reverse = new StringList();
   for(int i=shuffle.size() -1; i>-1; i--){
-    R.ApplyMove(getMove(shuffle.get(i), allMoves));
-    moving(shuffle.get(i));
+    if(shuffle.get(i).length() == 2){
+      
+      if(shuffle.get(i).charAt(1) == '2'){
+        String curMov = shuffle.get(i);
+        reverse.append(curMov);
+        R.ApplyMove(getMove(curMov, allMoves));
+        
+      }
+      
+      else{
+        String curMov = str(shuffle.get(i).charAt(0));
+        reverse.append(curMov);
+        R.ApplyMove(getMove(curMov, allMoves));
+      }
+    }
+    
+    else{
+      String curMov = shuffle.get(i)+"'";
+      reverse.append(curMov);
+      R.ApplyMove(getMove(curMov, allMoves));
+    }
+    
   }
-  
+  return reverse;
   /*
   String[] lines = loadStrings("P1.txt");
   for(int i=0; i<lines.length; i++){

@@ -8,6 +8,8 @@ int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
 int shuffleCount = 0;
+int solveCount = 0;
+
 void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
@@ -87,13 +89,20 @@ void draw() {
       shuffleCount++;
     }
     else{
-       Move R = getState(shuffle);
-       solver(R, shuffle);
+      Move R = getState(shuffle);
+      StringList solv = solver(R, shuffle);
+      for(String s : solv){
+        moving(s);
+      }
+      looping = !looping;
     }
+
       
   }
   
-
+    
+  
+       
   
 
 }
