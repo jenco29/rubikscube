@@ -100,7 +100,7 @@ void draw() {
         solve(R);
         StringList solv = solverR(R, shuffle);
         if(solveCount < m){
-         // moving(solv.get(solveCount));
+          moving(solv.get(solveCount));
           solveCount++;
         }
       }   
