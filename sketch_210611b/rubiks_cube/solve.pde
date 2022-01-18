@@ -72,4 +72,13 @@ void solve(Move R){
     cur = cur.ApplyMove(getMove(s, allMoves));
   }
   
+  String[] linez = loadStrings("P2.txt");
+  for(int i=0; i<linez.length; i++){
+    for(int j=0; j< linez[i].length(); j++){
+      if(linez[i].charAt(j) != ' '){
+        Prune2.P[i][j] = Integer.valueOf(linez[i].charAt(j)); //<>//
+      }
+    }
+  }
+  
 }
