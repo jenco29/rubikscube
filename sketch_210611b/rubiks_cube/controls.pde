@@ -38,6 +38,6 @@ void keyPressed() {
       FrontBack(-1, -1);
       break;
     case ' ':
-      looping = !looping;
+      sol = true;
   }
 }

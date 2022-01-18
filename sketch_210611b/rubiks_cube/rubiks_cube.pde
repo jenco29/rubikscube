@@ -7,6 +7,7 @@ Move[] allMoves = new Move[18];
 int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
+Boolean sol = false;
 int shuffleCount = 0;
 int solveCount = 0;
 
@@ -64,6 +65,12 @@ void setup() {
     }
   }
   
+  for(int i=0; i<m; i++){
+    int num = int(random(0, 11));
+    shuffle.append(moves_[num]);
+  }
+  
+  
 }
 
 
@@ -83,18 +90,21 @@ void draw() {
  
   if(frameCount % 5 == 0){
     if(shuffleCount < m){
-      int num = int(random(0, 11));
-      shuffle.append(moves_[num]);
-      moving(moves_[num]);
+      moving(shuffle.get(shuffleCount));
       shuffleCount++;
     }
+    
     else{
-      Move R = getState(shuffle);
-      StringList solv = solver(R, shuffle);
-      for(String s : solv){
-        moving(s);
-      }
-      looping = !looping;
+      if(sol){
+        Move R = getState(shuffle);
+        solve(R);
+        StringList solv = solverR(R, shuffle);
+        if(solveCount < m){
+         // moving(solv.get(solveCount));
+          solveCount++;
+        }
+      }   
+
     }
 
       
