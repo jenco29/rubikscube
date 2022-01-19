@@ -39,5 +39,9 @@ void keyPressed() {
       break;
     case ' ':
       sol = true;
+    case 's':
+      shuf = true;
+    case 't':
+      t = true;
   }
 }

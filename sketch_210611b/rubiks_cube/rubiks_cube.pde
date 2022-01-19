@@ -8,6 +8,8 @@ int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
 Boolean sol = false;
+Boolean shuf = false;
+Boolean t = false;
 int shuffleCount = 0;
 int solveCount = 0;
 
@@ -70,7 +72,6 @@ void setup() {
     shuffle.append(moves_[num]);
   }
   
-  
 }
 
 
@@ -89,10 +90,13 @@ void draw() {
   }
  
   if(frameCount % 5 == 0){
-    if(shuffleCount < m){
-      moving(shuffle.get(shuffleCount));
-      shuffleCount++;
-    }
+    if(shuf){
+      if(shuffleCount < m){
+        moving(shuffle.get(shuffleCount));
+        shuffleCount++;
+      }
+  }
+    
     
     else{
       if(sol){
@@ -109,10 +113,5 @@ void draw() {
 
       
   }
-  
-    
-  
-       
-  
 
 }
