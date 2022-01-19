@@ -40,12 +40,13 @@ StringList solverR(Move R, StringList shuffle){
 }
 
 void solve(Move R){
+  /*
   String[] lines = loadStrings("P1.txt");
   for(int i=0; i<lines.length; i++){
     Prune1.P[0][i] = Integer.valueOf(lines[i]);
-  }
+  }*/
   
-  //Prune1.generate();
+  Prune1.generate();
   StringList solve = new StringList();
   int n = stateToIndex(R.OrME);
   int N = Prune1.P[0][n];
@@ -71,6 +72,8 @@ void solve(Move R){
   for(String s : solve){
     cur = cur.ApplyMove(getMove(s, allMoves));
   }
+  
+  println(cur.OrME);
  //<>//
   
 }

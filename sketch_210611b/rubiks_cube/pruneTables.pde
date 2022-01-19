@@ -196,7 +196,7 @@ class Prunes{
         }
       
       len += 1;
-      //println(c + " positions at distance " + len);
+      println(c + " positions at distance " + len);
     }
     while(c >0);
      

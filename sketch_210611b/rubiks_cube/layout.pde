@@ -60,11 +60,11 @@ class Move{
       }
   
       for(int i=0; i<(mov.OrME.length); i++){
-          newOrME[i] = (OrME[i] + mov.OrME[i]) % 2;
+          newOrME[i] = (OrME[i] + mov.OrME[i])%2;
       }
   
       for(int i=0; i<(mov.OrMC.length); i++){
-          newOrMC[i] = (OrMC[i] + mov.OrMC[i]) % 3;
+          newOrMC[i] = (OrMC[i] + mov.OrMC[i])%3;
       }
   
       Move newM = new Move(Name + mov.Name, newOrME, newOrMC, newPermME, newPermMC);
