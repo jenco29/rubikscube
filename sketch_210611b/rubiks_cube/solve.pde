@@ -56,8 +56,8 @@ void solve(Move R){
           n = stateToIndex(R2.OrME)/2;
           int M = Prune1.P[0][n];
   
-          if(M<N){
-              N = M;
+          if(M<N){ //<>//
+              M = N;
               R = R2;
               solve.append(movs1[i]); 
               //println(movs1[i]);

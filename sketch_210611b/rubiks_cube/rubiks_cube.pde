@@ -90,7 +90,6 @@ void draw() {
   }
  
   if(frameCount % 5 == 0){
-    if(shuf){
       if(shuffleCount < m){
         moving(shuffle.get(shuffleCount));
         shuffleCount++;
@@ -113,5 +112,3 @@ void draw() {
 
       
   }
-
-}
