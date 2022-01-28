@@ -78,7 +78,7 @@ Boolean isFull(int[][] arr){
 
 
   int stateToIndex(int[] state){
-    int n = 12;
+    int n = state.length;
     int index = 0;
     int v;
     
@@ -178,10 +178,10 @@ class Prunes{
     
     do{
       c = 0;
-      for(int p=1; p<4096 ; p++){
+      for(int p=1; p<4097 ; p++){
         if(P[0][p] == len){
           for(String s : Movs){
-            Move cur = getMove(s, allMoves); //<>//
+            Move cur = getMove(s, allMoves);
             int[] t = cur.OrME;
             int[] y = indexToState(p, typeC); 
             int[] ty = applyState(y, t, typeC);
@@ -203,21 +203,3 @@ class Prunes{
   }
   
 }
-
-String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
-
-Prunes Prune1 = new Prunes(new int[1][4096], movs1, OrIE, OrIE, "EO", "EO");
-
-String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"};
-
-Prunes Prune2 = new Prunes(new int[2187][495], movs2, OrIC, PermIE, "CO", "EP");
-
-
-String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" };
-
-Prunes Prune3 = new Prunes(new int[40320][70], movs3, PermIC, PermIE, "CP", "EP");
-//should be corner perms in G3 and the edge cubie distributions(????)
-
-String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
-
-Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");
