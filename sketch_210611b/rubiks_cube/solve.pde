@@ -42,7 +42,7 @@ StringList solverR(Move R, StringList shuffle){
 void solve(Move R){
   
   String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
-  Prunes Prune1 = new Prunes(new int[1][4097], movs1, OrIE, OrIE, "EO", "EO");
+  Prunes Prune1 = new Prunes(new int[1][4096], movs1, OrIE, OrIE, "EO", "EO");
   
   String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"}; 
   Prunes Prune2 = new Prunes(new int[2187][496], movs2, OrIC, PermIE, "CO", "EP");
@@ -53,13 +53,12 @@ void solve(Move R){
   
   String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
   Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");
-  /*
+  
   String[] lines = loadStrings("P1.txt");
   for(int i=1; i<lines.length -1; i++){
     Prune1.P[0][i] = Integer.valueOf(lines[i]);
-  }*/
+  }
   
-  Prune1.generate();
   StringList solve = new StringList();
   int n = stateToIndex(R.OrME);
   int N = Prune1.P[0][n];
@@ -67,10 +66,10 @@ void solve(Move R){
   while(N > 0){
       for(int i=0; i<18; i++){
           Move R2 = R.ApplyMove(getMove(movs1[i], allMoves));
-          n = stateToIndex(R2.OrME)/2;
-          int M = Prune1.P[0][n];
+          n = stateToIndex(R2.OrME);
+          int M = Prune1.P[0][n] -1;
   
-          if(M<N){
+          if(M<N && M != -1){
               N = M;
               R = R2;
               solve.append(movs1[i]); 
@@ -87,7 +86,7 @@ void solve(Move R){
   }
   
   println(cur.OrME);
-  
+  /*
   String[] lines = loadStrings("P2.txt"); //<>//
     for(int i=0; i<lines.length; i++){
       for(int j=0; j<lines[i].length(); j++){
@@ -115,7 +114,7 @@ void solve(Move R){
         
       }
     }
-    
+    */
  //<>//
   
 }
