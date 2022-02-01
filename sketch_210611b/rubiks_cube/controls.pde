@@ -2,40 +2,40 @@
 void keyPressed() {
   switch(key){
       case '1': 
-      LeftRight(-1, -1);
+      moving("L");
       break;
     case '!': 
-      LeftRight(-1, 1);
+      moving("L'");
       break;  
     case '2': 
-      LeftRight(1, -1);
+      moving("R");
       break;
     case '@': 
-      LeftRight(1, 1);
+      moving("R'");
       break;
     case '3': 
-      UpDown(-1, 1);
+      moving("U");
       break;
     case '#': 
-      UpDown(-1, -1);
+      moving("U'");
       break;
     case '4': 
-      UpDown(1, 1);
+      moving("D");
       break;
     case '$': 
-      UpDown(1, -1);
+      moving("D'");
       break;
     case '5': 
-      FrontBack(1, 1);
+      moving("F");
       break;
     case '%': 
-      FrontBack(1, -1);
+      moving("F'");
       break;
     case '6': 
-      FrontBack(-1, 1);
+      moving("B");
       break;
     case '^': 
-      FrontBack(-1, -1);
+      moving("B'");
       break;
     case ' ':
       sol = true;

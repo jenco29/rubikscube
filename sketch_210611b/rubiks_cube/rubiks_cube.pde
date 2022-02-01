@@ -3,6 +3,7 @@ PeasyCam cam;
 
 cubes[] cube = new cubes[27];
 Move[] allMoves = new Move[18];
+Move R; 
 
 int frameCount = 0;
 int m = int(random(100, 130));
@@ -12,7 +13,7 @@ void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
   int index = 0;      
-  
+  R = Identity;
   
   allMoves[0] = Front;
   allMoves[1] = Front.ApplyMove(Front.ApplyMove(Front));//M'
@@ -96,8 +97,8 @@ void draw() {
     
     else{
       if(sol){
-        Move R = getState(shuffle);
-        solve(R);
+        println(R.OrME);
+        //solve(R);
         StringList solv = solverR(R, shuffle);
         if(solveCount < m){
           moving(solv.get(solveCount));

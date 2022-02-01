@@ -70,4 +70,5 @@ void moving(String move){
       FrontBack(-1, 1);
       break;
   }
+  R = R.ApplyMove(getMove(move, allMoves));
 }
