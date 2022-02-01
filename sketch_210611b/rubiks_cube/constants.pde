@@ -5,6 +5,13 @@ final color green = color(0, 190, 0);
 final color orange = color(255, 100, 0);
 final color yellow = color(255, 255, 0);
 
+Boolean sol = false;
+Boolean shuf = false;
+Boolean l = false;
+Boolean t = false;
+int shuffleCount = 0;
+int solveCount = 0;
+
 final int back = 0;
 final int front = 1;
 final int down = 2;

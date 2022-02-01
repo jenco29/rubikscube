@@ -7,11 +7,6 @@ Move[] allMoves = new Move[18];
 int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
-Boolean sol = false;
-Boolean shuf = false;
-Boolean t = false;
-int shuffleCount = 0;
-int solveCount = 0;
 
 void setup() {
   size(600, 600, P3D);
@@ -67,6 +62,7 @@ void setup() {
     }
   }
   
+  
   for(int i=0; i<m; i++){
     int num = int(random(0, 11));
     shuffle.append(moves_[num]);
@@ -78,23 +74,24 @@ void setup() {
 void draw() {
   background(255); 
   fill(0);
-  text("Up", 120, 40, 280, 320);
-  text("Down", 120, 270, 280, 320);
-  text("Left", 20, 140, 280, 320);
-  text("Right", 240, 140, 280, 320);
+  menu();
   frameCount ++;
-  
+   //<>//
   scale(50);
   for (int i = 0; i < cube.length; i++) {
     cube[i].show();
   }
+  
+
  
+ if(shuf){
   if(frameCount % 5 == 0){
       if(shuffleCount < m){
         moving(shuffle.get(shuffleCount));
         shuffleCount++;
       }
   }
+ 
     
     
     else{
@@ -109,6 +106,6 @@ void draw() {
       }   
 
     }
-
+   }
       
   }

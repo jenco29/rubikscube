@@ -43,5 +43,7 @@ void keyPressed() {
       shuf = true;
     case 't':
       t = true;
+    case 'l':
+      l = true;
   }
 }

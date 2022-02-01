@@ -37,3 +37,16 @@ int pieceType(int i){
   }
 
 }
+
+void menu(){
+  
+    if(l){
+    text("Up", 120, 40, 280, 320);
+    text("Down", 120, 270, 280, 320);
+    text("Left", 20, 140, 280, 320);
+    text("Right", 240, 140, 280, 320);
+    }
+    
+    text("Shuffle cube: s", 0, 0, 280, 320);
+    text("Label sides: l", 0, 20, 280, 320);
+}
