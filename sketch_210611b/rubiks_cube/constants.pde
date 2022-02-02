@@ -5,6 +5,8 @@ final color green = color(0, 190, 0);
 final color orange = color(255, 100, 0);
 final color yellow = color(255, 255, 0);
 
+
+//for the menu- runs by pressing the keys
 Boolean sol = false;
 Boolean shuf = false;
 Boolean l = false;
@@ -24,6 +26,8 @@ final int edge = 1;
 final int centre = 2;
 final int core = 3;
 
+
+//permutation and orientation for all moves for edges and corners
 //identity
 final int[] PermIC = {1, 2, 3, 4, 5, 6, 7, 8};
 final int[] PermIE = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
