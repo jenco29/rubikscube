@@ -1,11 +1,13 @@
 import peasy.*;
 PeasyCam cam;
 
+//array of all cubies in the cube
 cubes[] cube = new cubes[27];
 Move[] allMoves = new Move[18];
 Move R; 
 
 int frameCount = 0;
+//a random number of random moves are generated
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
 
@@ -15,6 +17,8 @@ void setup() {
   int index = 0;      
   R = Identity;
   
+
+  //assign all moves, apply atomic moves to each other to form reverse/ double moves
   allMoves[0] = Front;
   allMoves[1] = Front.ApplyMove(Front.ApplyMove(Front));//M'
   allMoves[1].Name = "F'";
@@ -56,6 +60,7 @@ void setup() {
       for (int z = -1; z <= 1; z++) {
         PMatrix3D matrix = new PMatrix3D();
         matrix.translate(x, y, z);
+        //form each cube at a position x y z between -1 and 1, unit co-ordinates so matrix operations can be applied
         cube[index] = new cubes(matrix, x, y, z);
         //forward, down, right
         index++;
@@ -65,6 +70,7 @@ void setup() {
   
   
   for(int i=0; i<m; i++){
+    //create list of random moves
     int num = int(random(0, 11));
     shuffle.append(moves_[num]);
   }
@@ -80,6 +86,7 @@ void draw() {
    //<>//
   scale(50);
   for (int i = 0; i < cube.length; i++) {
+    //draw all the initialised cubies
     cube[i].show();
   }
   
