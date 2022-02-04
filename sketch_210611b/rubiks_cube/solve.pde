@@ -8,6 +8,7 @@ apply each move to the new layout and repeat until distance is 0
 move onto next prune table
 */
 
+//applies the reverse of the move
 String revMove(String mov){
   if(mov.length() == 2){
     if(mov.charAt(1) == '2'){
@@ -18,38 +19,37 @@ String revMove(String mov){
       
     }
   }
+  else{
+    return mov + "'";
+  }
+  
   
 }
 
-StringList solverR(Move R, StringList shuffle){
-  
-  StringList reverse = new StringList();
-  for(int i=shuffle.size() -1; i>-1; i--){
-    if(shuffle.get(i).length() == 2){
-      
-      if(shuffle.get(i).charAt(1) == '2'){
-        String curMov = shuffle.get(i);
-        reverse.append(curMov);
-        R.ApplyMove(getMove(curMov, allMoves));
-        
-      }
-      
-      else{
-        String curMov = str(shuffle.get(i).charAt(0));
-        reverse.append(curMov);
-        R.ApplyMove(getMove(curMov, allMoves));
-      }
-    }
-    
-    else{
-      String curMov = shuffle.get(i)+"'";
-      reverse.append(curMov);
-      R.ApplyMove(getMove(curMov, allMoves));
-    }
-    
-  }
-  return reverse;
 
+//recursively reverses the input shuffle
+void solverRev(StringList shuffle){
+  String firstItem = null;
+  if(shuffle.size() == 0){
+    return;
+  }
+  else{
+    firstItem = shuffle.get(0);
+    shuffle.remove(0);
+  }
+  solverRev(shuffle);
+  rev.append(firstItem);
+}
+
+//applies the reverse move to the reverse string
+StringList solverR(Move R, StringList rev){
+  StringList opp = new StringList();
+  for(String r: rev){
+    String rq = revMove(r);
+    opp.append(rq);
+    R.ApplyMove(getMove(rq, allMoves));
+  }
+  return opp;
 }
 
 void solve(Move R){
@@ -68,7 +68,7 @@ void solve(Move R){
   Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");
   
   String[] lines = loadStrings("P1.txt");
-  for(int i=1; i<lines.length -1; i++){
+  for(int i=0; i<lines.length; i++){
     Prune1.P[0][i] = Integer.valueOf(lines[i]);
   }
   

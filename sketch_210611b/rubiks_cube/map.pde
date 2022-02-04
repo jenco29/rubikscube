@@ -49,4 +49,5 @@ void menu(){
     
     text("Shuffle cube: s", 0, 0, 280, 320);
     text("Label sides: l", 0, 20, 280, 320);
+    text("Solve cube: space", 0, 40, 280, 320);
 }
