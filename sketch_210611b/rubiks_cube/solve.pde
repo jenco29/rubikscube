@@ -8,6 +8,19 @@ apply each move to the new layout and repeat until distance is 0
 move onto next prune table
 */
 
+String revMove(String mov){
+  if(mov.length() == 2){
+    if(mov.charAt(1) == '2'){
+      return mov;
+    }
+    else{
+      return str(mov.charAt(0));
+      
+    }
+  }
+  
+}
+
 StringList solverR(Move R, StringList shuffle){
   
   StringList reverse = new StringList();

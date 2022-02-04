@@ -91,22 +91,24 @@ void draw() {
         moving(shuffle.get(shuffleCount));
         shuffleCount++;
       }
-  }
- 
+    }
+   shuf = false;
+  }   
     
-    
-    else{
-      if(sol){
-        println(R.OrME);
-        //solve(R);
-        StringList solv = solverR(R, shuffle);
-        if(solveCount < m){
-          moving(solv.get(solveCount));
-          solveCount++;
+  else{
+    if(sol){
+      println(R.OrME);
+      //solve(R);
+      StringList solv = solverR(R, shuffle);
+      if(solveCount < m){
+        moving(solv.get(solveCount));
+        solveCount++;
         }
+        
+      sol = false;
       }   
 
     }
-   }
+  
       
   }
