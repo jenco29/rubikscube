@@ -27,22 +27,26 @@ Boolean isFull(int[][] arr){
     int v;
     int s;
 
+    //if a corner
     if(type.charAt(0) == 'C'){
       n = 8;
       v = 3;
     }
+
+    //if an edge
     else if(type.charAt(0) == 'E' ){
       n = 12;
       v = 2;
     }
 
+    //catch errors
     else{
       n = 0;
       v = 0;
     }
 
     int[] X = new int[n];
-
+    //if orientation
     if(type.charAt(1) == 'O'){
       s = 0;
       for(int i=n-1; i>0; i--){
@@ -57,7 +61,7 @@ Boolean isFull(int[][] arr){
       X[0] = abs(X[0] -1);
       
     }
-
+    //if permuation
     else if(type.charAt(1) == 'P'){
       X[n] = 1;
       for(int i=n-1; n>0; i--){
@@ -88,7 +92,7 @@ Boolean isFull(int[][] arr){
     else{
       v = 2;
     }
-    
+    //if permutation (will have a number either 12 or 8, or only -1 to 1)
     if(hasVal(state, n)){
       for(int i=0; i<n; i++){
         index = index * (n + 1 -i);
@@ -101,6 +105,7 @@ Boolean isFull(int[][] arr){
     }
     
     else{
+      //if orientation
       for(int i=0; i<n; i++){
         index = index * v;
         index = index + state[i];
@@ -138,18 +143,21 @@ Boolean isFull(int[][] arr){
       default:
         return null;
     }
+
+    //returns state not move, depending on the type inputted.
   }
   
   
 
 class Prunes{
   int[][] P;
+  //prune table
   String[] Movs;
   int[] C;
   int[] E;
   String typeC;
+  //defines the type of state needed
   String typeE;
-
   
   Prunes(int[][] p, String[] movs, int[] c, int[] e, String tc, String te){
     
@@ -163,6 +171,7 @@ class Prunes{
 
   }
   
+  //slightly redundant- attempted to generate prune tables- decided to use pre generated.
    void generate(){
     for(int i=0; i<P.length; i++){
       for(int j=0; j<P[i].length; j++){
@@ -178,9 +187,11 @@ class Prunes{
     
     do{
       c = 0;
+      //length of prune table
       for(int p=1; p<4097 ; p++){
         if(P[0][p] == len){
           for(String s : Movs){
+            //finds move from list of all
             Move cur = getMove(s, allMoves);
             int[] t = cur.OrME;
             int[] y = indexToState(p, typeC); 
@@ -196,6 +207,7 @@ class Prunes{
         }
       
       len += 1;
+      //returns much fewer numbers than it should, an interesting experiment into table generation.
       println(c + " positions at distance " + len);
     }
     while(c >0);

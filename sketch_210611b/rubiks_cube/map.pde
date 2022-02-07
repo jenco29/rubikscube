@@ -17,10 +17,11 @@ char checkCol(int num, int i){
   else{
     return 'Y';
   }
+  //will print the colour of each visible position in the cube
   
 }
 
-
+//a way to check that each cube was generated correctly
 int pieceType(int i){
   cubes c = cube[i];
   if((c.x==1 || c.x==-1) && (c.y==1 || c.y==-1) && (c.z==1 || c.z==-1)){
@@ -40,6 +41,7 @@ int pieceType(int i){
 
 void menu(){
   
+  //labels most of the sides- others figureable, only when l key pressed
     if(l){
     text("Up", 120, 40, 280, 320);
     text("Down", 120, 270, 280, 320);
@@ -47,6 +49,7 @@ void menu(){
     text("Right", 240, 140, 280, 320);
     }
     
+    //prints commands 
     text("Shuffle cube: s", 0, 0, 280, 320);
     text("Label sides: l", 0, 20, 280, 320);
     text("Solve cube: space", 0, 40, 280, 320);

@@ -3,7 +3,7 @@ class cubes {
   int x = 0;
   int y = 0;
   int z = 0;
-  color c;
+  color c;s
   Face[] faces = new Face[6];
   color[] colours = new color[6];
   int type;
@@ -15,6 +15,7 @@ class cubes {
     this.z = z;
     c = color(255);
 
+    //initialises all faces of different colours, and gives their location 
     faces[0] = new Face(new PVector(0, 0, -1), orange);
     faces[1] = new Face(new PVector(0, 0, 1), red);
     faces[2] = new Face(new PVector(0, 1, 0), yellow);
@@ -24,12 +25,15 @@ class cubes {
 
     for(int i=0; i<6; i++){
       colours[i] = faces[i].c;
+      //all colours are all the colours of the faces
     }
   }
+
+  //rotates all planes in x, y, z directions- not all will seem to be affected
   
-  void turnFacesZ(int dir) {
+  void turnFacesX(int dir) {
     for (Face f : faces) {
-      f.turnZ(dir*PI/2); 
+      f.turnX(dir*PI/2); 
     }
   }
 
@@ -39,9 +43,9 @@ class cubes {
     }
   }
 
-    void turnFacesX(int dir) {
+  void turnFacesZ(int dir) {
     for (Face f : faces) {
-      f.turnX(dir*PI/2); 
+      f.turnZ(dir*PI/2); 
     }
   }
   
@@ -51,6 +55,7 @@ class cubes {
     this.x = x;
     this.y = y;
     this.z = z;
+    //changes location of the cubes when move has been applied
   }
 
   void show() {
@@ -60,9 +65,11 @@ class cubes {
     pushMatrix(); 
     applyMatrix(matrix);
     box(1);
+    //creates the blank cubes
     for (Face f : faces) {
       f.show();
     }
+    //creates all the initialised planes
     popMatrix();
   }
 }

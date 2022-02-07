@@ -30,7 +30,7 @@ String revMove(String mov){
 //recursively reverses the input shuffle
 void solverRev(StringList shuffle){
   String firstItem = null;
-  if(shuffle.size() == 0){
+  if(shuffle.size() == 0){//base case
     return;
   }
   else{
@@ -62,7 +62,7 @@ void solve(Move R){
   
   String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" }; 
   Prunes Prune3 = new Prunes(new int[40320][70], movs3, PermIC, PermIE, "CP", "EP");
-  //should be corner perms in G3 and the edge cubie distributions(????)
+  //should be corner perms in G3 and the edge cubie distributions
   
   String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
   Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");
