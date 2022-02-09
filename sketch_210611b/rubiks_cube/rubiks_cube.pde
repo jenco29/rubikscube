@@ -10,6 +10,7 @@ int frameCount = 0;
 //a random number of random moves are generated
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
+StringList rev = new StringList();
 
 void setup() {
   size(600, 600, P3D);
@@ -106,8 +107,9 @@ void draw() {
     else{
       if(sol){
         println(R.OrME);
-        solve(R);
-        StringList solv = solverR(R, shuffle);
+        //solve(R);
+        solverRev(shuffle);
+        StringList solv = solverR(R, rev);
         if(solveCount < m){
           moving(solv.get(solveCount));
           solveCount++;

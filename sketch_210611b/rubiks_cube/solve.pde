@@ -58,7 +58,7 @@ void solve(Move R){
   Prunes Prune1 = new Prunes(new int[1][4096], movs1, OrIE, OrIE, "EO", "EO");
   
   String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"}; 
-  Prunes Prune2 = new Prunes(new int[2187][496], movs2, OrIC, PermIE, "CO", "EP");
+  Prunes Prune2 = new Prunes(new int[2187][495], movs2, OrIC, PermIE, "CO", "EP");
   
   String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" }; 
   Prunes Prune3 = new Prunes(new int[40320][70], movs3, PermIC, PermIE, "CP", "EP");

@@ -3,7 +3,7 @@ class cubes {
   int x = 0;
   int y = 0;
   int z = 0;
-  color c;s
+  color c;
   Face[] faces = new Face[6];
   color[] colours = new color[6];
   int type;
