@@ -106,8 +106,7 @@ void draw() {
     
     else{
       if(sol){
-        println(R.OrME);
-        //solve(R);
+        solve(R);
         solverRev(shuffle);
         StringList solv = solverR(R, rev);
         if(solveCount < m){

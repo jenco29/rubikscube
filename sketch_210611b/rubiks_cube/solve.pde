@@ -99,35 +99,26 @@ void solve(Move R){
   }
   
   println(cur.OrME);
-  /*
-  String[] lines = loadStrings("P2.txt"); //<>//
-    for(int i=0; i<lines.length; i++){
-      for(int j=0; j<lines[i].length(); j++){
-        if(lines[i].charAt(j) != '0' && lines[i].charAt(j) != '1' && lines[i].charAt(j) != '2' && lines[i].charAt(j) != '3' && lines[i].charAt(j) != '4' && lines[i].charAt(j) != '5' && lines[i].charAt(j) != '6' && lines[i].charAt(j) != '7' && lines[i].charAt(j) != '8' && lines[i].charAt(j) != '9'){
-          
+  
+  String[] lines2 = loadStrings("P2.txt");
+  for(int i=0; i<lines2.length; i++){
+    int k=0;
+    for(int j=0; j<lines2[i].length(); j++){ //<>//
+      if(lines2[i].charAt(j) != ','){
+        if(lines2[i].charAt(j) != '0' && lines2[i].charAt(j) != '1'){
+          Prune2.P[i][k] = Integer.valueOf(lines2[i].charAt(j));
+          k++;
         }
-        else{
-          char q = lines[i].charAt(j);
-          String qq = str(q);  
-          int qqq = int(qq);
-          Prune2.P[i][j] = qqq; 
+        else if(j+1< lines2[i].length() && j-1> 0){
+          if(lines2[i].charAt(j) == '1' && lines2[i].charAt(j+1) == '0'){
+            Prune2.P[i][k] = Integer.valueOf(lines2[i].charAt(j)+ lines2[i].charAt(j+1));
+            k++;
+          }    
         }
-        
-          
-      }
-    }
-    
-    int Cind = stateToIndex(cur.PermMC);
-    int Eind = stateToIndex(cur.PermME);
-    
-    N = Prune2.P[Cind][Eind];
-    
-    while(N>0){
-      for(int i=0; i<14; i++){
         
       }
     }
-    */
- //<>//
+  }
+  println(Prune2.P[2][3]);
   
 }
