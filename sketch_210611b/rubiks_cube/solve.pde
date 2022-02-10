@@ -59,6 +59,8 @@ void solve(Move R){
   
   String[] movs2 = {"L", "R", "F", "B", "L'", "R'", "F'", "B'", "L2", "R2", "F2", "B2", "U2", "D2"}; 
   Prunes Prune2 = new Prunes(new int[2187][495], movs2, OrIC, PermIE, "CO", "EP");
+  int[] Prune2E = new int[495];
+  int[] Prune2C = new int[2187];
   
   String[] movs3 = {"L", "R", "L'", "R'", "L2", "R2", "F2", "B2", "U2", "D2" }; 
   Prunes Prune3 = new Prunes(new int[40320][70], movs3, PermIC, PermIE, "CP", "EP");
@@ -67,10 +69,30 @@ void solve(Move R){
   String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
   Prunes Prune4 = new Prunes(new int[96][6912], movs4, PermIC, PermIE, "CP", "EP");
   
-  String[] lines = loadStrings("P1.txt");
-  for(int i=0; i<lines.length; i++){
-    Prune1.P[0][i] = Integer.valueOf(lines[i]);
+  String[] prun1 = loadStrings("P1.txt");
+  for(int i=0; i<prun1.length; i++){
+    Prune1.P[0][i] = Integer.valueOf(prun1[i]);
   }
+  
+  String[] prun2 = loadStrings("P2.txt");
+  for(int i=0; i<prun2.length; i++){  
+    String[] line = split(prun2[i], ',');
+    for(int j=0; j<line.length; j++){
+      Prune2.P[i][j] = Integer.valueOf(line[j]);  //<>//
+    }
+  }
+  
+  String[] prun2E = loadStrings("P2E.txt");
+  for(int i=0; i<prun2E.length; i++){
+    Prune2E[i] = Integer.valueOf(prun2E[i]);
+  }
+  
+  String[] prun2C = loadStrings("P2C.txt");
+  for(int i=0; i<prun2C.length; i++){
+    Prune2C[i] = Integer.valueOf(prun2C[i]);
+  }
+  
+  
   
   StringList solve = new StringList();
   int n = stateToIndex(R.OrME);
@@ -92,33 +114,7 @@ void solve(Move R){
       }
       
   }
-  
-  Move cur = R;
-  for(String s : solve){
-    cur = cur.ApplyMove(getMove(s, allMoves));
-  }
-  
-  println(cur.OrME);
-  
-  String[] lines2 = loadStrings("P2.txt");
-  for(int i=0; i<lines2.length; i++){
-    int k=0;
-    for(int j=0; j<lines2[i].length(); j++){ //<>//
-      if(lines2[i].charAt(j) != ','){
-        if(lines2[i].charAt(j) != '0' && lines2[i].charAt(j) != '1'){
-          Prune2.P[i][k] = Integer.valueOf(lines2[i].charAt(j));
-          k++;
-        }
-        else if(j+1< lines2[i].length() && j-1> 0){
-          if(lines2[i].charAt(j) == '1' && lines2[i].charAt(j+1) == '0'){
-            Prune2.P[i][k] = Integer.valueOf(lines2[i].charAt(j)+ lines2[i].charAt(j+1));
-            k++;
-          }    
-        }
-        
-      }
-    }
-  }
-  println(Prune2.P[2][3]);
+  println(R.OrME); //<>//
+   
   
 }

@@ -84,6 +84,7 @@ void draw() {
   fill(0);
   menu();
   frameCount ++;
+  timer();
    //<>//
   scale(50);
   for (int i = 0; i < cube.length; i++) {
