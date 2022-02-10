@@ -43,14 +43,18 @@ void menu(){
   
   //labels most of the sides- others figureable, only when l key pressed
     if(l){
-    text("Up", 0, -100);
-    text("Down", 0, 300 );
-    text("Left",-100, 0 );
-    text("Right", 300, 0 );
+    text("Up", -10, -100, 20);
+    text("Down", -10, 120, 20 );
+    text("Left",-120, 0, 20 );
+    text("Right", 100, 0 , 20);
+    text("Front", -10, 0, 100);
     }
     
     //prints commands 
     text("Shuffle cube: s", -150, -145, -20);
     text("Label sides: l", -150, -160, -20);
     text("Solve cube: space",-150, -175, -20);
+    text("Start/stop timer: click",-150, -190, -20);
+    text("Reset timer: r",-150, -205, -20);
+    
 }

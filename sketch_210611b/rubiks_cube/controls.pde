@@ -49,5 +49,8 @@ void keyPressed() {
       millisecs = 0;
       seconds = 0;
       minutes = 0;
+    case 'm':
+      menu = true;
   }
+  
 }

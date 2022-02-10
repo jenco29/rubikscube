@@ -82,9 +82,12 @@ void setup() {
 void draw() {
   background(255); 
   fill(0);
-  menu();
   frameCount ++;
   timer();
+  
+  if(menu){
+    menu();
+  }
    //<>//
   scale(50);
   for (int i = 0; i < cube.length; i++) {
