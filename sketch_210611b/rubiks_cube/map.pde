@@ -51,10 +51,10 @@ void menu(){
     }
     
     //prints commands 
-    text("Shuffle cube: s", -150, -145, -20);
-    text("Label sides: l", -150, -160, -20);
-    text("Solve cube: space",-150, -175, -20);
-    text("Start/stop timer: click",-150, -190, -20);
-    text("Reset timer: r",-150, -205, -20);
+    text("Shuffle cube: s", -150, -125, -20);
+    text("Label sides: l", -150, -140, -20);
+    text("Solve cube: space",-150, -155, -20);
+    text("Start/stop timer: click",-150, -170, -20);
+    text("Reset timer: r",-150, -185, -20);
     
 }

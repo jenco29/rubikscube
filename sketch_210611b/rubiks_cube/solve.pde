@@ -52,6 +52,15 @@ StringList solverR(Move R, StringList rev){
   return opp;
 }
 
+int indOfPrun(int[] prun, int ind){
+  for(int i=0; i<prun.length; i++){
+    if(prun[i] == ind){
+      return ind;
+    }
+  }
+  return -1;
+}
+
 void solve(Move R){
   
   String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
@@ -100,21 +109,46 @@ void solve(Move R){
   
   while(N > 0){
       for(int i=0; i<18; i++){
-          Move R2 = R.ApplyMove(getMove(movs1[i], allMoves));
+          Move R2 = R.ApplyMove(getMove(Prune1.Movs[i], allMoves));
           n = stateToIndex(R2.OrME);
           int M = Prune1.P[0][n] -1;
   
           if(M<N && M != -1){
               N = M;
               R = R2;
-              solve.append(movs1[i]); 
+              solve.append(Prune1.Movs[i]); 
               println(movs1[i]);
               break;
           }
       }
       
   }
-  println(R.OrME); //<>//
+  
+  int Eind = stateToIndex(R.getType("EP"));
+  int Cind = stateToIndex(R.getType("CP"));
+  
+  
+  m = indOfPrun(Prune2E, Eind);  
+  n = indOfPrun(Prune2C, Cind);
+  
+  N = Prune2.P[n][m];
+  
+  while(N>0){
+    for(int i=0; i<14; i++){
+      Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves));
+      Cind = stateToIndex(R2.getType("CP"));
+      Eind = stateToIndex(R2.getType("EP"));
+      m = indOfPrun(Prune2E, Eind);
+      n = indOfPrun(Prune2C, Cind);
+      int M = Prune2.P[n][m];
+      if(M<N){
+        N = M;
+        solve.append(Prune2.Movs[i]);
+        println(Prune2.Movs[i]);
+        break;
+      }
+    }
+  } //<>//
    
   
 }
