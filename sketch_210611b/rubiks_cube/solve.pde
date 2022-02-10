@@ -101,6 +101,13 @@ void solve(Move R){
     Prune2C[i] = Integer.valueOf(prun2C[i]);
   }
   
+  String[] prun3 = loadStrings("P3.txt");
+  for(int i=0; i<prun3.length; i++){
+    String[] line = split(prun3[i], ',');
+    for(int j=0; j<line.length; j++){
+      Prune3.P[i][j] = Integer.valueOf(line[j]);
+    }
+  }
   
   
   StringList solve = new StringList();
