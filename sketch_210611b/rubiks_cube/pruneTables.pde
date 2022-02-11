@@ -81,7 +81,7 @@ Boolean isFull(int[][] arr){
   
 
 
-  int stateToIndex(int[] state){
+  int stateToIndex(int[] state){ //<>//
     int n = state.length;
     int index = 0;
     int v;
@@ -114,6 +114,16 @@ Boolean isFull(int[][] arr){
 
     return index;
     
+  }
+  
+  void readTable(int[][] prune, String file){
+    String[] prun = loadStrings(file);
+    for(int i=0; i<prun.length; i++){  
+      String[] line = split(prun[i], ',');
+      for(int j=0; j<line.length; j++){
+        prune[i][j] = Integer.valueOf(line[j]); 
+      }
+    }
   }
   
   int[] applyState(int[] curStat, int[] stat, String type){

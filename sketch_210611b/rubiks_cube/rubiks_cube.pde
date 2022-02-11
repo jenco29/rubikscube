@@ -110,6 +110,7 @@ void draw() {
     
     else{
       if(sol){
+        println(stateToIndex(R.getType("CP"))); //<>//
         //solve(R);
         solverRev(shuffle);
         StringList solv = solverR(R, rev);

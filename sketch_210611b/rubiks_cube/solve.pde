@@ -61,17 +61,6 @@ int indOfPrun(int[][] prun, int ind){
   return -1;
 }
 
-void readTable(int[][] prune, String file){
-  String[] prun = loadStrings(file);
-  for(int i=0; i<prun.length; i++){  
-    String[] line = split(prun[i], ',');
-    for(int j=0; j<line.length; j++){
-      prune[i][j] = Integer.valueOf(line[j]); 
-    }
-  }
-  
-}
-
 void solve(Move R){
   
   String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
@@ -89,11 +78,6 @@ void solve(Move R){
   Prunes Prune4 = new Prunes(new int[96][6912], new int[1][6912], new int[1][96], movs4, PermIC, PermIE, "CP", "EP");
 
   
-  String[] prun1 = loadStrings("P1.txt");
-  for(int i=0; i<prun1.length; i++){
-    Prune1.P[0][i] = Integer.valueOf(prun1[i]);
-  }
-  
   readTable(Prune1.P, "P1.txt");
   
   readTable(Prune2.P, "P2.txt");
@@ -107,7 +91,7 @@ void solve(Move R){
   readTable(Prune4.P, "P4.txt");
   readTable(Prune4.PE, "P4E.txt");
   readTable(Prune4.PC, "P4C.txt");
-   //<>//
+  
 
   StringList solve = new StringList();
   int n = stateToIndex(R.OrME);
@@ -134,13 +118,13 @@ void solve(Move R){
   int Cind = stateToIndex(R.getType("CP"));
   
   
-  m = indOfPrun(Prune2.PE, Eind);  
-  n = indOfPrun(Prune2.PC, Cind);
+  m = indOfPrun(Prune2.PE, Eind);   //<>//
+  n = indOfPrun(Prune2.PC, Cind); //<>//
   
   N = Prune2.P[n][m];
   
   while(N>0){
-    for(int i=0; i<14; i++){
+    for(int i=0; i<14; i++){ //<>//
       Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves));
       Cind = stateToIndex(R2.getType("CP"));
       Eind = stateToIndex(R2.getType("EP"));
