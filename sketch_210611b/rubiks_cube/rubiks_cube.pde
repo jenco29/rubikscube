@@ -110,7 +110,7 @@ void draw() {
     
     else{
       if(sol){
-        solve(R);
+        //solve(R);
         solverRev(shuffle);
         StringList solv = solverR(R, rev);
         if(solveCount < m){

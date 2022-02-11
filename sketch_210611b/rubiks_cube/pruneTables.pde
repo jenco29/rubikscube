@@ -151,6 +151,8 @@ Boolean isFull(int[][] arr){
 
 class Prunes{
   int[][] P;
+  int[][] PE;
+  int[][] PC;
   //prune table
   String[] Movs;
   int[] C;
@@ -159,9 +161,11 @@ class Prunes{
   //defines the type of state needed
   String typeE;
   
-  Prunes(int[][] p, String[] movs, int[] c, int[] e, String tc, String te){
+  Prunes(int[][] p, int[][] pe, int[][] pc, String[] movs, int[] c, int[] e, String tc, String te){
     
     this.P = p;
+    this.PE = pe;
+    this.PC = pc;
     this.Movs = movs;
     this.C = c;
     this.E = e;
