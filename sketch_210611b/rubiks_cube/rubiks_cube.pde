@@ -76,6 +76,8 @@ void setup() {
     shuffle.append(moves_[num]);
   }
   
+  map();
+  
 }
 
 

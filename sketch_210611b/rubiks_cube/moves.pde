@@ -72,4 +72,5 @@ void moving(String move){
   }
   //updates the numerical layout of the cube each time a move is applied
   R = R.ApplyMove(getMove(move, allMoves));
+  map();
 }

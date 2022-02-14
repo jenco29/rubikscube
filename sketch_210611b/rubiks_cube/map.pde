@@ -1,24 +1,94 @@
-char checkCol(int num, int i){
-  if(cube[i].colours[num] == green){
-    return 'G';
-  }
-  else if(cube[i].colours[num] == blue){
-    return 'B';
-  }
-  else if(cube[i].colours[num] == red){
+char colChar(color c){
+  if(c == red){
     return 'R';
   }
-  else if(cube[i].colours[num] == orange){
-    return 'O';
+  else if(c == blue){
+    return 'B';
   }
-  else if(cube[i].colours[num] == white){
-    return 'W';
+  else if(c == green){
+    return 'G';
   }
-  else{
+  else if(c == yellow){
     return 'Y';
   }
-  //will print the colour of each visible position in the cube
+  else if(c == orange){
+    return 'O';
+  }
+  else{
+    return 'W';
+  }
+}
+
+void mapMid(int x){
+    for(cubes c : cube){
+      if(c.x == x){
+        Boolean doneY = false;
+        Boolean doneZ = false;
+        if(c.y == -1){
+          print(colChar(c.colours[5]));
+          doneY = true;
+          }
+        if(c.z == 1 && doneY){
+          print(colChar(c.colours[1]));        
+        }
+        if(c.z == 1 && c.y!= -1){
+          print(colChar(c.colours[1]));  
+          doneZ = true;
+        } 
+        if(c.y == 1 && doneZ){
+          print(colChar(c.colours[4]));
+          
+        }
+
+         
+        
+
+        /*
+        if(c.z == 1){
+          lfrb += colChar(c.colours[1]);
+        }
+        if(c.y == 1){
+          lfrb += colChar(c.colours[4]);
+        }
+        if(c.z == -1){
+          lfrb += colChar(c.colours[0]);
+        }
+        if(lfrb.length() % 12 == 0){
+            println(lfrb);
+            lfrb = "";
+          }*/
+      }
+      
+  }
+  print("\n");
+}
+
+void map(){
+  String up = "      ";
+  for(cubes c : cube){
+    if(c.x == -1){
+      up += colChar(c.colours[3]);
+      if(up.length() % 3 == 0){
+        println(up);
+        up = "      ";
+      }
+    }
+  }
   
+  mapMid(1);
+  mapMid(0);
+  mapMid(-1);
+ 
+  String dwn = "      ";
+  for(cubes c : cube){
+    if(c.x == -1){
+      dwn += colChar(c.colours[2]);
+      if(dwn.length() % 3 == 0){
+        println(dwn);
+        dwn = "      ";
+      }
+    }
+  }
 }
 
 //a way to check that each cube was generated correctly
