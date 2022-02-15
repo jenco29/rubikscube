@@ -77,7 +77,7 @@ void solve(Move R){
   String[] movs4 = {"L2", "R2", "F2", "B2", "U2", "D2"};
   Prunes Prune4 = new Prunes(new int[96][6912], new int[1][6912], new int[1][96], movs4, PermIC, PermIE, "CP", "EP");
 
-  
+  //read in all the files for the prune tables
   readTable(Prune1.P, "P1.txt");
   
   readTable(Prune2.P, "P2.txt");
@@ -94,6 +94,8 @@ void solve(Move R){
   
 
   StringList solve = new StringList();
+  
+  //PHASE 1
   int n = stateToIndex(R.OrME);
   int N = Prune1.P[0][n];
   
@@ -114,10 +116,10 @@ void solve(Move R){
       
   }
   
+  //PHASE 2
   int Eind = stateToIndex(R.getType("EP"));
   int Cind = stateToIndex(R.getType("CP"));
-  
-  
+   
   m = indOfPrun(Prune2.PE, Eind);   //<>//
   n = indOfPrun(Prune2.PC, Cind); //<>//
   
@@ -126,19 +128,78 @@ void solve(Move R){
   while(N>0){
     for(int i=0; i<14; i++){ //<>//
       Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves));
-      Cind = stateToIndex(R2.getType("CP"));
+      Cind = stateToIndex(R2.getType("CO"));
       Eind = stateToIndex(R2.getType("EP"));
       m = indOfPrun(Prune2.PE, Eind);
       n = indOfPrun(Prune2.PC, Cind);
       int M = Prune2.P[n][m];
       if(M<N){
         N = M;
+        R = R2;
         solve.append(Prune2.Movs[i]);
         println(Prune2.Movs[i]);
         break;
       }
     }
   } //<>//
-   
+  
+  //PHASE 3
+  
+  Cind = stateToIndex(R.getType("CP"));
+  Eind = stateToIndex(R.getType("EP"));
+  
+  n = indOfPrun(Prune3.PC, Cind);
+  m = indOfPrun(Prune3.PE, Eind);
+  
+  N = Prune3.P[n][m];
+  
+  while(N > 0){
+    for(int i=0; i<10; i++){
+      Move R2 = R.ApplyMove(getMove(Prune3.Movs[i], allMoves));
+      Cind = stateToIndex(R2.getType("CP"));
+      Eind = stateToIndex(R2.getType("EP"));
+      n = indOfPrun(Prune3.PC, Cind);
+      m = indOfPrun(Prune3.PE, Eind);
+      int M = Prune3.P[n][m];
+      if(M<N){
+        N = M;
+        R = R2;
+        solve.append(Prune3.Movs[i]);
+        println(Prune3.Movs[i]);
+        break;
+      }
+    }
+  }
+  
+  //PHASE 4
+  
+  Cind = stateToIndex(Identity.PermMC);
+  Eind = stateToIndex(Identity.PermME);
+  
+  n = indOfPrun(Prune4.PC, Cind);
+  m = indOfPrun(Prune4.PE, Eind);
+  
+  N = Prune4.P[n][m];
+  
+  while(N>0){
+    for(int i=0; i<6; i++){
+      Move R2 = R.ApplyMove(getMove(Prune4.Movs[i], allMoves));
+      Cind = stateToIndex(R2.PermMC);
+      Eind = stateToIndex(R2.PermME);
+      n = indOfPrun(Prune4.PC, Cind);
+      m = indOfPrun(Prune4.PE, Eind);
+      int M = Prune4.P[n][m];
+      
+      if(M<N){
+        n = M;
+        R = R2;
+        solve.append(Prune4.Movs[i]);
+        println(Prune4.Movs[i]);
+        break;
+      }
+    }
+    
+  }
+  
   
 }

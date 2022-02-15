@@ -11,6 +11,7 @@ int frameCount = 0;
 int m = int(random(100, 130));
 StringList shuffle = new StringList();
 StringList rev = new StringList();
+StringList movs = new StringList();
 
 void setup() {
   size(600, 600, P3D);
@@ -75,9 +76,7 @@ void setup() {
     int num = int(random(0, 11));
     shuffle.append(moves_[num]);
   }
-  
-  map();
-  
+  plan();
 }
 
 
@@ -111,10 +110,9 @@ void draw() {
     
     
     else{
-      if(sol){
-        println(stateToIndex(R.getType("CP"))); //<>//
-        //solve(R);
-        solverRev(shuffle);
+      if(sol){ //<>//
+        solve(R);
+        solverRev(movs);
         StringList solv = solverR(R, rev);
         if(solveCount < m){
           moving(solv.get(solveCount));
