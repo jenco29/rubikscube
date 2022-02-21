@@ -52,6 +52,7 @@ StringList solverR(Move R, StringList rev){
   return opp;
 }
 
+//gets index from seperate prune tables to be used in main one
 int indOfPrun(int[][] prun, int ind){
   for(int i=0; i<prun.length; i++){
     if(prun[0][i] == ind){
@@ -105,6 +106,8 @@ void solve(Move R){
           n = stateToIndex(R2.OrME);
           int M = Prune1.P[0][n] -1;
   
+          //if depth smaller than current one
+          //replace R with R2
           if(M<N && M != -1){
               N = M;
               R = R2;
@@ -117,6 +120,7 @@ void solve(Move R){
   }
   
   //PHASE 2
+  //corrects the corner orientation and moves left and right edges into their slice
   int Eind = stateToIndex(R.getType("EP"));
   int Cind = stateToIndex(R.getType("CP"));
    
@@ -130,6 +134,7 @@ void solve(Move R){
       Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves));
       Cind = stateToIndex(R2.getType("CO"));
       Eind = stateToIndex(R2.getType("EP"));
+      //indexes of prune table, got from the edge and corner prunes for efficiency
       m = indOfPrun(Prune2.PE, Eind);
       n = indOfPrun(Prune2.PC, Cind);
       int M = Prune2.P[n][m];
@@ -145,6 +150,7 @@ void solve(Move R){
   
   //PHASE 3
   
+  //similar to phase 2- aligns all the pieces correctly in their slice
   Cind = stateToIndex(R.getType("CP"));
   Eind = stateToIndex(R.getType("EP"));
   
@@ -172,7 +178,7 @@ void solve(Move R){
   }
   
   //PHASE 4
-  
+  //edges stay in their slices, corners stay in their orbits
   Cind = stateToIndex(Identity.PermMC);
   Eind = stateToIndex(Identity.PermME);
   
