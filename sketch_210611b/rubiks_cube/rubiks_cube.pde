@@ -84,6 +84,7 @@ void draw() {
   background(255); 
   fill(0);
   frameCount ++;
+  
   timer();
   
   if(menu){
@@ -111,16 +112,20 @@ void draw() {
     
     else{
       if(sol){ //<>//
+        //calls algorithmic solver on current cube state
         solve(R);
+        //reccursively reverses the move string
         solverRev(movs);
+        //all the moves to solve it
         StringList solv = solverR(R, rev);
         if(solveCount < m){
+          //show sides moving for all the moves in the string
           moving(solv.get(solveCount));
           solveCount++;
         }
       }   
 
     }
-   }
-      
   }
+      
+}
