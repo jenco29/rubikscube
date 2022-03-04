@@ -12,6 +12,7 @@ Boolean shuf = false;
 Boolean l = false;
 Boolean t = false;
 Boolean menu = false;
+Boolean M = false;
 int shuffleCount = 0;
 int solveCount = 0;
 

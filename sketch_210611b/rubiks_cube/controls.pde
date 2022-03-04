@@ -51,6 +51,8 @@ void keyPressed() {
       minutes = 0;
     case 'm':
       menu = true;
+    case 'Q':
+      M = true;
   }
   
 }

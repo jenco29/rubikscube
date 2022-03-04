@@ -117,8 +117,8 @@ void solve(Move R){
   }
   
   //PHASE 2
-  int Eind = stateToIndex(R.getType("EP"));
-  int Cind = stateToIndex(R.getType("CP"));
+  int Eind = abs(stateToIndex(R.getType("EP")));
+  int Cind = abs(stateToIndex(R.getType("CO")));
    
   m = indOfPrun(Prune2.PE, Eind);   //<>//
   n = indOfPrun(Prune2.PC, Cind); //<>//

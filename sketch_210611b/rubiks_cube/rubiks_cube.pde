@@ -111,7 +111,8 @@ void draw() {
     
     else{
       if(sol){ //<>//
-        solve(R);
+        //println(stateToIndex(R.OrMC));
+        //solve(R);
         solverRev(movs);
         StringList solv = solverR(R, rev);
         if(solveCount < m){

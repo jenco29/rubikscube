@@ -219,13 +219,13 @@ int pieceType(int i){
 
 void menu(){
   
-  //labels most of the sides- others figureable, only when l key pressed
-    if(l){
-    text("Up", -10, -100, 20);
-    text("Down", -10, 120, 20 );
-    text("Left",-120, 0, 20 );
-    text("Right", 100, 0 , 20);
-    text("Front", -10, 0, 100);
+  //labels the sides, only when l key pressed
+{}    if(l){
+    text("Up (3)", -10, -100, 20);
+    text("Down (4)", -10, 120, 20 );
+    text("Left (1)",-120, 0, 20 );
+    text("Right (2)", 100, 0 , 20);
+    text("Front (5)", -10, 0, 100);
     }
     
     //prints commands 
@@ -234,5 +234,7 @@ void menu(){
     text("Solve cube: space",-150, -155, -20);
     text("Start/stop timer: click",-150, -170, -20);
     text("Reset timer: r",-150, -185, -20);
+    text("Reverse move: shift", -150, -200, -20);
+
     
 }
