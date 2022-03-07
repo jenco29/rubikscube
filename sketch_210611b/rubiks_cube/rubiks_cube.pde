@@ -5,6 +5,7 @@ PeasyCam cam;
 cubes[] cube = new cubes[27];
 Move[] allMoves = new Move[18];
 Move R; 
+PrintWriter movesFile;
 
 int frameCount = 0;
 //a random number of random moves are generated
@@ -18,6 +19,7 @@ void setup() {
   cam = new PeasyCam(this, 400);
   int index = 0;      
   R = Identity;
+  movesFile = createWriter("moves.txt");
   
 
   //assign all moves, apply atomic moves to each other to form reverse/ double moves
@@ -86,7 +88,7 @@ void draw() {
   background(255); 
   fill(0);
   frameCount ++;
-  timer();
+  //timer();
   
   if(menu){
     menu();

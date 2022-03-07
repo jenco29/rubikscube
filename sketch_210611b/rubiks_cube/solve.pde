@@ -26,21 +26,9 @@ String revMove(String mov){
   
 }
 
-void solverRev(StringList shuffle){
-  String firstItem = null;
-  if(shuffle.size() == 0){//base case
-    return;
-  }
-  else{
-    firstItem = shuffle.get(0);
-    shuffle.remove(0);
-  }
-  solverRev(shuffle);
-  rev.append(firstItem);
-}
 StringList solveRev(StringList rev){
   
-  if(rev.size() == 0){ //<>//
+  if(rev.size() == 0){  //<>//
     return x;
   }
   x.append(revMove(rev.get(rev.size()-1)));
@@ -119,13 +107,13 @@ void solve(Move R){
   int Cind = abs(stateToIndex(R.getType("CO")));
    
   m = indOfPrun(Prune2.PE, Eind);   //<>//
-  n = indOfPrun(Prune2.PC, Cind); //<>//
-  
+  n = indOfPrun(Prune2.PC, Cind); //<>// //<>//
+   //<>//
   N = Prune2.P[n][m];
   
   while(N>0){
     for(int i=0; i<14; i++){ //<>//
-      Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves));
+      Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves)); //<>//
       Cind = stateToIndex(R2.getType("CO"));
       Eind = stateToIndex(R2.getType("EP"));
       m = indOfPrun(Prune2.PE, Eind);
@@ -140,7 +128,7 @@ void solve(Move R){
       }
     }
   } //<>//
-  
+   //<>//
   //PHASE 3
   
   Cind = stateToIndex(R.getType("CP"));

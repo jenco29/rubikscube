@@ -144,6 +144,7 @@ void menu(){
     
     
     //prints commands 
+    text("Exit program: x", -150, -110, -20);
     text("Shuffle cube: s", -150, -125, -20);
     text("Label sides: l", -150, -140, -20);
     text("Solve cube: space",-150, -155, -20);

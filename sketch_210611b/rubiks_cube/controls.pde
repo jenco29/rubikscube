@@ -63,6 +63,9 @@ void keyPressed() {
     case 'Q':
       M = true;
       break;
+    case 'x':
+      movesFile.close();
+      exit();
   }
   
 }
