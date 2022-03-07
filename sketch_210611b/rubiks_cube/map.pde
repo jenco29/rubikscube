@@ -18,185 +18,95 @@ char colChar(color c){
     return 'W';
   }
 }
-/*
-class Plan{
-  int col;
-  int perm;
-  int var;
-  
-  Plan(int c, int p, int v){
-    this.col = c;
-    this.perm = p;
-    this.var = v;
+
+//prints the colour of the cubies on each side in a map
+
+void mapUp(int x){
+  print("\n");
+  print("    ");
+  for(cubes c : cube){
+    if(c.x == x){
+      if(c.y == -1){
+        char ch = colChar(c.colours[3]);
+        print(ch);
+      }
+    } 
   }
-  
-  void map(int perm){
+}
+
+void mapLeft(int z){
+  print("\n");
+  for(cubes c : cube){
+    if(c.z == z){
+      if(c.x == -1){
+        print(colChar(c.colours[5]));
+      }
+    }
+  }
+  print(" ");
+}
+
+void mapFront(int y){
+  for(cubes c : cube){
+    if(c.y == y){
+      if(c.z == 1){
+        print(colChar(c.colours[1]));
+      }
+    }
+  }
+  print(" ");
+}
+
+void mapRight(int y){
+  for(cubes c : cube){
+    if(c.y == y){
+      if(c.x == 1){
+        print(colChar(c.colours[4]));
+      }
+    }
+  }
+  print(" ");
+}
+
+void mapBack(int y){
     for(cubes c : cube){
-      if(c.perm == perm){
-        if(c.var == -1){
-          print(colChar(c.colours[col]));
-        }
-      } 
+    if(c.y == y){
+      if(c.z == -1){
+        print(colChar(c.colours[0]));
+      }
     }
   }
 }
-*/
+
+void mapDown(int x){
+      print("    ");
+  for(cubes c : cube){
+    if(c.x == x){
+      if(c.y == 1){
+        print(colChar(c.colours[2]));
+      }
+    } 
+  }
+}
+
  //<>//
 void plan(){
+  for(int i=-1; i<2; i++){
+    mapUp(i);
+  }
   
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == -1){
-      if(c.y == -1){
-        char ch = colChar(c.colours[3]);
-        print(ch);
-      }
-    } 
+  for(int i=-1; i<2; i++){
+    mapLeft(i);
+    mapFront(i);
+    mapRight(i*-1);
+    
   }
   print("\n");
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == 0){
-      if(c.y == -1){
-        char ch = colChar(c.colours[3]);
-        print(ch);
-      }
-    } 
+  for(int i=-1; i<2; i++){
+    mapDown(i);
+    print("\n");
   }
-  print("\n");
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == 1){
-      if(c.y == -1){
-        char ch = colChar(c.colours[3]);
-        print(ch);
-      }
-    } 
-  }
-  print("\n");
-    for(cubes c : cube){
-    if(c.z == -1){
-      if(c.x == -1){
-        print(colChar(c.colours[5]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == -1){
-      if(c.z == 1){
-        print(colChar(c.colours[1]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == 1){
-      if(c.x == 1){
-        print(colChar(c.colours[4]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == -1){
-      if(c.z == -1){
-        print(colChar(c.colours[0]));
-      }
-    }
-  }
-  print("\n");
-    for(cubes c : cube){
-    if(c.z == 0){
-      if(c.x == -1){
-        print(colChar(c.colours[5]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == 0){
-      if(c.z == 1){
-        print(colChar(c.colours[1]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == 0){
-      if(c.x == 1){
-        print(colChar(c.colours[4]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == -1){
-      if(c.z == -1){
-        print(colChar(c.colours[0]));
-      }
-    }
-  }
-  print("\n");
-    for(cubes c : cube){
-    if(c.z == 1){
-      if(c.x == -1){
-        print(colChar(c.colours[5]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == 1){
-      if(c.z == 1){
-        print(colChar(c.colours[1]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == -1){
-      if(c.x == 1){
-        print(colChar(c.colours[4]));
-      }
-    }
-  }
-  print(" ");
-    for(cubes c : cube){
-    if(c.y == -1){
-      if(c.z == -1){
-        print(colChar(c.colours[0]));
-      }
-    }
-  }
-  print("\n");
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == -1){
-      if(c.y == 1){
-        print(colChar(c.colours[2]));
-      }
-    } 
-  }
-  print("\n");
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == 0){
-      if(c.y == 1){
-        print(colChar(c.colours[2]));
-      }
-    } 
-  }
-  print("\n");
-    print("    ");
-  for(cubes c : cube){
-    if(c.x == 1){
-      if(c.y == 1){
-        print(colChar(c.colours[2]));
-      }
-    } 
-  }
-  print("\n");
+
 }
 
 //a way to check that each cube was generated correctly

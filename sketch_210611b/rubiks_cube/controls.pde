@@ -39,20 +39,27 @@ void keyPressed() {
       break;
     case ' ':
       sol = true;
+      break;
     case 's':
       shuf = true;
+      break;
     case 't':
       t = true;
+      break;
     case 'l':
       l = true;
+      break;
     case 'r':
       millisecs = 0;
       seconds = 0;
       minutes = 0;
+      break;
     case 'm':
       menu = true;
+      break;
     case 'Q':
       M = true;
+      break;
   }
   
 }

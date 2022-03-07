@@ -12,7 +12,7 @@ int m = int(random(100, 130));
 StringList shuffle = new StringList();
 StringList rev = new StringList();
 StringList movs = new StringList();
-
+StringList x = new StringList();
 void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
@@ -70,16 +70,18 @@ void setup() {
     }
   }
   
-  
-  for(int i=0; i<m; i++){
+ 
+    for(int i=0; i<m; i++){
     //create list of random moves
-    int num = int(random(0, 11));
-    shuffle.append(moves_[num]);
-  }
+      int num = int(random(0, 11));
+      shuffle.append(moves_[num]);
+    }
+  
+
   plan();
 }
 
-
+Boolean solveFirstFrame = false;
 void draw() {
   background(255); 
   fill(0);
@@ -105,23 +107,34 @@ void draw() {
         moving(shuffle.get(shuffleCount));
         shuffleCount++;
       }
-  }
+      else{
+        shuf = false;
+      }
+  
+ }
  
+ }
     
-    
-    else{
+    //gets the moves from the shuffle and applies the solve to it
       if(sol){ //<>//
-        //println(stateToIndex(R.OrMC));
+          movs = solveRev(movs);
         //solve(R);
-        solverRev(movs);
-        StringList solv = solverR(R, rev);
-        if(solveCount < m){
-          moving(solv.get(solveCount));
-          solveCount++;
+        
+        solveCount = movs.size() - 1;
+        while(solveCount > 0){
+          moving(movs.get(solveCount)); 
+          println("sex");
+          solveCount--;
+        } 
+      }
+      else{
+        solveFirstFrame = false;
+      }
+      
+      else{
+          sol = false;
         }
-      }   
 
     }
-   }
       
-  }
+ 
