@@ -1,3 +1,4 @@
+//checks if prune table contains depth passed to it
 Boolean hasVal(int[] arr, int num){
   Boolean has = false;
   for(int i : arr){
@@ -9,6 +10,7 @@ Boolean hasVal(int[] arr, int num){
   return has;
 }
 
+//checks if prune table full of depths
 Boolean isFull(int[][] arr){
   for(int i=0; i<arr.length; i++){
     for(int j=0; j<arr[i].length; j++){
@@ -116,6 +118,8 @@ Boolean isFull(int[][] arr){
     
   }
   
+
+  //reads in all the prune tables, single line refers to row, each number separated by comma refers to column
   void readTable(int[][] prune, String file){
     String[] prun = loadStrings(file);
     for(int i=0; i<prun.length; i++){  
@@ -125,7 +129,7 @@ Boolean isFull(int[][] arr){
       }
     }
   }
-  
+  //returns state not move, depending on the type inputted.
   int[] applyState(int[] curStat, int[] stat, String type){
     int n;
     int m;
@@ -154,7 +158,7 @@ Boolean isFull(int[][] arr){
         return null;
     }
 
-    //returns state not move, depending on the type inputted.
+    
   }
   
   
