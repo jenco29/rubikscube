@@ -25,25 +25,24 @@ String revMove(String mov){
   
   
 }
-// L
 
-
-//applies the reverse move to the reverse string
-StringList solverR(Move R, StringList rev){
-  StringList opp = new StringList();
-  for(String r: rev){
-    String rq = revMove(r);
-    opp.append(rq);
-    R.ApplyMove(getMove(rq, allMoves));
-    println(rq);
+void solverRev(StringList shuffle){
+  String firstItem = null;
+  if(shuffle.size() == 0){//base case
+    return;
   }
-  return opp;
+  else{
+    firstItem = shuffle.get(0);
+    shuffle.remove(0);
+  }
+  solverRev(shuffle);
+  rev.append(firstItem);
 }
-
 StringList solveRev(StringList rev){
   
-  if(rev.size() == 0)
+  if(rev.size() == 0){ //<>//
     return x;
+  }
   x.append(revMove(rev.get(rev.size()-1)));
   println(x);
   rev.remove((rev.size()-1));

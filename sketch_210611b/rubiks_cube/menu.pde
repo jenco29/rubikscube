@@ -89,7 +89,7 @@ void mapDown(int x){
   }
 }
 
- //<>//
+
 void plan(){
   for(int i=-1; i<2; i++){
     mapUp(i);
@@ -130,13 +130,18 @@ int pieceType(int i){
 void menu(){
   
   //labels the sides, only when l key pressed
-{}    if(l){
+  if(l){
+    if(L){
+      fill(white);
+    }
+    fill(0);
     text("Up (3)", -10, -100, 20);
     text("Down (4)", -10, 120, 20 );
     text("Left (1)",-120, 0, 20 );
     text("Right (2)", 100, 0 , 20);
     text("Front (5)", -10, 0, 100);
     }
+    
     
     //prints commands 
     text("Shuffle cube: s", -150, -125, -20);

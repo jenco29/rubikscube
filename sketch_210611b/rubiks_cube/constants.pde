@@ -10,11 +10,11 @@ final color yellow = color(255, 255, 0);
 Boolean sol = false;
 Boolean shuf = false;
 Boolean l = false;
+Boolean L = false;
 Boolean t = false;
 Boolean menu = false;
 Boolean M = false;
 int shuffleCount = 0;
-int solveCount = 0;
 
 final int back = 0;
 final int front = 1;

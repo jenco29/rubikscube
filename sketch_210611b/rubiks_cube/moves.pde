@@ -69,6 +69,8 @@ void moving(String move){
       FrontBack(-1, 1);
       FrontBack(-1, 1);
       break;
+    default:
+      break;
   }
   //updates the numerical layout of the cube each time a move is applied
   R = R.ApplyMove(getMove(move, allMoves));

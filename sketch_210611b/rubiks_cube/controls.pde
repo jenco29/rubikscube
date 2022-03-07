@@ -49,6 +49,9 @@ void keyPressed() {
     case 'l':
       l = true;
       break;
+    case 'L':
+      L = true;
+      break;
     case 'r':
       millisecs = 0;
       seconds = 0;

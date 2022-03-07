@@ -111,30 +111,23 @@ void draw() {
         shuf = false;
       }
   
- }
+   }
  
  }
     
     //gets the moves from the shuffle and applies the solve to it
-      if(sol){ //<>//
-          movs = solveRev(movs);
-        //solve(R);
-        
-        solveCount = movs.size() - 1;
-        while(solveCount > 0){
+      if(sol){
+        movs = solveRev(movs); //<>//
+        //solve(R); 
+        int solveCount = 0;
+        if(solveCount < movs.size()){
           moving(movs.get(solveCount)); 
-          println("sex");
-          solveCount--;
+          solveCount++;
         } 
-      }
-      else{
-        solveFirstFrame = false;
-      }
-      
-      else{
+        else{
           sol = false;
         }
-
+      }
     }
       
  
