@@ -25,18 +25,30 @@ String revMove(String mov){
   
   
 }
-
-StringList solveRev(StringList rev){
-  
-  if(rev.size() == 0){  //<>//
-    return x;
+//recursively reverses the input shuffle
+void solverRev(StringList shuffle){
+  String firstItem = null;
+  if(shuffle.size() == 0){//base case
+    return;
   }
-  x.append(revMove(rev.get(rev.size()-1)));
-  println(x);
-  rev.remove((rev.size()-1));
-  return solveRev(rev);
-  
+  else{
+    firstItem = shuffle.get(0);
+    shuffle.remove(0);
+  }
+  solverRev(shuffle);
+  rev.append(firstItem);
 }
+
+//applies the reverse move to the reverse string
+StringList solverR(Move R, StringList rev){
+  StringList opp = new StringList();
+  for(String r: rev){
+    String rq = revMove(r);
+    opp.append(rq);
+    R.ApplyMove(getMove(rq, allMoves));
+  }
+  return opp;
+} //<>//
 
 int indOfPrun(int[][] prun, int ind){
   for(int i=0; i<prun.length; i++){
@@ -86,16 +98,16 @@ void solve(Move R){
   int N = Prune1.P[0][n];
   
   while(N > 0){
+    //try all moves
       for(int i=0; i<18; i++){
           Move R2 = R.ApplyMove(getMove(Prune1.Movs[i], allMoves));
           n = stateToIndex(R2.OrME);
           int M = Prune1.P[0][n] -1;
-  
+  //apply move if the depth is less
           if(M<N && M != -1){
               N = M;
               R = R2;
               solve.append(Prune1.Movs[i]); 
-              println(movs1[i]);
               break;
           }
       }
@@ -103,15 +115,19 @@ void solve(Move R){
   }
   
   //PHASE 2
+  
+  //gets indices from the shortened prune tables, for the main one to use
   int Eind = abs(stateToIndex(R.getType("EP")));
   int Cind = abs(stateToIndex(R.getType("CO")));
    
   m = indOfPrun(Prune2.PE, Eind);   //<>//
-  n = indOfPrun(Prune2.PC, Cind); //<>// //<>//
+  n = indOfPrun(Prune2.PC, Cind);  //<>//
    //<>//
   N = Prune2.P[n][m];
   
+  //repeat until 0 (solved state for that phase) is found
   while(N>0){
+    //14 possible moves to try
     for(int i=0; i<14; i++){ //<>//
       Move R2 = R.ApplyMove(getMove(Prune2.Movs[i], allMoves)); //<>//
       Cind = stateToIndex(R2.getType("CO"));
@@ -119,11 +135,11 @@ void solve(Move R){
       m = indOfPrun(Prune2.PE, Eind);
       n = indOfPrun(Prune2.PC, Cind);
       int M = Prune2.P[n][m];
+      //apply move if the depth is less
       if(M<N){
         N = M;
         R = R2;
         solve.append(Prune2.Movs[i]);
-        println(Prune2.Movs[i]);
         break;
       }
     }
@@ -151,14 +167,13 @@ void solve(Move R){
         N = M;
         R = R2;
         solve.append(Prune3.Movs[i]);
-        println(Prune3.Movs[i]);
         break;
       }
     }
   }
   
   //PHASE 4
-  
+  //close to the solved state so can be compared to that rather than the other way round
   Cind = stateToIndex(Identity.PermMC);
   Eind = stateToIndex(Identity.PermME);
   
@@ -168,6 +183,7 @@ void solve(Move R){
   N = Prune4.P[n][m];
   
   while(N>0){
+    //only six possible moves
     for(int i=0; i<6; i++){
       Move R2 = R.ApplyMove(getMove(Prune4.Movs[i], allMoves));
       Cind = stateToIndex(R2.PermMC);
@@ -180,7 +196,6 @@ void solve(Move R){
         n = M;
         R = R2;
         solve.append(Prune4.Movs[i]);
-        println(Prune4.Movs[i]);
         break;
       }
     }

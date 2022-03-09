@@ -61,6 +61,7 @@ class cubes {
   void show() {
     noFill();
     stroke(0);
+    //size of cube lines
     strokeWeight(0.05);
     pushMatrix(); 
     applyMatrix(matrix);

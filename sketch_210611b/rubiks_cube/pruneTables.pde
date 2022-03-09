@@ -88,8 +88,11 @@ Boolean isFull(int[][] arr){
     int index = 0;
     int v;
     
+    //if an edge piece there are 3 different sides
     if(n == 8){
       v = 3;
+      
+    //if a corner piece there are 2 different sides
     }
     else{
       v = 2;
@@ -189,7 +192,7 @@ class Prunes{
 
   }
   
-  //slightly redundant- attempted to generate prune tables- decided to use pre generated.
+  //generates prune1 table by assigning the depths to the different indices of a matrix
    void generate(){
     for(int i=0; i<P.length; i++){
       for(int j=0; j<P[i].length; j++){
@@ -215,6 +218,7 @@ class Prunes{
             int[] y = indexToState(p, typeC); 
             int[] ty = applyState(y, t, typeC);
             int q = stateToIndex(ty); 
+            //checks if entry is empty
             if(P[0][q] == -1){
               c += 1;
               P[0][q] = len+1;
@@ -225,7 +229,6 @@ class Prunes{
         }
       
       len += 1;
-      //returns much fewer numbers than it should, an interesting experiment into table generation.
       println(c + " positions at distance " + len);
     }
     while(c >0);

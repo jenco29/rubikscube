@@ -10,10 +10,12 @@ final color yellow = color(255, 255, 0);
 //for the menu- runs by pressing the keys
 Boolean sol = false;
 Boolean shuf = false;
+//label
 Boolean l = false;
-Boolean t = false;
 Boolean menu = false;
+Boolean resetCube = false;
 int shuffleCount = 0;
+int solveCount = 0;
 
 final int back = 0;
 final int front = 1;

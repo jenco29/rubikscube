@@ -14,6 +14,7 @@ StringList shuffle = new StringList();
 StringList rev = new StringList();
 StringList movs = new StringList();
 StringList x = new StringList();
+
 void setup() {
   size(600, 600, P3D);
   cam = new PeasyCam(this, 400);
@@ -119,17 +120,30 @@ void draw() {
     
     //gets the moves from the shuffle and applies the solve to it
       if(sol){
-        movs = solveRev(movs); //<>//
-        //solve(R); 
-        int solveCount = 0;
-        if(solveCount < movs.size()){
-          moving(movs.get(solveCount)); 
+        //calls algorithmic solver on current cube state
+        //solve(R);
+        //reccursively reverses the move string
+        solverRev(movs);
+        //all the moves to solve it
+        StringList solv = solverR(R, rev);
+        if(solveCount < m){
+          //show sides moving for all the moves in the string
+          moving(solv.get(solveCount));
           solveCount++;
-        } 
-        else{
-          sol = false;
-        }
+        } //<>//
       }
-    }
       
- 
+      if(resetCube){
+        //sets cube to identity state by pressing enter
+        solverRev(movs);
+        StringList solv = solverR(R, rev);
+        for(String s: solv){
+          moving(s);
+        }
+
+      }
+      
+    
+  
+      
+ }

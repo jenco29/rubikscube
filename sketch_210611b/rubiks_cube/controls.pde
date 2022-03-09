@@ -1,6 +1,7 @@
 
 void keyPressed() {
   switch(key){
+    //all moves and reverse moves
       case '1': 
       moving("L");
       break;
@@ -40,20 +41,21 @@ void keyPressed() {
     case ' ':
       sol = true;
       break;
+      //shuffle
     case 's':
       shuf = true;
       break;
-    case 't':
-      t = true;
-      break;
+      //label sides
     case 'l':
       l = true;
       break;
+      //reset timer
     case 'r':
       millisecs = 0;
       seconds = 0;
       minutes = 0;
       break;
+      //show menu
     case 'm':
       menu = true;
       break;
@@ -61,6 +63,8 @@ void keyPressed() {
     //save changes to moves file
       movesFile.close();
       exit();
+    case '\n':
+      resetCube = true;
   }
   
 }
