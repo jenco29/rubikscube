@@ -1,3 +1,4 @@
+//returns colour character dependent on the face colour
 char colChar(color c){
   if(c == red){
     return 'R';
@@ -21,6 +22,7 @@ char colChar(color c){
 
 //prints the colour of the cubies on each side in a map
 
+//up face (I-white)
 void mapUp(int x){
   print("\n");
   print("    ");
@@ -33,7 +35,7 @@ void mapUp(int x){
     } 
   }
 }
-
+//left face (I- green)
 void mapLeft(int z){
   print("\n");
   for(cubes c : cube){
@@ -46,6 +48,7 @@ void mapLeft(int z){
   print(" ");
 }
 
+//front face(I- red)
 void mapFront(int y){
   for(cubes c : cube){
     if(c.y == y){
@@ -57,6 +60,7 @@ void mapFront(int y){
   print(" ");
 }
 
+//right face (I- blue)
 void mapRight(int y){
   for(cubes c : cube){
     if(c.y == y){
@@ -68,6 +72,7 @@ void mapRight(int y){
   print(" ");
 }
 
+//back face (I- orange)
 void mapBack(int y){
     for(cubes c : cube){
     if(c.y == y){
@@ -78,6 +83,7 @@ void mapBack(int y){
   }
 }
 
+//down face (I- yellow)
 void mapDown(int x){
       print("    ");
   for(cubes c : cube){
@@ -131,9 +137,6 @@ void menu(){
   
   //labels the sides, only when l key pressed
   if(l){
-    if(L){
-      fill(white);
-    }
     fill(0);
     text("Up (3)", -10, -100, 20);
     text("Down (4)", -10, 120, 20 );

@@ -49,9 +49,6 @@ void keyPressed() {
     case 'l':
       l = true;
       break;
-    case 'L':
-      L = true;
-      break;
     case 'r':
       millisecs = 0;
       seconds = 0;
@@ -60,10 +57,8 @@ void keyPressed() {
     case 'm':
       menu = true;
       break;
-    case 'Q':
-      M = true;
-      break;
     case 'x':
+    //save changes to moves file
       movesFile.close();
       exit();
   }

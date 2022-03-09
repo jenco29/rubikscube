@@ -3,7 +3,7 @@ int seconds;
 int minutes;
 Boolean start = false;
 Boolean starter;
-/*
+
 void timer(){
   if(start){
     if(int(millis()/100) % 10 != millisecs){
@@ -34,4 +34,3 @@ void mouseClicked(){
   start = starter;
   
 }
-*/

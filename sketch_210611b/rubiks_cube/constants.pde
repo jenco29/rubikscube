@@ -1,3 +1,4 @@
+//constant colours for cubes- asigned from rgb
 final color red = color(255, 0, 0);
 final color blue = color(0, 0, 255);
 final color white = color(255);
@@ -10,10 +11,8 @@ final color yellow = color(255, 255, 0);
 Boolean sol = false;
 Boolean shuf = false;
 Boolean l = false;
-Boolean L = false;
 Boolean t = false;
 Boolean menu = false;
-Boolean M = false;
 int shuffleCount = 0;
 
 final int back = 0;
@@ -23,6 +22,7 @@ final int up = 3;
 final int right = 4;
 final int left = 5;
 
+//piece types
 final int corner = 0;
 final int edge = 1;
 final int centre = 2;

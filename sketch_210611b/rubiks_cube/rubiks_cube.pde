@@ -88,7 +88,7 @@ void draw() {
   background(255); 
   fill(0);
   frameCount ++;
-  //timer();
+  timer();
   
   if(menu){
     menu();
