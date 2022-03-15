@@ -136,15 +136,14 @@ void draw() {
       
       if(resetCube){
         //sets cube to identity state by pressing enter
+        //reccursively reverses the move string
         solverRev(movs);
+        //all the moves to solve it
         StringList solv = solverR(R, rev);
         for(String s: solv){
           moving(s);
         }
 
       }
-      
-    
-  
-      
+         
  }

@@ -59,7 +59,7 @@ int indOfPrun(int[][] prun, int ind){
   return -1;
 }
 
-void solve(Move R){
+StringList solve(Move R){
   
   String[] movs1 = {"L", "R", "F", "B", "U", "D", "L'", "R'", "F'", "B'", "U'", "D'", "L2", "R2", "F2", "B2", "U2", "D2" };
   Prunes Prune1 = new Prunes(new int[1][4096],null, null, movs1, OrIE, OrIE, "EO", "EO");
@@ -117,8 +117,8 @@ void solve(Move R){
   //PHASE 2
   
   //gets indices from the shortened prune tables, for the main one to use
-  int Eind = abs(stateToIndex(R.getType("EP")));
-  int Cind = abs(stateToIndex(R.getType("CO")));
+  int Eind = abs(stateToIndex(R.getType("EP")))/2;
+  int Cind = abs(stateToIndex(R.getType("CO")))/2;
    
   m = indOfPrun(Prune2.PE, Eind);   //<>//
   n = indOfPrun(Prune2.PC, Cind);  //<>//
@@ -147,8 +147,8 @@ void solve(Move R){
    //<>//
   //PHASE 3
   
-  Cind = stateToIndex(R.getType("CP"));
-  Eind = stateToIndex(R.getType("EP"));
+  Cind = stateToIndex(R.getType("CP"))/2;
+  Eind = stateToIndex(R.getType("EP"))/2;
   
   n = indOfPrun(Prune3.PC, Cind);
   m = indOfPrun(Prune3.PE, Eind);
@@ -174,8 +174,8 @@ void solve(Move R){
   
   //PHASE 4
   //close to the solved state so can be compared to that rather than the other way round
-  Cind = stateToIndex(Identity.PermMC);
-  Eind = stateToIndex(Identity.PermME);
+  Cind = stateToIndex(Identity.PermMC)/2;
+  Eind = stateToIndex(Identity.PermME)/2;
   
   n = indOfPrun(Prune4.PC, Cind);
   m = indOfPrun(Prune4.PE, Eind);
@@ -198,9 +198,11 @@ void solve(Move R){
         solve.append(Prune4.Movs[i]);
         break;
       }
-    }
+  
     
+    }
+  
+  
   }
-  
-  
+  return solve;
 }
